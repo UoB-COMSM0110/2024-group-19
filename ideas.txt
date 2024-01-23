@@ -8,8 +8,6 @@ Fishing
 
 Asteroids
 
-Battleship
-
 Super Mario
 
 Geometry Dash
