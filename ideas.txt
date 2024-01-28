@@ -25,5 +25,37 @@ Temple Run/Subway Surfer
 Mini 1v1 Soccer (jump soccer?)
 
 
+Expanded Ideas
 
+1)
+
+Base Game: Monopoly - University of Bristol Edition
+
+Base game has: properties, train stations, utilities, chance, community chest, free parking, jail, go etc...
+I propse we keep the idea of properties the same, although we'll rename them to whatever we want and the
+objective (collect properties & money and bankrupt the other players) remains the same, but beyond that we
+we can replace the remaining squares with whatever we want. It shouldn't be too hard to implement a basic
+version of this game i.e moving pieces on a board and properties, then we can add further features bit by
+bit
+For example we can replace the "Go to Jail" square with a "Portal" square that teleports you to a random
+square and implement "Quests" into the Chance deck of cards that have a fincancial rewards. These are 2 ideas
+but you can see how this game has vast oppertunity for new ideas to be implemented. 
+
+  
+
+2) 
+
+Base Game: Head Soccer
+
+On the surface this is a simple 2D soccer game, there are 2 goals at either end of the screen, the objective is
+score in the opposition's net. Each character can move forwards and backwards as well as jump. In addition to this
+there is kick option which raises the character's foot as well as a dash feature that allows a player to dash 
+forward much faster than normal. Every so often each player can activate their 'power up' which basically pings 
+the ball towards the oppositon's net.
+
+We can add further power-ups that spawn randomly throughout the pitch, e.g faster movement, higher jumping, 
+ball magnet, double-goals etc...
+
+This should be a simple implementation, the main difficulty I see is the physics of the ball's motion. 
+ 
 
