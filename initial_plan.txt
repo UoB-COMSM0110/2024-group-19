@@ -1,0 +1,35 @@
+Minimal viable product
+ 
+ 
+ 
+Button control -> figure out 360 using 4 buttons
+ 
+1 player game
+ 
+1 map, 2 rounds, easy and hard
+ 
+Moveable player
+ 
+Able to make a zombie and get zombie to move to u
+ 
+Able to shoot and kill zombie
+ 
+If zombie touches you, health bar decreases
+ 
+-> show health bar
+ 
+-> bottom level sign
+ 
+-> stop page to show the next level
+     -> each level needs to know their specific zombies
+-> minimal gems but big impact on guns/health issues (power ups)
+
+
+1) Create a map
+2) Create an character the player can control and move around the map
+3) Controls are WASD and SPACE to shoot
+4) Zombies are controlled by the program and should always move towards the player
+5) If a player shoots in the direction of a near zombie, that zombie should loose health
+6) Playable character has a health bar that is shrunk everytime they are touched by a zombie
+7) Game will be round-based, once one round has ended the next will commence. Rounds get progressively harder 
+8) Zombies occasionally drop special items that give the player a temporary power-up
