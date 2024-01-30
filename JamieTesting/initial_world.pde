@@ -1,6 +1,7 @@
 float playerX, playerY;
 float playerSpeed = 3;
 boolean[] keys;
+PImage bground;
 
 
 void setup(){
@@ -13,10 +14,11 @@ void setup(){
   keys[2]=false;
   keys[3]=false;
   keys[4]=false;
+  bground = loadImage("test_background.png");
 }
 
 void draw(){
-  background(255);
+  background(bground);
   positionUpdate();
   
   // Draw the player as a red circle
@@ -25,7 +27,6 @@ void draw(){
   
 }
 void keyPressed() {
-  print(key);
   if (keyCode == 'a' || keyCode == 'A') {
     keys[0]=true;
   } else if (keyCode == 'd' || keyCode == 'D') {
@@ -40,7 +41,6 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  print(key);
   if (keyCode == 'a' || keyCode == 'A') {
     keys[0]=false;
   } 
