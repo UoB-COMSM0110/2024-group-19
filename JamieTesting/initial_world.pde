@@ -5,7 +5,7 @@ PImage bground;
 
 
 void setup(){
-  size(800,600);
+  size(1024,832);
   playerX = width/2;
   playerY = height/2;
   keys=new boolean[5];
