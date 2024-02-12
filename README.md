@@ -23,6 +23,6 @@ Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 
 >"As a << negative stakeholder>> I want to << find some bugs and difficulties in this game>> so that << I can provide some feedbacks for developers and earn money from them>>"
 
->"As a << original developer >> I want to << protect my intellectual property >> so that <<I can protect my property >>"
+>"As a << original developer >> I want to << protect my intellectual property >> so that << I can protect my property >>"
 
 <br>
