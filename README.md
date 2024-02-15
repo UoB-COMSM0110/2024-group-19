@@ -1,5 +1,5 @@
 # Team
-<img src='MicrosoftTeams-image.png'/>
+<img src='/ReportMaterial/MicrosoftTeams-image.png'/>
 
 Weijian Li ,  me23202@bristol.ac.uk , LassonLi
 
@@ -12,6 +12,12 @@ Jamie Bell-Thomas , ws19177@bristol.ac.uk , jamiebellthomas
 Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 
 <br>
+
+### Game Paper Prototype
+
+[<img src="/ReportMaterial/paper_prototype_image.png" />](https://www.bilibili.com/video/BV1Q4421F7zK/)
+
+Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above to watch our Game Paper Prototype!
 
 **User Stories**
 
