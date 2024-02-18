@@ -16,7 +16,10 @@ Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 ### Introduction
 
 In our single player roguelite survival game, the player takes on the role of a one-man army aiming to survive waves of mutated rats and the collection of gems. The gems are hit point generated from killing the rats, allowing for a more powerful weapon or statistical upgrade. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with a north oriented gun, players can strategize to either kill their way through or plan their journey to make an escape. As the player progresses onto the next level, the difficulty of the game increases with more rats that are harder to kill. The game is lightly based off a mobile game “Suvivor.io”. We included “ // something to make our game a twist “ , allowing for an increased difficulty level whilst keeping the gameplay interesting and fun.
-![Example GIF](game video.gif)
+
+![Game Video](game video.gif)
+
+
 ---
 
 ### Game Paper Prototype
