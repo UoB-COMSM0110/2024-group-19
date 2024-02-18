@@ -13,8 +13,6 @@ Jamie Bell-Thomas , ws19177@bristol.ac.uk , jamiebellthomas
 
 Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 
-<br>
-
 ### Introduction
 
 In our single player roguelite survival game, the player takes on the role of a one-man army aiming to survive waves of mutated rats and the collection of gems. The gems are hit point generated from killing the rats, allowing for a more powerful weapon or statistical upgrade. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with a north oriented gun, players can strategize to either kill their way through or plan their journey to make an escape. As the player progresses onto the next level, the difficulty of the game increases with more rats that are harder to kill. The game is lightly based off a mobile game “Suvivor.io”. We included “ // something to make our game a twist “ , allowing for an increased difficulty level whilst keeping the gameplay interesting and fun.
@@ -31,10 +29,9 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above
 
 ### Requirements
 
-**Early stages design. Ideation process** 
-In week 2, our group had a brainstorm about several types of games. Every team members introduced a game that he/she had researched before. Three members introduced their game similar to MATCH-3-GAMES. One member introduced a 1v1 soccer game. One member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which was like a 2D-kill-zombie game. Then we voted. The survivor one became our final choice due to its creativity as well as difficulty level. In week 3, we started to discuss about the basic function of this game then mock-up the initial paper prototype. In week 4, we first created user stories as well as use-case-specifications to set up initial requirements. Secondly, we redo paper prototype and took a video to show how our game would work. Thirdly, we named our game "the chase". In week 5, to be continue
+**Early stages design. Ideation process**
 
-Then we discuss about the detail of our prototype and which management tools should we use.
+In week 2, our group had a brainstorm about several types of games. Every team members introduced a game that he/she had researched before. Three members introduced their game similar to MATCH-3-GAMES. One member introduced a 1v1 soccer game. One member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which was like a 2D-kill-zombie game. Then we voted. The survivor one became our final choice due to its creativity as well as difficulty level. In week 3, we started to discuss about the basic function of this game then mock-up the initial paper prototype. In week 4, we first created user stories as well as use-case-specifications to set up initial requirements. Secondly, we redo paper prototype and took a video to show how our game would work. Thirdly, we named our game "the chase". In week 5, to be continue.
 
 **User Stories**
 
