@@ -20,8 +20,7 @@ In our single player roguelite survival game, the player takes on the role of a 
 ---
 
 ### Game Paper Prototype
-
-[<img src="/ReportMaterial/paper_prototype_image.png" />](https://www.bilibili.com/video/BV1Q4421F7zK/)
+<img src='/game video.gif'/>
 
 Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above to watch our Game Paper Prototype!
 
