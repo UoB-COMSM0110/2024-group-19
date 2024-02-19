@@ -29,7 +29,7 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above
 ### Requirements
 
 ### Use-case diagram
-<img src='/use-case diagram.pptx'/>
+<img src='/use-case diagram.pptx/>
 
 **Early stages design. Ideation process**
 
