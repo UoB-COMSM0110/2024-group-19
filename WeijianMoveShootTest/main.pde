@@ -59,34 +59,7 @@ void keyReleased() {
 void autoShoot() {
   if (millis() - lastBulletTime > 500) {
     float bulletDirection = atan2(mouseY - playerY, mouseX - playerX); // 基于鼠标位置计算子弹方向
-    bullets.add(new Bullet(playerX, playerY, bulletDirection));
+    bullets.add(new Bullet(playerX, playerY, playerSpeed, bulletDirection));
     lastBulletTime = millis();
-  }
-}
-
-class Bullet {
-  float x, y, speed = playerSpeed * 6, direction;
-  
-  Bullet(float x, float y, float direction) {
-    this.x = x;
-    this.y = y;
-    this.direction = direction;
-  }
-  
-  void update() {
-    x += cos(direction) * speed;
-    y += sin(direction) * speed;
-  }
-  
-  void display() {
-    pushMatrix();
-    translate(x, y);
-    rotate(direction); // 使子弹的图像朝向发射方向
-    image(bulletImg, -bulletImg.width / 2, -bulletImg.height / 2);
-    popMatrix();
-  }
-  
-  boolean isOffScreen() {
-    return x < 0 || x > width || y < 0 || y > height;
   }
 }
