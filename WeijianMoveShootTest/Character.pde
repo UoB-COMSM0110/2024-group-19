@@ -5,8 +5,6 @@ class Character extends Entity {
   Character(float x, float y, float speed, PImage img) {
     super(x, y, speed);
     this.characterImg = img;
-    // Initialize keys array to false
-    //Arrays.fill(keys, false);
   }
 
   // Overrides the Entity update method to include movement logic
