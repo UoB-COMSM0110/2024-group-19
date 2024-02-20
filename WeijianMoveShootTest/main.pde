@@ -7,6 +7,11 @@ Character player;
 Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
+int lastEnemySpawnTime = 0;
+int enemiesSpawned = 0;
+float safeDistance = 150; // Minimum distance from the player
+
+
 void setup() {
   size(1500, 800);
   playerX = width / 2;
@@ -19,7 +24,6 @@ void setup() {
   bulletImg = loadImage("bullet.png"); 
   
   player = new Character(width / 2, height / 2, playerSpeed, cat);
-  initEnemy = new Enemy(width/3, height/3, playerSpeed/2, zombieImg);
   
 }
 
@@ -28,9 +32,20 @@ void draw() {
   player.update();
   player.display();
   
-  initEnemy.updatePlayerPosition(player);
-  initEnemy.update();
-  initEnemy.display();
+  // Spawn enemies with a delay and check for maximum limit
+  if (millis() - lastEnemySpawnTime > 1000 && enemiesSpawned < 5) { // 1-second gap
+    spawnEnemy();
+    lastEnemySpawnTime = millis();
+    enemiesSpawned++;
+  }
+
+  // Update and display enemies
+  for (Enemy enemy : enemies) {
+    enemy.updatePlayerPosition(player);
+    enemy.update();
+    enemy.display();
+  }
+
 
   // 自动发射子弹，方向基于鼠标位置
   autoShoot();
@@ -62,11 +77,12 @@ void autoShoot() {
   }
 }
 
-/*void enemySpawn(){
-  if (millis() - lastBulletTime > 500) {
-    float bulletDirection = atan2(mouseY - player.y, mouseX - player.x); // 基于鼠标位置计算子弹方向
-    bullets.add(new Bullet(player.x, player.y, playerSpeed, bulletDirection));
-    lastBulletTime = millis();
-  }
+void spawnEnemy() {
+  float enemyX, enemyY;
+  do {
+    enemyX = random(width);
+    enemyY = random(height);
+  } while (dist(enemyX, enemyY, player.x, player.y) < safeDistance); // Ensure enemy spawns away from player
+
+  enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg));
 }
-*/
