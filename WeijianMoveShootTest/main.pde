@@ -27,8 +27,15 @@ void setup() {
   
 }
 
-// Before the draw loop, create a method to check for collisions
-void checkAndRemoveCollisions() {
+void updateEnemyAndBulletCollisions() {
+    // Assuming you have a method to handle bullet-enemy collisions already
+    handleBulletCollisions();
+
+    // Remove dead enemies
+    enemies.removeIf(enemy -> enemy.health <= 0);
+}
+
+void handleBulletCollisions() {
     ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
     for (Enemy enemy : enemies) {
         for (Bullet bullet : bullets) {
@@ -54,7 +61,7 @@ void draw() {
   }
   autoShoot();
 
-  checkAndRemoveCollisions(); // Call this before autoShoot and bullet update
+  updateEnemyAndBulletCollisions(); //  Handle updateEnemyAndBulletCollisions, including removing dead enemies
 
   // Update and display enemies
   for (Enemy enemy : enemies) {

@@ -39,7 +39,7 @@ class Enemy extends Entity {
   boolean bulletCollision(Bullet bullet){
     
     if(dist(bullet.x, bullet.y, this.x, this.y) < 100){
-      //this.health -= 1;
+      this.health -= 1;
       return true;}
     
     return false;
