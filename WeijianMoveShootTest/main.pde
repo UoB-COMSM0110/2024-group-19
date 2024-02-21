@@ -27,6 +27,20 @@ void setup() {
   
 }
 
+// Before the draw loop, create a method to check for collisions
+void checkAndRemoveCollisions() {
+    ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
+    for (Enemy enemy : enemies) {
+        for (Bullet bullet : bullets) {
+            if (enemy.bulletCollision(bullet)) {
+                bulletsToRemove.add(bullet); // Mark bullet for removal
+            }
+        }
+    }
+    bullets.removeIf(bulletsToRemove::contains); // Remove bullets that collided
+}
+
+
 void draw() {
   background(bground);
   player.update();
@@ -38,6 +52,9 @@ void draw() {
     lastEnemySpawnTime = millis();
     enemiesSpawned++;
   }
+  autoShoot();
+
+  checkAndRemoveCollisions(); // Call this before autoShoot and bullet update
 
   // Update and display enemies
   for (Enemy enemy : enemies) {
@@ -46,9 +63,8 @@ void draw() {
     enemy.display();
   }
 
-
   // 自动发射子弹，方向基于鼠标位置
-  autoShoot();
+
 
   // 更新和绘制子弹
   for (Bullet b : bullets) {
@@ -84,5 +100,6 @@ void spawnEnemy() {
     enemyY = random(height);
   } while (dist(enemyX, enemyY, player.x, player.y) < safeDistance); // Ensure enemy spawns away from player
 
-  enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg));
+  enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg, 3));
 }
+

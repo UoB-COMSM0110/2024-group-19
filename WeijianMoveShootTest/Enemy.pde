@@ -1,10 +1,12 @@
 class Enemy extends Entity {
   PImage enemyImg; // Character image
   float player_x, player_y, stopDistance = 50;
+  float health;
 
-  Enemy(float x, float y, float speed, PImage img) {
+  Enemy(float x, float y, float speed, PImage img, float health) {
     super(x, y, speed);
     this.enemyImg = img;
+    this.health = health;
     
   }
   
@@ -32,6 +34,15 @@ class Enemy extends Entity {
   @Override
   void display() {
     image(enemyImg, x - enemyImg.width / 2, y - enemyImg.height / 2);
+  }
+  
+  boolean bulletCollision(Bullet bullet){
+    
+    if(dist(bullet.x, bullet.y, this.x, this.y) < 100){
+      //this.health -= 1;
+      return true;}
+    
+    return false;
   }
 
 
