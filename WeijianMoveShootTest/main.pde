@@ -1,12 +1,13 @@
 float playerX, playerY;
 float playerSpeed = 3;
-PImage bground, cat, bulletImg, zombieImg;
+PImage bground, cat, bulletImg, zombieImg, healthImg;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 float lastBulletTime = 0; 
 Character player;
 Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
+int playerHealth = 5;
 int lastEnemySpawnTime = 0;
 int enemiesSpawned = 0;
 float safeDistance = 150; // Minimum distance from the player
@@ -22,8 +23,9 @@ void setup() {
   zombieImg = loadImage("zombie.png");
   cat = loadImage("maleAdventurer.png");
   bulletImg = loadImage("bullet.png"); 
-  
-  player = new Character(width / 2, height / 2, playerSpeed, cat, 10);
+  healthImg = loadImage("health.png");
+
+  player = new Character(width / 2, height / 2, playerSpeed, cat, playerHealth);
   
 }
 
@@ -54,35 +56,36 @@ void handleCharacterCollisions(){
   }
 }
 
+void displayPlayerHealth(){
+  // Display player's health in the top-left corner
+  //fill(0); // Set text color to black for the health display
+  //textSize(20); // Set text size for the health display
+  //text("Health: " + player.health, 10, 20); // Position the text in the top-left corner
 
-void draw() {
-  background(bground);
-  player.update();
-  player.display();
-  
+  // Display health icons
+  for (int i = 0; i < player.health; i++) {
+    image(healthImg, 10 + (healthImg.width + 5) * i, 10); // Adjust positioning as needed
+  }
+}
+
+void handleGameLogic() {
   // Spawn enemies with a delay and check for maximum limit
   if (millis() - lastEnemySpawnTime > 1000 && enemiesSpawned < 5) { // 1-second gap
     spawnEnemy();
     lastEnemySpawnTime = millis();
     enemiesSpawned++;
   }
-  autoShoot();
 
-  updateEnemyAndBulletCollisions(); //  Handle updateEnemyAndBulletCollisions, including removing dead enemies
+  autoShoot();
+  updateEnemyAndBulletCollisions(); // Handle updateEnemyAndBulletCollisions, including removing dead enemies
   handleCharacterCollisions();
-  if(player.health <= 0){
-    System.out.println("Game over!");
-    exit();
-  }
+
   // Update and display enemies
   for (Enemy enemy : enemies) {
     enemy.updatePlayerPosition(player);
     enemy.update();
     enemy.display();
   }
-
-  // 自动发射子弹，方向基于鼠标位置
-
 
   // 更新和绘制子弹
   for (Bullet b : bullets) {
@@ -92,7 +95,25 @@ void draw() {
   
   // 移除飞出屏幕的子弹
   bullets.removeIf(bullet -> bullet.isOffScreen());
+}
+
+void draw() {
+  background(bground);
+
+  if (player.health > 0) {
+    player.update();
+    player.display();
+    // Handle game logic only if the player is alive
+    handleGameLogic();
+  } else {
+    // Display game over message
+    fill(255, 0, 0); // Set text color to red
+    textSize(32); // Set text size
+    text("Player is Dead", width / 2 - 100, height / 2); // Position the text in the middle
+  }
+
   
+  displayPlayerHealth();
 }
 
 
