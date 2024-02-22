@@ -3,10 +3,12 @@ class Character extends Entity {
   boolean invulnerable = true;
   PImage characterImg; // Character image
   long lastHitRecieved;
+  int health;
 
-  Character(float x, float y, float speed, PImage img) {
+  Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed);
     this.characterImg = img;
+    this.health = health;
   }
 
   // Overrides the Entity update method to include movement logic
@@ -49,15 +51,15 @@ class Character extends Entity {
     boolean proximity = dist(enemy.x, enemy.y, this.x, this.y) < 100;
     if(!proximity){return false;}
     
-    if(((time - lastHitRecieved) > 2000) && invulnerable){
+    if(((time - lastHitRecieved) > 1000) && invulnerable){
       invulnerable = false;
     } 
     
     if(proximity && !invulnerable){
       invulnerable = true;
       lastHitRecieved = time;
-      //this.health -= 1;
-      System.out.println("hit");
+      this.health -= 1;
+      System.out.println("Hit, health remaining:" + this.health);
       return true;}
     
     return false;

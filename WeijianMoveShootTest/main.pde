@@ -23,7 +23,7 @@ void setup() {
   cat = loadImage("maleAdventurer.png");
   bulletImg = loadImage("bullet.png"); 
   
-  player = new Character(width / 2, height / 2, playerSpeed, cat);
+  player = new Character(width / 2, height / 2, playerSpeed, cat, 10);
   
 }
 
@@ -70,6 +70,10 @@ void draw() {
 
   updateEnemyAndBulletCollisions(); //  Handle updateEnemyAndBulletCollisions, including removing dead enemies
   handleCharacterCollisions();
+  if(player.health <= 0){
+    System.out.println("Game over!");
+    exit();
+  }
   // Update and display enemies
   for (Enemy enemy : enemies) {
     enemy.updatePlayerPosition(player);
@@ -88,6 +92,7 @@ void draw() {
   
   // 移除飞出屏幕的子弹
   bullets.removeIf(bullet -> bullet.isOffScreen());
+  
 }
 
 

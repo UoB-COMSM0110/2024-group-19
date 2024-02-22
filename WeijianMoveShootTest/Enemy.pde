@@ -1,6 +1,6 @@
 class Enemy extends Entity {
   PImage enemyImg; // Character image
-  float player_x, player_y, stopDistance = 50;
+  float player_x, player_y, stopDistance = 75;
   float health;
 
   Enemy(float x, float y, float speed, PImage img, float health) {
@@ -38,7 +38,7 @@ class Enemy extends Entity {
   
   boolean bulletCollision(Bullet bullet){
     
-    if(dist(bullet.x, bullet.y, this.x, this.y) < 100){
+    if(dist(bullet.x, bullet.y, this.x, this.y) < (stopDistance*0.75)){
       this.health -= 1;
       return true;}
     
