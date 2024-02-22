@@ -1,6 +1,8 @@
 class Character extends Entity {
   boolean[] keys = new boolean[4]; // 用于记录WASD按键状态
+  boolean invulnerable = true;
   PImage characterImg; // Character image
+  long lastHitRecieved;
 
   Character(float x, float y, float speed, PImage img) {
     super(x, y, speed);
@@ -40,5 +42,24 @@ class Character extends Entity {
     if (key == 'a' || key == 'A') keys[1] = pressed;
     if (key == 's' || key == 'S') keys[2] = pressed;
     if (key == 'd' || key == 'D') keys[3] = pressed;
+  }
+  
+  boolean enemyCollision(Enemy enemy, long time){
+    
+    boolean proximity = dist(enemy.x, enemy.y, this.x, this.y) < 100;
+    if(!proximity){return false;}
+    
+    if(((time - lastHitRecieved) > 2000) && invulnerable){
+      invulnerable = false;
+    } 
+    
+    if(proximity && !invulnerable){
+      invulnerable = true;
+      lastHitRecieved = time;
+      //this.health -= 1;
+      System.out.println("hit");
+      return true;}
+    
+    return false;
   }
 }

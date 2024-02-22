@@ -47,6 +47,13 @@ void handleBulletCollisions() {
     bullets.removeIf(bulletsToRemove::contains); // Remove bullets that collided
 }
 
+void handleCharacterCollisions(){
+  for(Enemy enemy : enemies){
+    player.enemyCollision(enemy, millis());
+    break;
+  }
+}
+
 
 void draw() {
   background(bground);
@@ -62,7 +69,7 @@ void draw() {
   autoShoot();
 
   updateEnemyAndBulletCollisions(); //  Handle updateEnemyAndBulletCollisions, including removing dead enemies
-
+  handleCharacterCollisions();
   // Update and display enemies
   for (Enemy enemy : enemies) {
     enemy.updatePlayerPosition(player);
@@ -109,4 +116,3 @@ void spawnEnemy() {
 
   enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg, 3));
 }
-
