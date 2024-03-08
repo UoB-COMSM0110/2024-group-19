@@ -19,4 +19,10 @@ public class Page {
     image(gameover,(width / 2), 260);
   }
   
+  public void gameOn(){
+    imageMode(CENTER);
+    image(bground, width / 2, height/ 2, width, height);
+    
+  }
+  
 }

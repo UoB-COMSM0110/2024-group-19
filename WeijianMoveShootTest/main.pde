@@ -104,24 +104,32 @@ void handleGameLogic() {
   bullets.removeIf(bullet -> bullet.isOffScreen());
 }
 
+
 void draw() {
   background(bground);
   
   if (pageNum == 1) { // Welcome screen
     page.gameStart();
-  } //else if (pageNum == 2) { // game over screen
-    //page.gameOver();
-    else {
-        if (player.health > 0) {
+    if (keyCode == ENTER){
+      pageNum = 2;
+      page.gameOn();
+    }
+  } 
+    else { 
+      
+        if (player.health > 0 && pageNum == 2) {
     player.update();
     player.display();
     // Handle game logic only if the player is alive
     handleGameLogic();
+
   } else {
     // Display game over message
     fill(255, 0, 0); // Set text color to red
     textSize(32); // Set text size
-    text("Player is Dead", width / 2 - 100, height / 2); // Position the text in the middle
+    pageNum = 3;
+    page.gameOver();
+   // text("Player is Dead", width / 2 - 100, height / 2); // Position the text in the middle
   }
 
   
@@ -136,8 +144,9 @@ void keyPressed() {
 }
 
 void keyReleased() {
+  
   player.keyReleased();
-}
+} 
 
 void autoShoot() {
   if (millis() - lastBulletTime > 500) {
