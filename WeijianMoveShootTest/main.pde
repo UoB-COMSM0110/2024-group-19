@@ -1,13 +1,16 @@
 float playerX, playerY;
 float playerSpeed = 3;
-PImage bground, cat, bulletImg, zombieImg, healthImg;
+PImage bground, button, cat, bulletImg, zombieImg, healthImg;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 float lastBulletTime = 0; 
 Character player;
 Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
+Page page;
+
 int playerHealth = 5;
+int pageNum;
 int lastEnemySpawnTime = 0;
 int enemiesSpawned = 0;
 float safeDistance = 150; // Minimum distance from the player
@@ -15,10 +18,13 @@ float safeDistance = 150; // Minimum distance from the player
 
 void setup() {
   size(1500, 800);
+  page = new Page();
+  pageNum = 1;
   playerX = width / 2;
   playerY = height / 2;
-  bground = loadImage("game_background.png");
+  bground = loadImage("gameBackground.png");
   bground.resize(width, height);
+  button = loadImage("gameBackground.png");
   
   zombieImg = loadImage("zombie.png");
   cat = loadImage("maleAdventurer.png");
@@ -99,8 +105,13 @@ void handleGameLogic() {
 
 void draw() {
   background(bground);
-
-  if (player.health > 0) {
+  
+  if (pageNum == 1) { // Welcome screen
+    page.gameStart();
+  } //else if (pageNum == 2) { // game over screen
+    //page.gameOver();
+    else {
+        if (player.health > 0) {
     player.update();
     player.display();
     // Handle game logic only if the player is alive
@@ -114,6 +125,8 @@ void draw() {
 
   
   displayPlayerHealth();
+    }
+
 }
 
 
