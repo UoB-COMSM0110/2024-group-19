@@ -28,8 +28,10 @@ void setup() {
   gameover = loadImage("./Asset/gameover/game_over.png");
   
   zombieImg = loadImage("zombie.png");
-  cat = loadImage("maleAdventurer.png");
+  zombieImg.resize(70,70);
+  cat = loadImage("./Asset/character/1.png");
   bulletImg = loadImage("bullet.png"); 
+  bulletImg.resize(20,20);
   healthImg = loadImage("health.png");
 
   player = new Character(width / 2, height / 2, playerSpeed, cat, playerHealth);

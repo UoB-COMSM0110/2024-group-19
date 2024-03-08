@@ -9,7 +9,7 @@ public class Page {
     image(button, (width / 2), 500, 400, 110); //start
     textSize(60);
     textAlign(CENTER);
-    text("GAME START", (width / 2), 525);
+    text("ENTER TO START", (width / 2), 525);
     
   }
   
