@@ -1,6 +1,6 @@
 float playerX, playerY;
 float playerSpeed = 3;
-PImage bground, button, cat, bulletImg, zombieImg, healthImg, gameover;
+PImage bground, button, cat, bulletImg, zombieImg, healthImg, gameover, instruction;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 float lastBulletTime = 0; 
 Character player;
@@ -24,6 +24,7 @@ void setup() {
   playerY = height / 2;
   bground = loadImage("gameBackground.png");
   bground.resize(width, height);
+  instruction = loadImage("./Asset/instruction/instruction.png");
   button = loadImage("./Asset/button/platformPack_tile004.png");
   gameover = loadImage("./Asset/gameover/game_over.png");
   
