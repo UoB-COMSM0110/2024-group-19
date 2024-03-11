@@ -109,46 +109,75 @@ void handleGameLogic() {
 
 void draw() {
   background(bground);
-  
-  if (pageNum == 1) { // Welcome screen
-    page.gameStart();
-    if (keyCode == ENTER){
-      pageNum = 2;
-      page.gameOn();
-    }
-  } 
-    else { 
-      
-        if (player.health > 0 && pageNum == 2) {
-    player.update();
-    player.display();
-    // Handle game logic only if the player is alive
-    handleGameLogic();
 
-  } else {
-    // Display game over message
-    fill(255, 0, 0); // Set text color to red
-    textSize(32); // Set text size
-    pageNum = 3;
-    page.gameOver();
-   // text("Player is Dead", width / 2 - 100, height / 2); // Position the text in the middle
+  switch (pageNum) {
+    case 1: // Welcome screen
+      page.gameStart();
+      break;
+    case 2: // Instructions screen
+      page.gameInstruct();
+      break;
+    case 3: // Game is on
+      if (player.health > 0) {
+        player.update();
+        player.display();
+        handleGameLogic();
+        displayPlayerHealth();
+      } else {
+        pageNum = 4; // Move to game over screen
+      }
+      break;
+    case 4: // Game over screen
+      page.gameOver();
+      break;
   }
+}
 
-  
-  displayPlayerHealth();
-    }
-
+void mousePressed() {
+  // 如果当前页面是游戏说明页面，点击鼠标进入游戏
+  if (pageNum == 2) {
+    pageNum = 3; // 进入游戏
+  } 
+  // 如果当前页面是游戏结束页面，点击鼠标重启游戏
+  else if (pageNum == 4) {
+    resetGame(); // 重置游戏状态
+    pageNum = 1; // 返回游戏开始页面
+  }
 }
 
 
+void resetGame() {
+  // Reset player health, position, and other necessary states to start a new game
+  player.health = playerHealth;
+  player.x = width / 2;
+  player.y = height / 2;
+  enemies.clear();
+  bullets.clear();
+  lastEnemySpawnTime = 0;
+  enemiesSpawned = 0;
+  // Any other necessary resets
+}
+
 void keyPressed() {
-  player.keyPressed();
+  if (keyCode == ENTER) {
+    if (pageNum == 1) {
+      pageNum = 2; // 从 gameStart 到 gameInstruct
+    } else if (pageNum == 2) {
+      pageNum = 3; // 从 gameInstruct 到 gameOn
+    }
+  }
+
+  // 处理玩家的其他按键输入，比如移动控制
+  if (pageNum == 3) { // 确保只有在游戏进行中时才处理玩家控制
+    player.keyPressed();
+  }
 }
 
 void keyReleased() {
-  
-  player.keyReleased();
-} 
+  if (pageNum == 3) { // 确保只有在游戏进行中时才处理玩家控制
+    player.keyReleased();
+  }
+}
 
 void autoShoot() {
   if (millis() - lastBulletTime > 500) {
