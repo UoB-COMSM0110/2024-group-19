@@ -24,18 +24,18 @@ class Character extends Entity {
     if (oxygenLevel > 0) {
       if (keys[0]) {
         y -= speed; // W
-        decreaseOxygen();
       }
       if (keys[1]) {
         x -= speed; // A
-        decreaseOxygen();
       }
       if (keys[2]) {
         y += speed; // S
-        decreaseOxygen();
       }
       if (keys[3]) {
         x += speed; // D
+      }
+      
+      if(keys[0] || keys[1] || keys[2] || keys[3]){
         decreaseOxygen();
       }
     }
