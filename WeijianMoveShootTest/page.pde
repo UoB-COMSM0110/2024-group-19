@@ -56,9 +56,10 @@ public class Page {
   // 显示射击指令，并调整"Click to Start"按钮和文本的位置
   text("Mouse to aim and shoot", baseX, baseY + 1.3 * offset);
   image(button, baseX, baseY + 2 * offset + 50, 200, 60); // 为"Click to Start"按钮调整大小和位置
-  text("Click to Start", baseX, baseY + 2 * offset + 50);
+  text("Enter to Start", baseX, baseY + 2 * offset + 50);
   }
 
+  // page 4
   public void gameOver() {
     imageMode(CENTER);
     image(bground, width / 2, height/ 2, width, height);
@@ -67,11 +68,12 @@ public class Page {
     image(button, width / 2, height / 2 + 100, 400, 110); // Restart game button
     textSize(32);
     fill(255); // White text color
-    text("Click to Restart", width / 2, height / 2 + 105);
+    text("Enter to Restart", width / 2, height / 2 + 105);
     
     text("Score: "+scorePoint ,width / 2, height / 2 );
   }
   
+  // page 3
   public void gameOn(){
     imageMode(CENTER);
     image(bground, width / 2, height/ 2, width, height);
