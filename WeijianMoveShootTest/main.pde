@@ -66,6 +66,12 @@ void handleCharacterCollisions(){
   }
 }
 
+void displayPlayerOxygen() {
+  // Display the oxygen bar, perhaps as a simple rectangle that decreases/increases
+  fill(0, 0, 255); // Blue color for oxygen
+  rect(10, 30, player.oxygenLevel * 2, 20); // Example: 200px wide when full
+}
+
 void displayPlayerHealth(){
   // Display player's health in the top-left corner
   //fill(0); // Set text color to black for the health display
@@ -124,6 +130,7 @@ void draw() {
         player.display();
         handleGameLogic();
         displayPlayerHealth();
+        displayPlayerOxygen();
       } else {
         pageNum = 4; // Move to game over screen
       }
