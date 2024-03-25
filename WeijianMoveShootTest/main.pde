@@ -8,7 +8,7 @@ Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
 Page page;
-
+int scorePoint = 0;
 int playerHealth = 5;
 int pageNum;
 int lastEnemySpawnTime = 0;
@@ -52,6 +52,7 @@ void handleBulletCollisions() {
     for (Enemy enemy : enemies) {
         for (Bullet bullet : bullets) {
             if (enemy.bulletCollision(bullet)) {
+                addScore();
                 bulletsToRemove.add(bullet); // Mark bullet for removal
             }
         }
@@ -82,6 +83,21 @@ void displayPlayerHealth(){
   for (int i = 0; i < player.health; i++) {
     image(healthImg, 10 + (healthImg.width + 5) * i, 10); // Adjust positioning as needed
   }
+}
+
+void displayScore(){
+  // display score top left 
+ fill(0);
+ textSize(40);
+ text("score:" + scorePoint , 1300,50);
+ 
+ 
+ 
+ 
+}
+
+void addScore(){
+  scorePoint = scorePoint + 10;
 }
 
 void handleGameLogic() {
@@ -131,6 +147,7 @@ void draw() {
         handleGameLogic();
         displayPlayerHealth();
         displayPlayerOxygen();
+        displayScore();
       } else {
         pageNum = 4; // Move to game over screen
       }
