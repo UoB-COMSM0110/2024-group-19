@@ -6,9 +6,10 @@ float lastBulletTime = 0;
 Character player;
 Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+int waveNum=0;
 
 Page page;
-int scorePoint = 0;
+public int scorePoint = 0;
 int playerHealth = 5;
 int pageNum;
 int lastEnemySpawnTime = 0;
@@ -38,6 +39,7 @@ void setup() {
   player = new Character(width / 2, height / 2, playerSpeed, cat, playerHealth);
   
 }
+
 
 void updateEnemyAndBulletCollisions() {
     // Assuming you have a method to handle bullet-enemy collisions already
@@ -89,11 +91,14 @@ void displayScore(){
   // display score top left 
  fill(0);
  textSize(40);
- text("score:" + scorePoint , 1300,50);
- 
- 
- 
- 
+ text("Score:" + scorePoint , 1300,50);
+}
+
+void displayWaveNum(){
+  // display score top left 
+ fill(0);
+ textSize(40);
+ text("Waves:" + waveNum , 1300,80);
 }
 
 void addScore(){
@@ -102,10 +107,10 @@ void addScore(){
 
 void handleGameLogic() {
   // Spawn enemies with a delay and check for maximum limit
-  if (millis() - lastEnemySpawnTime > 1000 && enemiesSpawned < 5) { // 1-second gap
+  if (millis() - lastEnemySpawnTime > 20000 || waveNum == 0 || (enemies.size() == 0 && player.oxygenLevel==100)) { // 1-second gap
     spawnEnemy();
     lastEnemySpawnTime = millis();
-    enemiesSpawned++;
+    waveNum++;
   }
 
   autoShoot();
@@ -130,6 +135,7 @@ void handleGameLogic() {
 }
 
 
+
 void draw() {
   background(bground);
 
@@ -148,6 +154,7 @@ void draw() {
         displayPlayerHealth();
         displayPlayerOxygen();
         displayScore();
+        displayWaveNum();
       } else {
         pageNum = 4; // Move to game over screen
       }
@@ -180,6 +187,8 @@ void resetGame() {
   bullets.clear();
   lastEnemySpawnTime = 0;
   enemiesSpawned = 0;
+  waveNum =0;
+  scorePoint = 0;
   // Any other necessary resets
 }
 
@@ -214,10 +223,14 @@ void autoShoot() {
 
 void spawnEnemy() {
   float enemyX, enemyY;
-  do {
+  for(int en = 0;en<(waveNum+5);en++){
+    do {
     enemyX = random(width);
     enemyY = random(height);
   } while (dist(enemyX, enemyY, player.x, player.y) < safeDistance); // Ensure enemy spawns away from player
 
-  enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg, 3));
-}
+    enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg, 3));
+  }
+  
+  }
+  

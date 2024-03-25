@@ -7,7 +7,7 @@ public class Page {
     //image(button2, WIDTH - 70, 70, 100, 100); // leaderboard
     imageMode(CENTER);
     image(button, (width / 2), 500, 400, 110); //start
-    textSize(60);
+    textSize(50);
     textAlign(CENTER);
     text("ENTER TO START", (width / 2), 525);
     
@@ -15,11 +15,21 @@ public class Page {
   
   //page 2
   public void gameInstruct() {
+ 
   imageMode(CENTER);
   image(bground, width / 2, height / 2, width, height);
+  
+  fill(0, 0, 255); // Blue color for oxygen
+  rect(100, 320, 200,20);
+  fill(255); 
+  text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", 230,420);
   textSize(32);
   textAlign(CENTER, CENTER);
   fill(255); // 设置文本颜色为白色
+  
+  image(zombieImg, 1200, height / 2 -70, 150, 150);
+  text("Survive the incoming\n waves of zombies for\n as long as possible. ", 1200,470);
+  
 
   // 控制指令 "W", "A", "S", "D" 的布局
   // 由于将按钮放置在中间部分，所以需要适当调整文本和按钮的位置
@@ -44,7 +54,7 @@ public class Page {
   text("D", baseX + offset - 30, baseY);
 
   // 显示射击指令，并调整"Click to Start"按钮和文本的位置
-  text("Mouse to aim and shoot", baseX, baseY + 2 * offset);
+  text("Mouse to aim and shoot", baseX, baseY + 1.3 * offset);
   image(button, baseX, baseY + 2 * offset + 50, 200, 60); // 为"Click to Start"按钮调整大小和位置
   text("Click to Start", baseX, baseY + 2 * offset + 50);
   }
@@ -58,6 +68,8 @@ public class Page {
     textSize(32);
     fill(255); // White text color
     text("Click to Restart", width / 2, height / 2 + 105);
+    
+    text("Score: "+scorePoint ,width / 2, height / 2 );
   }
   
   public void gameOn(){
