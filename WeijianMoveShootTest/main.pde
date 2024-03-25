@@ -4,15 +4,15 @@ PImage bground, button, cat, bulletImg, zombieImg, healthImg, gameover, instruct
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 float lastBulletTime = 0; 
 Character player;
-Enemy initEnemy;
 ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int waveNum=0;
+Round currentRound;
 
 Page page;
 public int scorePoint = 0;
 int playerHealth = 5;
 int pageNum;
-int lastEnemySpawnTime = 0;
+int lastRoundTime = 0, lastEnemySpawned = 0;
 int enemiesSpawned = 0;
 float safeDistance = 150; // Minimum distance from the player
 
@@ -107,11 +107,17 @@ void addScore(){
 
 void handleGameLogic() {
   // Spawn enemies with a delay and check for maximum limit
-  if (millis() - lastEnemySpawnTime > 20000 || waveNum == 0 || (enemies.size() == 0 && player.oxygenLevel==100)) { // 1-second gap
-    spawnEnemy();
-    lastEnemySpawnTime = millis();
-    waveNum++;
+  if (waveNum == 0 || millis() - lastRoundTime > currentRound.roundTime || (enemies.size() == 0 && player.oxygenLevel==100)) { 
+    currentRound = new Round(++waveNum);
+    lastRoundTime = millis();
   }
+  
+  if(millis()-lastEnemySpawned > 700 && currentRound.leftToSpawn > 0){
+    spawnEnemy();
+    lastEnemySpawned = millis();
+    currentRound.spawn();
+  }
+  
 
   autoShoot();
   updateEnemyAndBulletCollisions(); // Handle updateEnemyAndBulletCollisions, including removing dead enemies
@@ -185,7 +191,7 @@ void resetGame() {
   player.y = height / 2;
   enemies.clear();
   bullets.clear();
-  lastEnemySpawnTime = 0;
+  lastRoundTime = 0;
   enemiesSpawned = 0;
   waveNum =0;
   scorePoint = 0;
@@ -216,7 +222,7 @@ void keyReleased() {
 }
 
 void autoShoot() {
-  if (millis() - lastBulletTime > 500) {
+  if (millis() - lastBulletTime > 250) {
     float bulletDirection = atan2(mouseY - player.y, mouseX - player.x); // 基于鼠标位置计算子弹方向
     bullets.add(new Bullet(player.x, player.y-bulletImg.height, playerSpeed, bulletDirection));
     lastBulletTime = millis();
@@ -225,14 +231,15 @@ void autoShoot() {
 
 void spawnEnemy() {
   float enemyX, enemyY;
-  for(int en = 0;en<(waveNum+5);en++){
-    do {
+  do {
     enemyX = random(width);
     enemyY = random(height);
   } while (dist(enemyX, enemyY, player.x, player.y) < safeDistance); // Ensure enemy spawns away from player
 
-    enemies.add(new Enemy(enemyX, enemyY, playerSpeed / 2, zombieImg, 3));
+    enemies.add(new Enemy(enemyX, enemyY, currentRound.enemySpeed, zombieImg, currentRound.averageHealth));
+    for(Enemy zomb:enemies){
+      //System.out.println(zomb.speed);
+    }
   }
-  
-  }
+ 
   
