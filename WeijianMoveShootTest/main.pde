@@ -190,7 +190,7 @@ void keyReleased() {
 void autoShoot() {
   if (millis() - lastBulletTime > 500) {
     float bulletDirection = atan2(mouseY - player.y, mouseX - player.x); // 基于鼠标位置计算子弹方向
-    bullets.add(new Bullet(player.x, player.y, playerSpeed, bulletDirection));
+    bullets.add(new Bullet((player.x-bulletImg.width), (player.y-bulletImg.height), playerSpeed, bulletDirection));
     lastBulletTime = millis();
   }
 }
