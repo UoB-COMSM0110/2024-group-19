@@ -1,5 +1,5 @@
 class Character extends Entity {
-  boolean[] keys = new boolean[4]; // For tracking WASD key states
+  public boolean[] keys = new boolean[4]; // For tracking WASD key states
   boolean invulnerable = true;
   PImage characterImg; // Character image
   long lastHitReceived;

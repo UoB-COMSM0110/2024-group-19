@@ -195,6 +195,9 @@ void resetGame() {
   enemiesSpawned = 0;
   waveNum =0;
   scorePoint = 0;
+  for (int i = 0; i < player.keys.length; i++) {
+    player.keys[i] = false;
+}
   // Any other necessary resets
 }
 

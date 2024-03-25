@@ -12,7 +12,6 @@ public class Round{
     numberSpawnedCalcs();
     roundTimeCalcs();
     enemySpeedCalcs();
-    System.out.println(enemySpeed);
   }
   
   private void healthCalcs(){
