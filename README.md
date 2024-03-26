@@ -129,9 +129,11 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 <img src='/HeuristicEvalS1.png'/>
 
 ---
-insert quantitative data here > 
-
+**System Usability Scale**
+<img src='/SUS stage 1.png'/>
 ---
+** NASA TLX **
+
 
 Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, we identified some key themes that guided our development onto the next stage. 
 
