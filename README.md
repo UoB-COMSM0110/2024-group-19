@@ -97,4 +97,50 @@ In week 2, our group had a brainstorm about several types of games. Every team m
 
 >System display back to original page showing the login
 
+### Evaluations 
+Stage 1 : mid-production evaluations
+
+
+Think Aloud Participant #1:
+
+Positives: fun game 
+
+Negatives: There isn’t much fun or interesting movements to the character. Its not necessary for the character to move to play the game (but will die faster). Without prior experience of playing games on a keyboard, it might be hard to control the characters. Felt that the colour scheme of most elements in the game was too similar, causing it to be hard to see. Would enjoy a leaderboard to feature or saving of past scores for sense of improvement. Misunderstood that it is not necessary to click on the mouse to shoot. 
+
+---
+
+Think Aloud Participant #2:
+
+Positives: Like that the character can move diagonally and the stamina bar is quite interesting.
+
+Negatives: the enemy’s colour scheme is too similar to the background. Having a border or background of a different colour for instructional texts might be useful. The bullets could be more accurate with the speed of the mouse and it should not be able to hurt more than one zombie with one bullet. The health bar and the stamina bar could be moved down. Would prefer a larger more interactive map. 
+
+---
+
+Think Aloud Participant #3:
+
+Positives: good amount of challenging. 
+
+Negatives: Unsure what stamina means. Felt that the background was too colourful and distracting from the enemy. When the enemy is too close to the character, the visuals of the bullet deteriorate. The font used for texts are too small and white makes it hard to see. Did not catch or fully grasps what the instructions were before starting the game. 
+
+---
+**Heuristic Evaluation** 
+
+- insert image here
+
+---
+insert quantitative data here > 
+
+---
+
+Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, we identified some key themes that guided our development onto the next stage. 
+
+Key Themes:
+
+- Poor colour scheme for text, characters and background.
+- Need more clearer instructions on the game and have instructions be more accessible.
+- Background and characters need more interactive features.
+
+As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided that we were going to change the background and include obstacles for the player to navigate. The screen will be further improved to make it dynamic, where the screen will follow the player, allowing for a larger map. Secondly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
+
 <br>
