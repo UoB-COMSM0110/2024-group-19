@@ -18,7 +18,7 @@ float safeDistance = 150; // Minimum distance from the player
 
 
 void setup() {
-  size(1500, 800);
+  fullScreen();
   page = new Page();
   pageNum = 1;
   playerX = width / 2;
@@ -72,7 +72,7 @@ void handleCharacterCollisions(){
 void displayPlayerOxygen() {
   // Display the oxygen bar, perhaps as a simple rectangle that decreases/increases
   fill(0, 0, 255); // Blue color for oxygen
-  rect(10, 30, player.oxygenLevel * 2, 20); // Example: 200px wide when full
+  rect(width/150, height*0.05, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02); // Example: 200px wide when full
 }
 
 void displayPlayerHealth(){
@@ -83,7 +83,7 @@ void displayPlayerHealth(){
 
   // Display health icons
   for (int i = 0; i < player.health; i++) {
-    image(healthImg, 10 + (healthImg.width + 5) * i, 10); // Adjust positioning as needed
+    image(healthImg, (width/60 + (healthImg.width + width*(5/1500)) * i), (height/40)); // Adjust positioning as needed
   }
 }
 
@@ -91,14 +91,14 @@ void displayScore(){
   // display score top left 
  fill(0);
  textSize(40);
- text("Score:" + scorePoint , 1300,50);
+ text("Score:" + scorePoint , (width*(0.8666)),(height*0.0625));
 }
 
 void displayWaveNum(){
   // display score top left 
  fill(0);
  textSize(40);
- text("Waves:" + waveNum , 1300,80);
+ text("Waves:" + waveNum , (width*(0.8666)),height*0.1);
 }
 
 void addScore(){
