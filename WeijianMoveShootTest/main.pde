@@ -208,6 +208,7 @@ void keyPressed() {
     } else if (pageNum == 2) {
       pageNum = 3; // 从 gameInstruct 到 gameOn
     } else if (pageNum == 4){
+      resetGame();
       pageNum = 2;
     }
   }
