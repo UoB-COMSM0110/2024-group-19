@@ -132,8 +132,8 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 **System Usability Scale**
 <img src='/SUS stage 1.png'/>
 ---
-** NASA TLX **
-
+**NASA TLX**
+<img src='/TLXstage1.png'/>
 
 Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, we identified some key themes that guided our development onto the next stage. 
 
