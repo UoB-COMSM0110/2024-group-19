@@ -126,7 +126,7 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 ---
 **Heuristic Evaluation** 
 
-- insert image here
+<img src='/HeuristicEvalS1'/>
 
 ---
 insert quantitative data here > 
