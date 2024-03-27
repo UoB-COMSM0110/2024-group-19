@@ -15,13 +15,5 @@ class Bullet extends Entity {
   }
   
   // Override the display method to show the bullet
-  @Override
-  void display() {
-    pushMatrix();
-    translate(x, y);
-    rotate(direction); // Adjust for proper bullet orientation
-    // Assume bulletImg is a PImage loaded elsewhere in your code
-    image(img, -img.width / 2, -img.height / 2);
-    popMatrix();
-  }
+
 }

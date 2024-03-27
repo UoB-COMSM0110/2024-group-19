@@ -25,18 +25,39 @@ public class BulletManager{
     }
   }
   
-  private void removeBulletCheck() {
+  private void removeBulletBoundary() {
       // Create a copy of the bulletList to avoid ConcurrentModificationException
       ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
       
       // Iterate over the bulletList manually
-      for (int i = 0; i < bulletList.size() - 1; i++) {
-          Bullet bullet = bulletList.get(i);
+      for (Bullet bullet:bulletList){
           bullet.update();
           BoundaryChecker boundary = new BoundaryChecker(bullet, mapX, mapY);
           if (boundary.bulletCheck()) {
               // Add bullets to remove to the list
               bulletsToRemove.add(bullet);
+              println("Removed because OOB");
+          }
+      }
+      
+      // Remove bullets from the bulletList
+      for (Bullet bullet : bulletsToRemove) {
+          bulletList.remove(bullet);
+      }
+  }
+  
+  private void removeBulletOffScreen(){
+    // Create a copy of the bulletList to avoid ConcurrentModificationException
+      ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
+      
+      // Iterate over the bulletList manually
+      for (Bullet bullet:bulletList){
+          bullet.update();
+          if ((abs(player.x-bullet.x) > width/2) ||
+              (abs(player.y-bullet.y) > height/2)) {
+              // Add bullets to remove to the list
+              bulletsToRemove.add(bullet);
+              println("Removed because off-screen");
           }
       }
       
@@ -58,7 +79,8 @@ public class BulletManager{
   
   private void update(){
     newBulletCheck();
-    removeBulletCheck();
+    removeBulletBoundary();
+    removeBulletOffScreen();
     bulletRender();
     
   }
