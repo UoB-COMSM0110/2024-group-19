@@ -5,17 +5,21 @@ class Character extends Entity {
   long lastHitReceived;
   int health;
   float oxygenLevel = 100; // Initialize oxygen level to 100
+  private BoundaryChecker boundary;
   
   Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed);
     this.characterImg = img;
     this.health = health;
+    // We can initialise using x*2 and y*2 as these are the centre of the background at initialisation.
+    boundary = new BoundaryChecker(this, x*2, y*2);
   }
 
   // Overrides the Entity update method to include movement logic and oxygen recovery
   @Override
   void update() {
     positionUpdate();
+    boundary.check();
     //recoverOxygen(); // Recover oxygen when standing still
   }
 

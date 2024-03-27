@@ -18,7 +18,7 @@ float safeDistance = 150; // Minimum distance from the player
 
 
 void setup() {
-  fullScreen();
+  fullScreen(P2D);
   page = new Page();
   pageNum = 1;
   playerX = width / 2;

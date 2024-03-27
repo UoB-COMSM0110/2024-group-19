@@ -2,11 +2,11 @@ PImage backgroundImage, characterImage;
 Character player;
 Background background;
 float mapX, mapY;
-int playerSpeed = 10, playerHealth = 5;
+int playerSpeed = 5, playerHealth = 5;
 
 void setup() {
-  fullScreen();
-  //size(1500,1000);
+  // Set renderer to P2D or it lags horrifically.
+  fullScreen(P2D);
   characterImage = loadImage("../Assets/character.png");
   backgroundImage = loadImage("../Assets/gameBackground.png");
   
@@ -14,6 +14,8 @@ void setup() {
   mapY = backgroundImage.height;
   player = new Character(mapX / 2, mapY / 2, playerSpeed, characterImage, playerHealth);
   background = new Background(player, mapX, mapY, backgroundImage);
+  frameRate(300);
+  println(width + "," + height);
 
   
 }
@@ -22,7 +24,7 @@ void setup() {
 
 
 void draw() {
-  println(frameRate);
+  //println(frameRate);
   player.update();
   background.update();
   player.display();
