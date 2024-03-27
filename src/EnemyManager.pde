@@ -78,8 +78,8 @@ public class EnemyManager{
     enemySpawner();
     updatePosition();
     enemyOnScreen();
-    println(enemyListOnScreen.size() + " out of " + enemyList.size());
-    println("FPS: " + frameRate);
+    //println(enemyListOnScreen.size() + " out of " + enemyList.size());
+    //println("FPS: " + frameRate);
     enemyRender();
   }
 

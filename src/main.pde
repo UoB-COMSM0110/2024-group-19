@@ -3,6 +3,7 @@ Character player;
 Background background;
 BulletManager bulletManager;
 EnemyManager enemyManager;
+CollisionManager collisionManager;
 float mapX, mapY;
 int playerSpeed = 3, playerHealth = 5;
 
@@ -23,6 +24,7 @@ void setup() {
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
+  collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   frameRate(300);
   //println(width + "," + height);
   
@@ -41,6 +43,7 @@ void draw() {
   bulletManager.update();
   player.display();
   enemyManager.update();
+  collisionManager.update();
   //println(frameRate);
   
 }

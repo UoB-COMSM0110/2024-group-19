@@ -1,8 +1,9 @@
 class Character extends Entity {
   public boolean[] keys = new boolean[4]; // For tracking WASD key states
-  boolean invulnerable = true;
-  long lastHitReceived;
-  int health;
+  boolean invulnerable = false;
+  public float lastHitReceived = 0;
+  public float invulnerablePeroid = 2000;
+  public int health;
   float oxygenLevel = 100; // Initialize oxygen level to 100
   private BoundaryChecker boundary;
   

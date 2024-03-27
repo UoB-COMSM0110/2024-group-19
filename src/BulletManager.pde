@@ -11,7 +11,7 @@ public class BulletManager{
     this.mapX = mapX;
     this.mapY = mapY;
     playerInfo = player;
-    fireRate = 50;
+    fireRate = 150;
     bulletSpeed = 5;
     
   }
