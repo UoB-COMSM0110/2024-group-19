@@ -1,12 +1,14 @@
 class Entity {
   float x, y; // Position
   float speed; // Speed
+  PImage img;
   
   // Constructor
-  Entity(float x, float y, float speed) {
+  Entity(float x, float y, float speed, PImage img) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.img = img;
   }
   
   // Update the entity's state. This method can be overridden by subclasses.

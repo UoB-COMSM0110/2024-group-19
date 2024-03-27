@@ -1,15 +1,13 @@
 class Character extends Entity {
   public boolean[] keys = new boolean[4]; // For tracking WASD key states
   boolean invulnerable = true;
-  PImage characterImg; // Character image
   long lastHitReceived;
   int health;
   float oxygenLevel = 100; // Initialize oxygen level to 100
   private BoundaryChecker boundary;
   
   Character(float x, float y, float speed, PImage img, int health) {
-    super(x, y, speed);
-    this.characterImg = img;
+    super(x, y, speed, img);
     this.health = health;
     // We can initialise using x*2 and y*2 as these are the centre of the background at initialisation.
     boundary = new BoundaryChecker(this, x*2, y*2);
@@ -19,7 +17,7 @@ class Character extends Entity {
   @Override
   void update() {
     positionUpdate();
-    boundary.check();
+    boundary.playerCheck();
     //recoverOxygen(); // Recover oxygen when standing still
   }
 
@@ -67,7 +65,7 @@ class Character extends Entity {
   // Display the character image at its current position
   @Override
   void display() {
-    image(characterImg, width/2, height/2);
+    image(img, width/2, height/2);
   }
 
   // Update keys on key press

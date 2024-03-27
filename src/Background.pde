@@ -19,4 +19,6 @@ public class Background{
     topLeftY = -(playerInfo.y - (height/2));
     image(image, topLeftX, topLeftY);
   }
+  
+  
 }

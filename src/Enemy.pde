@@ -1,12 +1,10 @@
 class Enemy extends Entity {
-  PImage enemyImg; // Character image
   float stopDistance = 75;
   float health;
   Character player;
 
   Enemy(float x, float y, float speed, PImage img, float health, Character player) {
-    super(x, y, speed);
-    this.enemyImg = img;
+    super(x, y, speed, img);
     this.health = health;
     this.player = player;
     
@@ -31,7 +29,7 @@ class Enemy extends Entity {
   // Display the character image at its current position
   @Override
   void display() {
-    image(enemyImg, x - enemyImg.width / 2, y - enemyImg.height / 2);
+    image(img, x - img.width / 2, y - img.height / 2);
   }
 
 
