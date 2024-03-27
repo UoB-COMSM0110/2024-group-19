@@ -37,6 +37,9 @@ void setup() {
 
 void draw() {
   //println(frameRate);
+  if(player.health == 0){
+    exit();
+  }
   player.update();
   background.update();
   

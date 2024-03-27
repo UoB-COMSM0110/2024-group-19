@@ -15,6 +15,8 @@ public class CollisionManager{
     1) Enemy & Bullet
     2) Enemy and Character
     3) Enemy & Enemy
+    // Because Enemy & Enemy collisions need previous positions to revert to if a collision is detected, this needs to be done in EnemyManager
+    
     
     We are going to make use of the enemyListOnScreen ArrayList we made in EnemyManager
     too limit the number of calculations that need to be done per iteration.
@@ -51,17 +53,12 @@ public class CollisionManager{
   private void BulletEnemyCollisions(){
     ArrayList<Bullet> bulletsToRemove = new ArrayList();
     ArrayList<Enemy> enemiesToRemove = new ArrayList();
-    float bulletCentreX, bulletCentreY, enemyCentreX, enemyCentreY;
-    
-    // This may cause a fair bit of lag down the line. If so maybe look into taking the centre calcs out of the nested for loop
+
     
     for(Enemy enemy : enemyManager.enemyListOnScreen){
       for(Bullet bullet : bulletManager.bulletList){
-        bulletCentreX = bullet.x + (bullet.img.width/2);
-        bulletCentreY = bullet.y + (bullet.img.height/2);
-        enemyCentreX = enemy.x + (enemy.img.width/2);
-        enemyCentreY = enemy.y + (enemy.img.height/2);
-        if(dist(bulletCentreX, bulletCentreY, enemyCentreX, enemyCentreY) < (enemy.img.width/2 + bullet.img.width/2)){
+
+        if(dist(bullet.centreX, bullet.centreY, enemy.centreX, enemy.centreY) < (enemy.img.width/2 + bullet.img.width/2)){
           bulletsToRemove.add(bullet);
           enemy.health--;
           if(enemy.health < 0){
@@ -76,9 +73,6 @@ public class CollisionManager{
     bulletManager.bulletList.removeIf(bulletsToRemove::contains);
     enemyManager.enemyList.removeIf(enemiesToRemove::contains);
     
-  }
-  
-  private void EnemyEnemyCollisions(){
   }
   
   public void update(){

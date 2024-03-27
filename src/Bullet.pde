@@ -1,5 +1,6 @@
 class Bullet extends Entity {
   float direction; // Specific property for Bullet
+  float centreX, centreY;
   
   // Constructor
   Bullet(float x, float y, float speed,PImage img, float direction) {
@@ -12,6 +13,9 @@ class Bullet extends Entity {
   void update() {
     x += cos(direction) * speed;
     y += sin(direction) * speed;
+    centreX = x + (img.width/2);
+    centreY = y + (img.height/2);
+    
   }
   
   // Override the display method to show the bullet
