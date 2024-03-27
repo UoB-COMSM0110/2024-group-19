@@ -25,12 +25,6 @@ class Enemy extends Entity {
       y += sin(angle) * speed;
     }
   }
-  
-  // Display the character image at its current position
-  @Override
-  void display() {
-    image(img, x - img.width / 2, y - img.height / 2);
-  }
 
 
 

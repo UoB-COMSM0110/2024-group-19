@@ -18,7 +18,7 @@ public class BoundaryChecker{
   }
   
   public boolean bulletCheck(){
-    println("Entity.x" + entity.x + "Entity.y" + entity.y + "Left Boarder" + width/2 + "Right Boarder" + (mapX - (width/2)) + "Top Boarder" + height/2 + "Bottom boarder" + (mapY - (height/2)));
+    //println("Entity.x" + entity.x + "Entity.y" + entity.y + "Left Boarder" + width/2 + "Right Boarder" + (mapX - (width/2)) + "Top Boarder" + height/2 + "Bottom boarder" + (mapY - (height/2)));
     return (entity.x<(width/2 ) ||
        entity.x>(mapX - (width/2)) ||
        entity.y<(height/2) ||

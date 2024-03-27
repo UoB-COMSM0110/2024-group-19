@@ -10,7 +10,6 @@ public class Background{
     this.mapX = mapX;
     this.mapY = mapY;
     this.image = backgroundImage;
-    update();
   }
   
   public void update(){

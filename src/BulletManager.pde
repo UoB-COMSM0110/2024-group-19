@@ -36,7 +36,7 @@ public class BulletManager{
           if (boundary.bulletCheck()) {
               // Add bullets to remove to the list
               bulletsToRemove.add(bullet);
-              println("Removed because OOB");
+              //println("Removed because OOB");
           }
       }
       
@@ -57,7 +57,7 @@ public class BulletManager{
               (abs(player.y-bullet.y) > height/2)) {
               // Add bullets to remove to the list
               bulletsToRemove.add(bullet);
-              println("Removed because off-screen");
+              //println("Removed because off-screen");
           }
       }
       
