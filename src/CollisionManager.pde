@@ -61,8 +61,10 @@ public class CollisionManager{
         if(dist(bullet.centreX, bullet.centreY, enemy.centreX, enemy.centreY) < (enemy.img.width/2 + bullet.img.width/2)){
           bulletsToRemove.add(bullet);
           enemy.health--;
+          player.score += 10;
           if(enemy.health < 0){
           enemiesToRemove.add(enemy);
+          player.score += 20;
           }
           
         }

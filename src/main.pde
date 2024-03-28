@@ -6,7 +6,7 @@ EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
 float mapX, mapY;
-int playerSpeed = 3, playerHealth = 5;
+int playerSpeed = 3, playerHealth = 5, previousScore = 0;
 
 void setup() {
   // Set renderer to P2D or it lags horrifically.
@@ -42,7 +42,6 @@ void setup() {
 
 void draw() {
   //println(frameRate);
-  println(pageManager.pageNumber);
   switch(pageManager.pageNumber){
     case 1:
       pageManager.gameStart();
@@ -52,8 +51,9 @@ void draw() {
       break;
     case 3:
       if(player.health == 0){
-        pageManager.pageNumber++;
+        previousScore = player.score;
         gameReset();
+        break;
       }
       background.update();
       player.update();
@@ -63,10 +63,12 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
+      pageManager.StatisticsDisplay();
       //println(frameRate);
       break;
       case 4:
-        pageManager.gameOverPage();
+        pageManager.gameOverPage(previousScore);
+        
         break;
     }     
 }
@@ -91,4 +93,6 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
+  pageManager = new PageManager(player, 4);
+  
 }

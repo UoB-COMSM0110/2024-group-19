@@ -3,7 +3,7 @@ class Character extends Entity {
   boolean invulnerable = false;
   public float lastHitReceived = 0;
   public float invulnerablePeroid = 2000;
-  public int health;
+  public int health, score;
   float oxygenLevel = 100; // Initialize oxygen level to 100
   private BoundaryChecker boundary;
   
@@ -12,6 +12,7 @@ class Character extends Entity {
     this.health = health;
     // We can initialise using x*2 and y*2 as these are the centre of the background at initialisation.
     boundary = new BoundaryChecker(this, x*2, y*2);
+    this.score = 0;
   }
 
   // Overrides the Entity update method to include movement logic and oxygen recovery

@@ -67,7 +67,7 @@ public class PageManager{
   
   }
   
-  public void gameOverPage(){
+  public void gameOverPage(int previousScore){
     imageMode(CENTER);
     image(backgroundImage, width / 2, height/ 2, width, height);
     image(gameOverImage,(width / 2), height*0.325);
@@ -77,7 +77,7 @@ public class PageManager{
     fill(0); // White text color
     text("Enter to Restart", width / 2, height / 2 + height*0.13125);
     
-    text("Score: "+playerInfo.health ,width / 2, height / 2 );
+    text("Score: "+ previousScore ,width / 2, height / 2 );
   }
   
   public void keyPressed(){
@@ -88,5 +88,15 @@ public class PageManager{
     if(pageNumber == 5){
       pageNumber = 1;
     }
+  }
+  
+  public void ScoreDisplay(){
+    fill(0);
+   textSize(40);
+   text("Score:" + playerInfo.score , (width*(0.8666)),(height*0.0625));
+  }
+  
+  public void StatisticsDisplay(){
+    ScoreDisplay();
   }
 }
