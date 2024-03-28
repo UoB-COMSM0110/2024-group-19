@@ -112,8 +112,38 @@ System Architecture
 750 words 
 Describe implementation + 3 challenges chosen 
 
----
+The 3 largest areas of challenges identified during the production of the game was: 1) planning and Implementation of a Dynamic Map; 2) creating an accurate shooting process using the mouse whilst making it efficient; and 3) the separation of enemies based on Particle Swarm Optimisation. These challenges were derived from the process of improving our game through our evaluative feedback.
 
+1. Dynamic Maps
+   
+Originally, the game was written on a static perception of the map, where the enemies spawned will centred on the character. At this point, the character could accidentally hide on the map beyond the window, causing an issue for players as they needed to find their way back to the centre of the map without dying to continue playing.
+
+   -> insert  xinYue images x2 
+   
+Based on the qualitative evaluations we received, one theme that stood out was to make the board dynamic, allowing for the player to have a wider playing area. This was implemented by changing the perception to be fixed on the character in the middle of the window. To further complement this perception, the zombies and bullets rendered will be spawned according to the position of the board and the absolute displacement of character in mind. To prevent the characters from falling off the map, we added in a border of trees that blocks the character.
+
+-> Insert Jamie's drawing
+
+-> insert Tree borders
+
+2. Accurate and Effective Shooting
+
+When we first completed the first rendition of our game, we noticed some issues with how the bullet was shooting. It was off centred, leaning towards the top left of the character. This was not what we had planned for as we wanted the bullet to originate and shoot out from the middle of the character.
+
+
+After much trial and error to pinpoint exactly the reason that is causing the bullet to originate off centred, we realised that the image rendering from Processing has a corner imaging mode, as such we had to manually halved the width and height of the character as the co-ordinates for the bullets to originate from. This too allowed for the bullets to move flexibly as the character moved around the map.
+
+-> insert bullet coming out from middle now 
+
+Furthermore, as the game was built on multiple loops that check the boundary of the character and the bullets, checks for the collision of the bullets with the enemies and the removal of bullets whilst having a constant loop to release the waves of enemies; the game was running very slowly. As such we had to make multiple changes. such as instantly deleting any bullets that were outside the window of the user’s perception to reduce the number of bullets to check for. Additionally, we kept track of the number of enemies that could be perceived by the user as a list and narrow down the global list of enemies to the perceived list, further lowering down the number of collisions to be checked for.
+
+
+3. Partical Swarm Optimisation on Enemy Positioning
+
+
+
+
+   ---
 
 ### Evaluations 
 Stage 1 : mid-production evaluations
