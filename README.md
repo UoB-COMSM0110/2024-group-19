@@ -210,6 +210,8 @@ Jamie: 1.0
 
 WeiJian: 1.0
 
+During the whole process of game design, I find the agile development more important than the waterfall development since we just change our game continuously. For my job, I am responsible for coding the fundamental structure of our game. Although I finish the basic code at a early stage, our team wish to optimize the game to a top level. Therefore, all of us needs to reconstruct our code as well as adjust it to the new demand. It is not a easy process, but it is worth since the game becomes a better one.
+
 LinXuan: 1.0 
 
 
