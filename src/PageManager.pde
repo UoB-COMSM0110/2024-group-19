@@ -106,12 +106,19 @@ public class PageManager{
   
   private void oxygenDisplay(){
     fill(0, 0, 255); // Blue color for oxygen
-    rect(width/150, height*0.05, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02);
+    rect(width/150, height*0.09, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02);
+  }
+  
+  private void healthDisplay(){
+    for (int i = 0; i < player.health; i++) {
+      image(heartImage, (width/60 + (heartImage.width + width*(5/1500)) * i), (height/40)); // Adjust positioning as needed
+    }
   }
   
   public void StatisticsDisplay(){
     scoreDisplay();
     waveDisplay();
     oxygenDisplay();
+    healthDisplay();
   }
 }

@@ -1,4 +1,4 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage;
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -18,8 +18,12 @@ void setup() {
   bulletImage = loadImage("../Assets/bullet.png");
   bulletImage.resize(20,20);
   zombieImage = loadImage("../Assets/zombie.png");
+  zombieImage.resize(zombieImage.width/3, zombieImage.height/3);
   buttonImage = loadImage("../Assets/button.png");
   gameOverImage = loadImage("../Assets/gameOver.png");
+  heartImage = loadImage("../Assets/heart.png");
+  heartImage.resize(50,50);
+  
   
   mapX = backgroundImage.width;
   mapY = backgroundImage.height;
