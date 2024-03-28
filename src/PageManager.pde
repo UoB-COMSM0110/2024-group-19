@@ -92,20 +92,26 @@ public class PageManager{
     }
   }
   
-  public void ScoreDisplay(){
+  private void scoreDisplay(){
     fill(0);
    textSize(width*0.02);
    text("Score: " + playerInfo.score , (width*(0.8666)),(height*0.0625));
   }
   
-  public void WaveDisplay(){
+  private void waveDisplay(){
    fill(0);
    textSize(width*0.02);
    text("Waves spawned: " + enemyManager.waveNumber , (width*(0.8666)),height*0.1);
   }
   
+  private void oxygenDisplay(){
+    fill(0, 0, 255); // Blue color for oxygen
+    rect(width/150, height*0.05, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02);
+  }
+  
   public void StatisticsDisplay(){
-    ScoreDisplay();
-    WaveDisplay();
+    scoreDisplay();
+    waveDisplay();
+    oxygenDisplay();
   }
 }

@@ -20,7 +20,6 @@ class Character extends Entity {
   void update() {
     positionUpdate();
     boundary.playerCheck();
-    //recoverOxygen(); // Recover oxygen when standing still
   }
 
   void positionUpdate() {
@@ -38,31 +37,26 @@ class Character extends Entity {
       if (keys[3]) {
         x += speed; // D
       }
-      
-      //if(keys[0] || keys[1] || keys[2] || keys[3]){
-        //decreaseOxygen();
-      //}
     }
+      
+    if(keys[0] || keys[1] || keys[2] || keys[3]){
+      decreaseOxygen();
+    }
+    else{recoverOxygen();}
+    
   }
   
   // Decrease oxygen when moving
   void decreaseOxygen() {
-    if (isMoving()) {
-      oxygenLevel = max(0, oxygenLevel - 0.15);
-    }
+    oxygenLevel = max(0, oxygenLevel - 0.15);
   }
   
   // Recover oxygen when not moving
   void recoverOxygen() {
-    if (!isMoving()) {
-      oxygenLevel = min(100, oxygenLevel + 0.7);
-    }
+    oxygenLevel = min(100, oxygenLevel + 0.7);
   }
   
   // Check if the character is moving
-  boolean isMoving() {
-    return keys[0] || keys[1] || keys[2] || keys[3];
-  }
 
   // Display the character image at its current position
   @Override
