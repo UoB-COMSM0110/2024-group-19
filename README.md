@@ -146,3 +146,12 @@ Key Themes:
 As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided that we were going to change the background and include obstacles for the player to navigate. The screen will be further improved to make it dynamic, where the screen will follow the player, allowing for a larger map. Secondly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
 
 <br>
+
+System Architecture 
+  - Class Diagrams
+  - Behaviour Diagrams
+
+Describe implementation + 3 challenges chosen 
+ + How code was tested in evaluation
+Process for teamwork (what tools, team rolls, reflection on working together)
+Conclusion (reflect on project as a whole, lessons learnt and reflect on future work)
