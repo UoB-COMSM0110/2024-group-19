@@ -41,7 +41,7 @@ public class CollisionManager{
             player.health--;
             player.invulnerable = true;
             player.lastHitReceived = millis();
-            //println("hit. Remaning: " + player.health);
+            println("hit. Remaning: " + player.health);
             break;
             
           }

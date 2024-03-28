@@ -15,7 +15,7 @@ public class Round{
   }
   
   private void healthCalcs(){
-    averageHealth = 2.0+((float)roundNumber * 2000);
+    averageHealth = 2.0+((float)roundNumber * 0.5);
   }
   
   private void numberSpawnedCalcs(){

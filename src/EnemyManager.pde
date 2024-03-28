@@ -76,6 +76,7 @@ public class EnemyManager{
           continue;
         }
         else{
+          // Accumulate the net vectors of all enemies within the protected radius
           if(dist(enemyOne.centreX,enemyOne.centreY,enemyTwo.centreX,enemyTwo.centreY) < protectedDistance){
               yClose += enemyOne.centreY - enemyTwo.centreY;
               xClose += enemyOne.centreX - enemyTwo.centreX;
@@ -83,6 +84,7 @@ public class EnemyManager{
           }
         }
       }
+      // Move the current enemy away from that. 
       if(collisions!=0){
         direction = atan2(yClose, xClose);
         enemyOne.specificMovement(direction);
