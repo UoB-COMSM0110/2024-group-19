@@ -28,74 +28,92 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above
 
 ### Requirements
 
-### Use-case diagram
+### Use-case Diagram
 <img src='/Use-case diagram.png'/>
 
 **Early stages design. Ideation process**
 
-In week 2, our group had a brainstorm about several types of games. Every team members introduced a game that he/she had researched before. Three members introduced their game similar to MATCH-3-GAMES. One member introduced a 1v1 soccer game. One member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which was like a 2D-kill-zombie game. Then we voted. The survivor one became our final choice due to its creativity as well as difficulty level. In week 3, we started to discuss about the basic function of this game then mock-up the initial paper prototype. In week 4, we first created a use-case diagram user stories as well as use-case-specifications to set up initial requirements. Secondly, we redo paper prototype and took a video to show how our game would work. Thirdly, we named our game "the chase". In week 5, to be continue.
+In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which is a 2D-kill-zombie game. Through an anonymous vote, majority decided on the survivor game due to its creativity as well as difficulty level. In week 3, we started to discuss about the basic function of this game before creating initial paper prototype mock-ups. In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements that wanted in our game. Using our requirements, we redid the paper prototype and recorded a video to depict ideally how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
+
 
 **User Stories**
 
->“As a << Developer>> I want to << have a twist in the gamel>> so that << the game is more fun and unique >>”
+>“As a << Developer >> I want to << have a twist in the gamel>> so that << the game is more fun and unique >>”
 
->“As a << User>> I want to << understand the game instructions >> so that << I can play the game intuitively >>”
+>“As a << User >> I want to << understand the game instructions >> so that << I can play the game intuitively >>”
 
->“As a << teacher>> I want to << be specific>> so that << I can mark the game accurately to the marking scheme >>”
+>“As a << Teacher >> I want to << be specific >> so that << I can mark the game accurately to the marking scheme >>”
 
->"As a << negative stakeholder>> I want to << find some bugs and difficulties in this game>> so that << I can provide some feedbacks for developers and earn money from them>>"
+>"As a << Negative Stakeholder>> I want to << find some bugs and difficulties in this game>> so that << I can provide some feedbacks for developers and earn money from them>>"
 
->"As a << original developer >> I want to << protect my intellectual property >> so that << I can protect my property >>"
+>"As a << Original Developer >> I want to << protect my intellectual property >> so that << I can protect my property >>"
 
 <br>
 
 **Use-Case Specifications**
 
-*login use case*
+*Login use case*
 
 >System shows: Login page display
 
->User enter:inlog in parameters
+>User input: login parameters
 
->System checks: checks the paramterswith the existing users
+>System checks: checks the parameters with the existing users
 
->if it existing,match the game login with their account. Else show page for new log in / register account
+> If login parameter exist, match the game login with their account. Else, show user another page for new log in / register account.
 
-*entered main page of game*
+*Entered main page of game*
 
->Show the details of user’s game (levels/ existing highscore/ start game button )User clicks onto the start game button(entered start game loading page)
+>Show the details of user’s game (levels/ existing highscore/ start game button )
 
->System showing instructions of game, there is a level button (bottom left/ healthbar+ hp bar on top left)
+>User inputs: 'enter' as start game button
 
->User starts playing using WASD
+>System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
 
->System creates more zombies zoning into the user
+>User starts playing using WASD, and the automatic gun shoots through aiming with a mouse
 
->Character continuously shooting bullet, moving around around according to the user’s button input
+>System creates: more zombies zoning into the user in waves
 
->Once moving and killed zombie, user walks to the gems to collect and system displays increase hp . System display health decrease if user attacked by zombie
+>Character continuously shooting bullet, moving around around according to the user’s mouse input
 
->System displays hp to be full (indicator of entering next level system needs to know that we need to go to next level). Will display weapon upgrade page User to choose upgrade
+>Once moving and killed zombie, system display health decrease if user attacked by zombie. With continuous movement, the endurance bar will depleat and user will need to stand still to refill their endurance bar to move again. 
 
-*entered page of level 2*
+>System displays hp to be full (indicator of entering next level system needs to know that we need to go to next level). With more zombie kills, power ups relating to the weapons or health bar will randomly appear to help with user.
 
->System to implement upgrades
+*Entered page of level 2*
 
 >System display next level page
 
 >System needs to reset the different bars
 
->Repeat till end of game (same )
+>Repeat till end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
 
-*entered page of win after level2*
+*Entered page of win after level2*
 
 >Show congratulation page
 
->Show timer of how long it took to complete level 2
-
->System displays timing onto the scoresheet(if higher,puton top, else place below , if first time playing, place timinginmiddle, highlight the current game score using border ) [ show timing next to name , do not overwrite , show existing scorestohighlightimprovement]
+>System displays high score onto the scoresheet
+> If they are exisiting players, higher scores placed above previous scores. 
+> First time players places their score in the middle, ighlight the current game score using border
+>System shows: most recent 3 scores to show improvement or deprovement from previous games 
 
 >System display back to original page showing the login
+
+### Design 
+
+750 words 
+System Architecture 
+  - Class Diagrams
+  - Behaviour Diagrams
+
+---
+
+### Implementation 
+750 words 
+Describe implementation + 3 challenges chosen 
+
+---
+
 
 ### Evaluations 
 Stage 1 : mid-production evaluations
@@ -135,8 +153,8 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 **NASA TLX**
 <img src='/TLXstage1.png'/>
 
-Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, we identified some key themes that guided our development onto the next stage. 
-
+Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, after we had our first viable product. 
+We identified some key themes that guided our development onto the next stage for further improvement based on feedback. 
 Key Themes:
 
 - Poor colour scheme for text, characters and background.
@@ -145,13 +163,70 @@ Key Themes:
 
 As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided that we were going to change the background and include obstacles for the player to navigate. The screen will be further improved to make it dynamic, where the screen will follow the player, allowing for a larger map. Secondly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
 
+---
+Stage 2: Final evaluation 
+
+> quantitative evaluation
+> wilcoxin significant testing for quantitative
+>  How code was tested in evaluation
+> was there a significant difference??
+
+
+### Process ###
+
+
+**Teamwork:**
+
+Our team communicates via Teams to confirm the time and place for our meeting. When we do come together, we first look through our KanBan board to understand which tasks take priorityand writes a to-do list for that day. These tasks are usually delagated to different individuals accordingly to what they are better and more confortable with. With each task being ticked off, we gather the group to show the difference and impact it has on the game and remind each other to git-pull the new version of the repository. Our team usually stays in the meeting till everyone is mostly done with their tasks, before we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
+
+
+**Tools used:**
+
+**Microsoft Teams** as a way for communication:
+> Used to update each other on the progress and the work each of us did\
+> Used to organise time and place for out next meet up
+
+**GitHub** for version control:
+> Made sure we only committed and push working code\
+> Made sure our commit messages were helpful and discriptive
+
+---
+
+**Team Roles**:
+
+Whilst every member played a role in contributing to the working code, prototyping ,ideation process and report writing, some members who had stronger coding skills had roles of being the team leaders in the code development and they delegated code work to the rest of the members. Some members took on roles of recording and keeping track of what tasks were completed during the meetings and updated the report to be as accurate as possible. While the rests of the members worked on the video presentation and sourcing of assets. 
+
+
+**Reflection on how you worked together** 
+// guys pls write you reflections on our work and how much you think you contributed to the role 
+
+Charmaine: 1.0
+
+I feet that with all group work comes with friction and misunderstandings, but as this group has proven, with the joined mindset of providing the best product forward, we can all commit and work together to do our best. I am glad to have this group mates who are willing to put forward their best foot and help out the other teammates and I am grateful that the whole team was very involved in every stage of the process. 
+
+XinYue: 1.0
+
+Jamie: 1.0
+
+WeiJian: 1.0
+
+LinXuan: 1.0 
+
+
+### Conclusion ###
+In conclusion, ... 
+reflect on project as a whole, lessons learnt and reflect on future work)
+
+
 <br>
+
+TODO : 
 
 System Architecture 
   - Class Diagrams
   - Behaviour Diagrams
 
 Describe implementation + 3 challenges chosen 
- + How code was tested in evaluation
+
 Process for teamwork (what tools, team rolls, reflection on working together)
 Conclusion (reflect on project as a whole, lessons learnt and reflect on future work)
