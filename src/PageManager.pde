@@ -1,9 +1,11 @@
 public class PageManager{
   int pageNumber;
+  EnemyManager enemyManager;
   Character playerInfo;
-  public PageManager(Character player, int pageNumber){
+  public PageManager(Character player, int pageNumber, EnemyManager enemyManager){
     this.playerInfo = player;
     this.pageNumber = pageNumber;
+    this.enemyManager = enemyManager;
     
   }
   
@@ -92,11 +94,18 @@ public class PageManager{
   
   public void ScoreDisplay(){
     fill(0);
-   textSize(40);
-   text("Score:" + playerInfo.score , (width*(0.8666)),(height*0.0625));
+   textSize(width*0.02);
+   text("Score: " + playerInfo.score , (width*(0.8666)),(height*0.0625));
+  }
+  
+  public void WaveDisplay(){
+   fill(0);
+   textSize(width*0.02);
+   text("Waves spawned: " + enemyManager.waveNumber , (width*(0.8666)),height*0.1);
   }
   
   public void StatisticsDisplay(){
     ScoreDisplay();
+    WaveDisplay();
   }
 }

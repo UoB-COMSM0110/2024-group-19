@@ -28,7 +28,7 @@ void setup() {
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 1);
+  pageManager = new PageManager(player, 1, enemyManager);
   
   frameRate(300);
   //println(width + "," + height);
@@ -93,6 +93,6 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 4);
+  pageManager = new PageManager(player, 4, enemyManager);
   
 }

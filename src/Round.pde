@@ -19,7 +19,7 @@ public class Round{
   }
   
   private void numberSpawnedCalcs(){
-    leftToSpawn = roundNumber + 5;
+    leftToSpawn = roundNumber + 20;
   }
   private void roundTimeCalcs(){
     roundTime = leftToSpawn*1100;
