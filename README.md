@@ -118,11 +118,17 @@ The 3 largest areas of challenges identified during the production of the game w
    
 Originally, the game was written on a static perception of the map, where the enemies spawned will centred on the character. At this point, the character could accidentally hide on the map beyond the window, causing an issue for players as they needed to find their way back to the centre of the map without dying to continue playing.
 
-   -> insert  xinYue images x2 
+  Image below: User playing normally.
+   <img src='/ReportMaterial/ImplementationC1.2.png'/>  
+   Image below: User hiding off screen. 
+   <img src='ReportMaterial/implementation C1.3.png'/> 
+   
    
 Based on the qualitative evaluations we received, one theme that stood out was to make the board dynamic, allowing for the player to have a wider playing area. This was implemented by changing the perception to be fixed on the character in the middle of the window. To further complement this perception, the zombies and bullets rendered will be spawned according to the position of the board and the absolute displacement of character in mind. To prevent the characters from falling off the map, we added in a border of trees that blocks the character.
 
--> Insert Jamie's drawing
+
+Image below: Image of planning phase for dynamic mapping. 
+ <img src='ReportMaterial/ImplementationC2.1jpeg.jpeg'/> 
 
 -> insert Tree borders
 
