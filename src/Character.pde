@@ -48,7 +48,7 @@ class Character extends Entity {
   
   // Decrease oxygen when moving
   void decreaseOxygen() {
-    oxygenLevel = max(0, oxygenLevel - 0.15);
+    oxygenLevel = max(0, oxygenLevel - 0.1);
   }
   
   // Recover oxygen when not moving

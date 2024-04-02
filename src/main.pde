@@ -6,7 +6,7 @@ EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
 float mapX, mapY;
-int playerSpeed = 3, playerHealth = 5, previousScore = 0;
+int playerSpeed = 2, playerHealth = 5, previousScore = 0;
 
 void setup() {
   // Set renderer to P2D or it lags horrifically.
@@ -72,8 +72,8 @@ void draw() {
       break;
       case 4:
         pageManager.gameOverPage(previousScore);
-        
         break;
+   
     }     
 }
 
