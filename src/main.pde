@@ -1,10 +1,11 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage;
 Character player;
 Background background;
 BulletManager bulletManager;
 EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
+TreeManager treeManager;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
 
@@ -23,7 +24,8 @@ void setup() {
   gameOverImage = loadImage("../Assets/gameOver.png");
   heartImage = loadImage("../Assets/heart.png");
   heartImage.resize(50,50);
-  
+  treeImage = loadImage("../Assets/tree.png");
+  treeImage.resize(50,50);
   
   mapX = backgroundImage.width;
   mapY = backgroundImage.height;
@@ -33,7 +35,8 @@ void setup() {
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 1, enemyManager);
-  
+  BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
+  treeManager = new TreeManager(treeImage, mapX, mapY, 5000, boundaryChecker);
   frameRate(300);
   //println(width + "," + height);
   
@@ -67,6 +70,8 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
+      treeManager.drawTrees();
+      
       pageManager.StatisticsDisplay();
       //println(frameRate);
       break;

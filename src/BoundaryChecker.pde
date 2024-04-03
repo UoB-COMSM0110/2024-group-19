@@ -22,7 +22,25 @@ public class BoundaryChecker{
     return (entity.x<(width/2 ) ||
        entity.x>(mapX - (width/2)) ||
        entity.y<(height/2) ||
-       entity.y>(mapY - (height/2)));
-       
+       entity.y>(mapY - (height/2)));       
   }
+  
+public boolean treeCheck(Tree tree) {
+    // Define the margins as half of the screen dimensions
+    float marginWidth = width / 2;
+    float marginHeight = height / 2;
+
+    // Calculate the boundaries of the red box
+    float redBoxX1 = marginWidth;
+    float redBoxY1 = marginHeight;
+    float redBoxX2 = mapX - marginWidth;
+    float redBoxY2 = mapY - marginHeight;
+
+    // Check if the tree is outside the red box
+    boolean isTreeOutsideRedBox = tree.x + tree.width < redBoxX1 || tree.x > redBoxX2 ||
+                                  tree.y + tree.width < redBoxY1 || tree.y > redBoxY2;
+
+    return isTreeOutsideRedBox;
+}
+
 }

@@ -11,6 +11,14 @@ class Entity {
     this.img = img;
   }
   
+  public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+    
   // Update the entity's state. This method can be overridden by subclasses.
   void update() {
     // Default implementation is empty. Subclasses will provide specific behaviors.
