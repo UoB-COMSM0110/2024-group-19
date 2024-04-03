@@ -39,9 +39,6 @@ void setup() {
   treeManager = new TreeManager(treeImage, mapX, mapY, 5000, boundaryChecker);
   frameRate(300);
   //println(width + "," + height);
-  
-
-  
 }
 
 
@@ -70,7 +67,8 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
-      treeManager.drawTrees();
+      //background.update();
+      treeManager.drawTrees(background);
       
       pageManager.StatisticsDisplay();
       //println(frameRate);

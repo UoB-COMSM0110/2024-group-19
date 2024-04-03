@@ -33,9 +33,18 @@ public class TreeManager {
         }
     }
 
-    public void drawTrees() {
-        for (Tree tree : trees) {
-            tree.drawTree();
+   public void drawTrees(Background background) {
+    for (Tree tree : trees) {
+        // Calculate the tree's position relative to the background
+        float treeDrawX = background.topLeftX + tree.x;
+        float treeDrawY = background.topLeftY + tree.y;
+
+        // Draw the tree if it's within the screen bounds
+        if (treeDrawX + tree.width > 0 && treeDrawX < width && 
+            treeDrawY + tree.width > 0 && treeDrawY < height) {
+            image(tree.treeImage, treeDrawX, treeDrawY);
         }
     }
+}
+
 }

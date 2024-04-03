@@ -19,5 +19,12 @@ public class Background{
     image(image, topLeftX, topLeftY);
   }
   
+    public float getTopLeftX() {
+        return topLeftX;
+    }
+
+    public float getTopLeftY() {
+        return topLeftY;
+    }
   
 }

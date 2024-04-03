@@ -15,10 +15,4 @@ public class Tree extends Entity {
         // Assuming x and y are the top-left coordinates
         image(this.treeImage, this.x, this.y);
     }
-
-    // Update method, if you need to add behavior or interactions for the trees
-    public void update() {
-        // Implement any updates for individual trees here
-        // For example, you could handle changes in the tree's appearance, size, etc.
-    }
 }
