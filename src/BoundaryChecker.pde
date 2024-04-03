@@ -30,17 +30,16 @@ public boolean treeCheck(Tree tree) {
     float marginWidth = width / 2;
     float marginHeight = height / 2;
 
-    // Calculate the boundaries of the red box
-    float redBoxX1 = marginWidth;
-    float redBoxY1 = marginHeight;
-    float redBoxX2 = mapX - marginWidth;
-    float redBoxY2 = mapY - marginHeight;
+    float safeAreaX1 = marginWidth;
+    float safeAreaY1 = marginHeight;
+    float safeAreaX2 = mapX - marginWidth;
+    float safeAreaY2 = mapY - marginHeight;
 
-    // Check if the tree is outside the red box
-    boolean isTreeOutsideRedBox = tree.x + tree.width < redBoxX1 || tree.x > redBoxX2 ||
-                                  tree.y + tree.width < redBoxY1 || tree.y > redBoxY2;
+    // Check if the tree is outside the area
+    boolean isTreeOutside = tree.x + tree.width < safeAreaX1 || tree.x > safeAreaX2 ||
+                                  tree.y + tree.width < safeAreaY1 || tree.y > safeAreaY2;
 
-    return isTreeOutsideRedBox;
+    return isTreeOutside;
 }
 
 }
