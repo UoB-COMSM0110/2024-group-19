@@ -5,22 +5,23 @@ public class PageManager{
   public PageManager(Character player, int pageNumber, EnemyManager enemyManager){
     this.playerInfo = player;
     this.pageNumber = pageNumber;
-    this.enemyManager = enemyManager;
-    
+    this.enemyManager = enemyManager; 
   }
   
   //page 1
   public void gameStart() {
     image(backgroundImage, width / 2, height/ 2, width, height);
-    textSize(width*0.1);
+    textSize(width*0.16);
     text("The Chase", (width / 2), height*0.325);
+    textSize(50);
+    text("Group 19",width*0.5, height*0.375);
     //image(button2, WIDTH - 70, 70, 100, 100); // leaderboard
     imageMode(CENTER);
     image(buttonImage, (width / 2), height*0.625, width*0.2666, height*0.1375); //start
-    textSize(50);
+    textSize(60);
     textAlign(CENTER);
     text("ENTER TO START", (width / 2), height*0.6425);
-    
+ //story();
   }
   
   //page 2
@@ -30,7 +31,7 @@ public class PageManager{
     float topLeftY = -(playerInfo.y - (height/2));
     image(backgroundImage, topLeftX, topLeftY);
     imageMode(CENTER);
-    textSize(60);
+    textSize(100);
     text("INSTRUCTIONS",width*0.5,height*0.1);
     textSize(30);
     text("Press 'M' for menu and instructions",width*0.5,height*0.15);
@@ -46,7 +47,6 @@ public class PageManager{
   image(buttonImage, baseX, baseY + 2 * offset + 50, width*0.2, height*0.13);// "Click to Start"
   text("Enter to Play", baseX, baseY + 2 * offset + (height*0.044));
   imageMode(CORNER);
-  
   }
   
  
@@ -56,7 +56,7 @@ public class PageManager{
     float topLeftY = -(playerInfo.y - (height/2));
     image(backgroundImage, topLeftX, topLeftY);
     imageMode(CENTER);
-    textSize(90);
+    textSize(100);
     text("MENU",width*0.5,height*0.1);
 
   float baseX = width / 2;
@@ -66,15 +66,24 @@ public class PageManager{
     zombieInstr();
     buttonInstr(baseX,baseY,offset);
 
-  textSize(50);
+  textSize(40);
   image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
   textLeading(37);
   text("Enter to\nResume",(width*0.33), height*0.71);
-  textSize(50);
+  textSize(40);
   image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
   text("Shift to Quit", (width*0.7), height*0.72);
   imageMode(CORNER);
+  }
   
+  public void story (){
+    fill(#808080);
+    rect(width*0.15, height*0.25, width*0.7, height*0.5, 28);
+    textSize(40);
+    textLeading(50);
+    fill(#000000);
+    text(" Zombies has overrun the city,\n everywhere you go there are more zombies coming your way.\n Being the last human on earth, \nyou aim to survive with just your gun and your instincts.", width*0.5,height*0.45);
+
   }
  
   
@@ -95,6 +104,7 @@ public class PageManager{
     text("Score: "+ previousScore ,width / 2, height / 2 );
   }
   
+  
   public void keyPressed(){
     if (keyCode == ENTER) {
       pageNumber++;
@@ -104,11 +114,10 @@ public class PageManager{
       pageNumber = 1;
     }
     
-    
   }
   
   private void oxygenInstr(){
-    textSize(height*0.04);
+    textSize(height*0.045);
     fill(0, 0, 255); // Blue color for oxygen
     rect(width/10, height*0.35, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
     fill(0); 
@@ -118,13 +127,14 @@ public class PageManager{
   }
   
   private void zombieInstr(){
-     textSize(height*0.04);
+     textSize(height*0.05);
     textAlign(CENTER, CENTER);
     fill(0); 
     textLeading(30);
     image(zombieImage, width*0.8, height*0.4 -70, width*0.1, width*0.1);
     text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.8), height*0.45);
   }
+  
   
   private void buttonInstr(float baseX, float baseY, float offset){
   // "W"
@@ -144,20 +154,21 @@ public class PageManager{
   text("D", baseX + offset - (height*0.0375), baseY);
 
   textLeading(30);
+  textSize(height*0.05);
   text("Mouse to aim \nand shoot", baseX, baseY + 1.3 * offset);
   }
   
   
-  
   private void scoreDisplay(){
     fill(0);
-   textSize(width*0.02);
+   textSize(width*0.03);
    text("Score: " + playerInfo.score , (width*(0.8666)),(height*0.0625));
   }
   
+  
   private void waveDisplay(){
    fill(0);
-   textSize(width*0.02);
+   textSize(width*0.03);
    text("Waves spawned: " + enemyManager.waveNumber , (width*(0.8666)),height*0.1);
   }
   

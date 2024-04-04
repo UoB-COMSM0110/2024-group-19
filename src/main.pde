@@ -8,6 +8,7 @@ PageManager pageManager;
 TreeManager treeManager;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
+PFont font;
 
 void setup() {
   // Set renderer to P2D or it lags horrifically.
@@ -26,6 +27,10 @@ void setup() {
   heartImage.resize(50,50);
   treeImage = loadImage("../Assets/tree.png");
   treeImage.resize(50,50);
+  font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
+  //font = loadFont("../Assets/data/Silom-48.vlw");
+  textFont(font);
+
   
   mapX = backgroundImage.width;
   mapY = backgroundImage.height;
