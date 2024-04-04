@@ -44,9 +44,9 @@ void setup() {
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 1, enemyManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
-  treeManager = new TreeManager(treeImage, mapX, mapY, 5000, boundaryChecker);
+  treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
   // Power up probability currently hard-coded at 0.1, this can be adjusted later.
-  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
+  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.5);
   frameRate(300);
   //println(width + "," + height);
 }
@@ -60,7 +60,7 @@ void draw() {
     case 1:
       pageManager.gameStart();
       break;
-       case 2:
+    case 2:
       pageManager.story();
       break;
     case 3:
@@ -118,5 +118,7 @@ void gameReset(){
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 5, enemyManager);
+  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
+  
   
 }

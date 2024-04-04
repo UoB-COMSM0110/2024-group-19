@@ -62,13 +62,30 @@ public class PowerUpManager{
   private void powerUpCollect(){
 
     PowerUp activePowerUp = null;
+    float playerXCentre = player.x+(player.img.width/2), playerYCentre = player.y+(player.img.height/2), powerXCentre, powerYCentre;
     
     for(PowerUp power : powerUpList){
-      if(dist(player.x,player.y,power.x,power.y) < powerCollectionDist){
+      powerXCentre = power.x+(power.img.width/2);
+      powerYCentre = power.x+(power.img.height/2);
+      if(dist(playerXCentre,playerXCentre,powerXCentre,powerYCentre) < (player.img.width/2 + power.img.width/2)){
         activePowerUp = power;
         break;
       }
     }
+    if(activePowerUp!=null){
+      switch(activePowerUp.powerUpType){
+        
+        case "health":
+          player.health++;
+          player.health = min(8,player.health);
+          break;
+          
+        case "portal":
+          player.randomTeleport();
+          break;
+      }
+    }
+    
     powerUpList.remove(activePowerUp);
   }
   

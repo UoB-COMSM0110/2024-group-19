@@ -111,4 +111,14 @@ class Character extends Entity {
     
     return false;
   }
+  
+  
+  public void randomTeleport(){
+    float newX = random(width/2, backgroundImage.width/2);
+    float newY = random(height/2, backgroundImage.height/2);
+    player.x = newX;
+    player.y = newY;
+    boundary.playerCheck();
+  }
+  
 }
