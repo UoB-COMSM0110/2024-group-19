@@ -131,10 +131,10 @@ public class PageManager{
   private void oxygenInstr(){
     textSize(height*0.045);
     fill(0, 0, 255); // Blue color for oxygen
-    rect(width/10, height*0.35, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
+    rect(width/10, height*0.4, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
     fill(0); 
     textLeading(33);
-    text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", (width/4.4), height*0.45);
+    text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", (width/4.4), height*0.49);
     
   }
   
@@ -143,31 +143,31 @@ public class PageManager{
     textAlign(CENTER, CENTER);
     fill(0); 
     textLeading(30);
-    image(zombieImage, width*0.8, height*0.4 -70, width*0.1, width*0.1);
-    text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.8), height*0.45);
+    image(zombieImage, width*0.8, height*0.36, width*0.1, width*0.1);
+    text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.8), height*0.49);
   }
   
   
   private void buttonInstr(float baseX, float baseY, float offset){
   // "W"
-  image(buttonImage, baseX + 30, baseY - offset - 140, height*0.075, height*0.075); // "W"
-  text("W", baseX + 30, baseY - offset - 140);
+  image(buttonImage, width*0.52, height*0.25, height*0.075, height*0.075); // "W"
+  text("W", width*0.52, height*0.25);
 
   // "A"
-  image(buttonImage, baseX - offset + (height*0.07), baseY - 170, height*0.075, height*0.075); // "A"
-  text("A", baseX - offset  + (height*0.07), baseY - 170);
+  image(buttonImage, width*0.475, height*0.32, height*0.075, height*0.075); // "A"
+  text("A", width*0.475, height*0.32);
 
   // "S"
-  image(buttonImage, baseX + 30, baseY + offset - (height*0.24), height*0.075, height*0.075); // "S"
-  text("S", baseX + 30, baseY + offset  - (height*0.24));
+  image(buttonImage, width*0.52, height*0.39, height*0.075, height*0.075); // "S"
+  text("S", width*0.52, height*0.39);
 
   // "D"
-  image(buttonImage, baseX + offset, baseY - 170, height*0.075, height*0.075); // "D"
-  text("D", baseX + offset, baseY - 170);
+  image(buttonImage, width*0.565, height*0.32, height*0.075, height*0.075); // "D"
+  text("D", width*0.565, height*0.32);
 
   textLeading(30);
   textSize(height*0.05);
-  text("Mouse to aim \nand shoot", baseX + 30, baseY - 0.675 * offset);
+  text("Mouse to aim \nand shoot", width*0.52, height*0.47 );
   }
   
   
