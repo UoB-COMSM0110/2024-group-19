@@ -4,6 +4,7 @@ Background background;
 BulletManager bulletManager;
 EnemyManager enemyManager;
 CollisionManager collisionManager;
+ObstacleManager obstacleManager;
 PageManager pageManager;
 TreeManager treeManager;
 float mapX, mapY;
@@ -36,6 +37,9 @@ void setup() {
   mapY = backgroundImage.height;
   player = new Character(mapX / 2, mapY / 2, playerSpeed, characterImage, playerHealth);
   background = new Background(player, mapX, mapY, backgroundImage);
+  
+  obstacleManager = new ObstacleManager("../src/obstacles.json");
+  
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
@@ -77,6 +81,8 @@ void draw() {
       collisionManager.update();
       //background.update();
       treeManager.drawTrees(background);
+      
+      obstacleManager.displayAll();
       
       pageManager.StatisticsDisplay();
       //println(frameRate);
