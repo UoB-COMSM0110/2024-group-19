@@ -1,5 +1,5 @@
 class Enemy extends Entity {
-  public float stopDistance = 75, hitDistance = 100;
+  public float stopDistance = 75, hitDistance = 75;
   float health;
   Character player;
   float centreX, centreY;

@@ -64,6 +64,7 @@ public class CollisionManager{
           player.score += 10;
           if(enemy.health < 0){
           enemiesToRemove.add(enemy);
+          powerUpManager.powerUpCreate(enemy.x,enemy.y);
           player.score += 20;
           }
           

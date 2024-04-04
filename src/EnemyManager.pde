@@ -59,13 +59,13 @@ public class EnemyManager{
   
   private void EnemyEnemySeparation(){
     
+    if(enemyListOnScreen == null){return;}
+    
     float yClose, xClose, protectedDistance = enemyImage.width/2, direction;
     int collisions;
     // These track the net distance between a given enemy (enemyOne) and all other enemies in its protected radius
     // Rather than stopping them from moving when they get to close to one another (which causes large groups of enemies to effectively become 'stuck'
     // we'll insted encourage them to go in a different direction.
-    
-    if(enemyListOnScreen == null){return;}
     
     for(Enemy enemyOne : enemyListOnScreen){
       yClose = 0;

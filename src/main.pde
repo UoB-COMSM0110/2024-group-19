@@ -1,4 +1,4 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage;
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -6,6 +6,7 @@ EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
 TreeManager treeManager;
+PowerUpManager powerUpManager;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
 PFont font;
@@ -27,6 +28,8 @@ void setup() {
   heartImage.resize(50,50);
   treeImage = loadImage("../Assets/tree.png");
   treeImage.resize(50,50);
+  portalImage = loadImage("../Assets/portal.png");
+  portalImage.resize(50,95);
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
   textFont(font);
@@ -42,6 +45,8 @@ void setup() {
   pageManager = new PageManager(player, 1, enemyManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
   treeManager = new TreeManager(treeImage, mapX, mapY, 5000, boundaryChecker);
+  // Power up probability currently hard-coded at 0.1, this can be adjusted later.
+  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
   frameRate(300);
   //println(width + "," + height);
 }
@@ -75,6 +80,7 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
+      powerUpManager.update();
       //background.update();
       treeManager.drawTrees(background);
       
