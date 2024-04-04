@@ -13,10 +13,10 @@ public class Background{
   }
   
   public void update(){
-    
+    background(0);
     topLeftX = -(playerInfo.x - (width/2));
     topLeftY = -(playerInfo.y - (height/2));
-    image(image, topLeftX, topLeftY);
+    image(image, topLeftX, topLeftY, width*9, height*9);
   }
   
     public float getTopLeftX() {

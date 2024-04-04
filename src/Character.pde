@@ -79,12 +79,12 @@ class Character extends Entity {
   void keyPressed() {
     updateKey(key, true);
     if(key == 'M' || key == 'm'){
-      pageManager.pageNumber = 6;
+      pageManager.pageNumber = 7;
     }
-        if(keyCode == ENTER && pageManager.pageNumber == 6){
-          pageManager.pageNumber = 4;
+        if(keyCode == ENTER && pageManager.pageNumber == 7){
+          pageManager.pageNumber = 5;
         }
-        if(keyCode == SHIFT && pageManager.pageNumber == 6){
+        if(keyCode == SHIFT && pageManager.pageNumber == 7){
           gameReset();
           pageManager.pageNumber = 1;
         }

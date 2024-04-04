@@ -1,4 +1,4 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, speedImage,gameStartImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage,forestImage,gameStartImage;
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -6,7 +6,6 @@ EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
 TreeManager treeManager;
-PowerUpManager powerUpManager;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
 PFont font;
@@ -16,24 +15,22 @@ void setup() {
   fullScreen(P2D);
   characterImage = loadImage("../Assets/character.png");
   //characterImage.resize(width/20, height/20);
-  backgroundImage = loadImage("../Assets/background.png");
+  backgroundImage = loadImage("../Assets/gameBackground.png");
   backgroundImage.resize(width*3, height*3);
   bulletImage = loadImage("../Assets/bullet.png");
   bulletImage.resize(20,20);
-  zombieImage = loadImage("../Assets/enemy.png");
-  zombieImage.resize(zombieImage.width/11, zombieImage.height/11);
-  gameStartImage = loadImage("../Assets/gameStart.png");
-  gameStartImage.resize(width, height);
+  zombieImage = loadImage("../Assets/zombie.png");
+  zombieImage.resize(zombieImage.width/3, zombieImage.height/3);
   buttonImage = loadImage("../Assets/button.png");
   gameOverImage = loadImage("../Assets/gameOver.png");
   heartImage = loadImage("../Assets/heart.png");
   heartImage.resize(50,50);
   treeImage = loadImage("../Assets/tree.png");
   treeImage.resize(50,50);
-  portalImage = loadImage("../Assets/portal.png");
-  portalImage.resize(50,95);
-  speedImage = loadImage("../Assets/speed.png");
-  speedImage.resize(72,50);
+  forestImage = loadImage("../Assets/bkgForest.jpg");
+  forestImage.resize(width*3, height*3);
+  gameStartImage = loadImage("../Assets/gameStart.png");
+  gameStartImage.resize(width*2, height*2);
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
   textFont(font);
@@ -48,9 +45,7 @@ void setup() {
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 1, enemyManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
-  treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
-  // Power up probability currently hard-coded at 0.1, this can be adjusted later.
-  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.5);
+  treeManager = new TreeManager(treeImage, mapX, mapY, 5000, boundaryChecker);
   frameRate(300);
   //println(width + "," + height);
 }
@@ -60,21 +55,17 @@ void setup() {
 
 void draw() {
   //println(frameRate);
-  
   switch(pageManager.pageNumber){
     case 1:
       pageManager.gameStart();
       break;
-    case 2:
+       case 2:
       pageManager.story();
       break;
     case 3:
       pageManager.homePage();
       break;
     case 4:
-      pageManager.InstructionPage();
-      break;
-    case 5:
       if(player.health == 0){
         previousScore = player.score;
         gameReset();
@@ -88,17 +79,16 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
-      powerUpManager.update();
       //background.update();
       treeManager.drawTrees(background);
       
       pageManager.StatisticsDisplay();
       //println(frameRate);
       break;
-      case 6:
+      case 5:
         pageManager.gameOverPage(previousScore);
         break;
-     case 7:
+     case 6:
          pageManager.helpPage();
          break;
    
@@ -106,7 +96,7 @@ void draw() {
 }
 
 void keyPressed(){
-  if(pageManager.pageNumber == 5 || pageManager.pageNumber == 7){
+  if(pageManager.pageNumber == 4 || pageManager.pageNumber == 6){
     player.keyPressed();
   }
   else{
@@ -125,8 +115,6 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 6, enemyManager);
-  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
-  
+  pageManager = new PageManager(player, 5, enemyManager);
   
 }
