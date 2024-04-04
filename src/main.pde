@@ -1,4 +1,4 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, speedImage;
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -30,6 +30,8 @@ void setup() {
   treeImage.resize(50,50);
   portalImage = loadImage("../Assets/portal.png");
   portalImage.resize(50,95);
+  speedImage = loadImage("../Assets/speed.png");
+  speedImage.resize(72,50);
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
   textFont(font);

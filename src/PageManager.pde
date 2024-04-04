@@ -189,6 +189,13 @@ public class PageManager{
     rect(width/150, height*0.09, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02);
   }
   
+  private void speedBoostDisplay(){
+    fill(0, 255, 255); // Blue color for oxygen
+    float timeElapsed = millis() - player.lastSpeedTime;
+    float barSize = 100*(1-(timeElapsed/player.speedBoostTimeLimit));
+    rect(width/150, height*0.125, (barSize * (width * 0.00266)), height/35,height*0.02);
+  }
+  
   private void healthDisplay(){
     for (int i = 0; i < player.health; i++) {
       image(heartImage, (width/60 + (heartImage.width + width*(5/1500)) * i), (height/40)); // Adjust positioning as needed
@@ -199,6 +206,9 @@ public class PageManager{
     scoreDisplay();
     waveDisplay();
     oxygenDisplay();
+    if(player.speedBoostActive){
+      speedBoostDisplay();
+    }
     healthDisplay();
   }
 }

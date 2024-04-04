@@ -27,11 +27,15 @@ public class PowerUpManager{
       String type = null;
       float randomNumberType = random(0.0,1.0);
       
-      if(randomNumberType < 0.5){
+      if(randomNumberType < 0.33){
         img = heartImage;
         type = "health";
       }
-      else if(randomNumberType > 0.5){
+      else if(randomNumberType < 0.66){
+        img = speedImage;
+        type = "speed";
+      }
+      else{
         img = portalImage;
         type = "portal";
       }
@@ -66,8 +70,8 @@ public class PowerUpManager{
     
     for(PowerUp power : powerUpList){
       powerXCentre = power.x+(power.img.width/2);
-      powerYCentre = power.x+(power.img.height/2);
-      if(dist(playerXCentre,playerXCentre,powerXCentre,powerYCentre) < (player.img.width/2 + power.img.width/2)){
+      powerYCentre = power.y+(power.img.height/2);
+      if(dist(playerXCentre,playerYCentre,powerXCentre,powerYCentre) < ((player.img.width)/2 + (power.img.width)/2)){
         activePowerUp = power;
         break;
       }
@@ -82,6 +86,10 @@ public class PowerUpManager{
           
         case "portal":
           player.randomTeleport();
+          break;
+        
+        case "speed":
+          player.speedBoostActivate();
           break;
       }
     }
