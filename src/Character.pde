@@ -3,9 +3,12 @@ class Character extends Entity {
   boolean invulnerable = false;
   public float lastHitReceived = 0;
   public float invulnerablePeroid = 2000;
+  public boolean speedBoostActive = false;
+  public float lastSpeedTime = 0, speedBoostTimeLimit = 5000;
   public int health, score;
   float oxygenLevel = 100; // Initialize oxygen level to 100
   private BoundaryChecker boundary;
+  float baseSpeed, increasedSpeed;
   
   Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed, img);
@@ -13,6 +16,8 @@ class Character extends Entity {
     // We can initialise using x*2 and y*2 as these are the centre of the background at initialisation.
     boundary = new BoundaryChecker(this, x*2, y*2);
     this.score = 0;
+    this.baseSpeed = speed;
+    this.increasedSpeed = speed*2;
   }
 
   // Overrides the Entity update method to include movement logic and oxygen recovery
@@ -20,6 +25,10 @@ class Character extends Entity {
   void update() {
     positionUpdate();
     boundary.playerCheck();
+    if(speedBoostActive){
+      speedBoostEndCheck();
+    }
+    
   }
 
   void positionUpdate() {
@@ -48,7 +57,9 @@ class Character extends Entity {
   
   // Decrease oxygen when moving
   void decreaseOxygen() {
-    oxygenLevel = max(0, oxygenLevel - 0.1);
+    if(!speedBoostActive){
+      oxygenLevel = max(0, oxygenLevel - 0.1);
+    }
   }
   
   // Recover oxygen when not moving
@@ -111,4 +122,28 @@ class Character extends Entity {
     
     return false;
   }
+  
+  
+  public void randomTeleport(){
+    float newX = random(width/2, backgroundImage.width/2);
+    float newY = random(height/2, backgroundImage.height/2);
+    player.x = newX;
+    player.y = newY;
+    boundary.playerCheck();
+  }
+  
+  public void speedBoostActivate(){
+    lastSpeedTime = millis();
+    speedBoostActive = true;
+    player.speed = increasedSpeed;
+    
+  }
+  
+  private void speedBoostEndCheck(){
+    if((millis() - lastSpeedTime) > speedBoostTimeLimit){
+      player.speed = baseSpeed;
+      speedBoostActive = false;
+    }
+  }
+  
 }
