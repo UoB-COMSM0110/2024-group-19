@@ -6,6 +6,7 @@ EnemyManager enemyManager;
 CollisionManager collisionManager;
 PageManager pageManager;
 TreeManager treeManager;
+ObstacleManager obstacleManager;
 PowerUpManager powerUpManager;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
@@ -51,6 +52,7 @@ void setup() {
   treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
   // Power up probability currently hard-coded at 0.1, this can be adjusted later.
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.5);
+  obstacleManager =new ObstacleManager("../src/obstacles.json");
   frameRate(300);
   //println(width + "," + height);
 }
@@ -81,9 +83,10 @@ void draw() {
         break;
       }
       background.update();
+      
       player.update();
       background.update();
-      
+      obstacleManager.displayAll();
       bulletManager.update();
       player.display();
       enemyManager.update();
