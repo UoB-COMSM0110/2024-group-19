@@ -68,17 +68,15 @@ class Character extends Entity {
   void keyPressed() {
     updateKey(key, true);
     if(key == 'M' || key == 'm'){
-      pageManager.pageNumber =5;
+      pageManager.pageNumber = 5;
     }
-   // if(keypress? == 'M' || keypress == 'm'){
-    //  pageManager = 5;
-    //   if(keypress =='Enter'
-          // resume game pageManager.pagenumber = 3;
-          // else( keypress == 'Shoift')
-          //{ gamereset();
-          //pagemanager.pagenumber = 1; 
-          
-   // }
+        if(keyCode == ENTER && pageManager.pageNumber == 5){
+          pageManager.pageNumber = 3;
+        }
+        if(keyCode == SHIFT && pageManager.pageNumber == 5){
+          gameReset();
+          pageManager.pageNumber = 1;
+        }
   }
 
   // Update keys on key release

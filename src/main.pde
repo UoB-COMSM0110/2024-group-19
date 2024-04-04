@@ -81,12 +81,15 @@ void draw() {
       case 4:
         pageManager.gameOverPage(previousScore);
         break;
+     case 5:
+         pageManager.helpPage();
+         break;
    
     }     
 }
 
 void keyPressed(){
-  if(pageManager.pageNumber == 3){
+  if(pageManager.pageNumber == 3 || pageManager.pageNumber == 5){
     player.keyPressed();
   }
   else{
