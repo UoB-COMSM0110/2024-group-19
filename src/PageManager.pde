@@ -17,7 +17,7 @@ public class PageManager{
     text("Group 19",width*0.5, height*0.375);
     //image(button2, WIDTH - 70, 70, 100, 100); // leaderboard
     imageMode(CENTER);
-    image(buttonImage, (width / 2), height*0.625, width*0.2666, height*0.1375); //start
+    image(buttonImage, (width / 2), height*0.625, width*0.3666, height*0.1375); //start
     textSize(60);
     textAlign(CENTER);
     text("ENTER TO START", (width / 2), height*0.6425);
@@ -44,8 +44,8 @@ public class PageManager{
     buttonInstr(baseX,baseY,offset);
 
   textSize(50);
-  image(buttonImage, baseX, baseY + 2 * offset + 50, width*0.2, height*0.13);// "Click to Start"
-  text("Enter to Play", baseX, baseY + 2 * offset + (height*0.044));
+  image(buttonImage, baseX, baseY + 2 * offset + 50, width*0.25, height*0.13);// "Click to Start"
+  text("Enter to Play", baseX, baseY + 2 * offset + (height*0.054));
   imageMode(CORNER);
   }
   
@@ -138,24 +138,24 @@ public class PageManager{
   
   private void buttonInstr(float baseX, float baseY, float offset){
   // "W"
-  image(buttonImage, baseX, baseY - offset + 30, height*0.075, height*0.075); // "W"
-  text("W", baseX, baseY - offset + 30);
+  image(buttonImage, baseX + 30, baseY - offset - 140, height*0.075, height*0.075); // "W"
+  text("W", baseX + 30, baseY - offset - 140);
 
   // "A"
-  image(buttonImage, baseX - offset + (height*0.0375), baseY, height*0.075, height*0.075); // "A"
-  text("A", baseX - offset  + (height*0.0375), baseY);
+  image(buttonImage, baseX - offset + (height*0.07), baseY - 170, height*0.075, height*0.075); // "A"
+  text("A", baseX - offset  + (height*0.07), baseY - 170);
 
   // "S"
-  image(buttonImage, baseX, baseY + offset - (height*0.0375), height*0.075, height*0.075); // "S"
-  text("S", baseX, baseY + offset  - (height*0.0375));
+  image(buttonImage, baseX + 30, baseY + offset - (height*0.24), height*0.075, height*0.075); // "S"
+  text("S", baseX + 30, baseY + offset  - (height*0.24));
 
   // "D"
-  image(buttonImage, baseX + offset - (height*0.0375), baseY, height*0.075, height*0.075); // "D"
-  text("D", baseX + offset - (height*0.0375), baseY);
+  image(buttonImage, baseX + offset, baseY - 170, height*0.075, height*0.075); // "D"
+  text("D", baseX + offset, baseY - 170);
 
   textLeading(30);
   textSize(height*0.05);
-  text("Mouse to aim \nand shoot", baseX, baseY + 1.3 * offset);
+  text("Mouse to aim \nand shoot", baseX + 30, baseY - 0.675 * offset);
   }
   
   
