@@ -84,10 +84,27 @@ class Character extends Entity {
         if(keyCode == ENTER && pageManager.pageNumber == 7){
           pageManager.pageNumber = 5;
         }
+        if(keyCode == RIGHT && pageManager.pageNumber == 7){
+          pageManager.pageNumber = 8;
+        }
         if(keyCode == SHIFT && pageManager.pageNumber == 7){
           gameReset();
           pageManager.pageNumber = 1;
         }
+        
+        
+        if(keyCode == ENTER && pageManager.pageNumber == 8){
+          pageManager.pageNumber = 5;
+        }
+        if(keyCode == LEFT && pageManager.pageNumber == 8){
+          pageManager.pageNumber = 7;
+        }
+        if(keyCode == SHIFT && pageManager.pageNumber == 8){
+          gameReset();
+          pageManager.pageNumber = 1;
+        }
+     
+        
   }
 
   // Update keys on key release

@@ -24,6 +24,7 @@ public class PageManager{
     textAlign(CENTER);
     fill(#ffffff);
     text("ENTER TO START", (width / 2), height*0.6425);
+   
 
   }
   
@@ -54,7 +55,7 @@ public class PageManager{
   textSize(50);
   fill(#ffffff);
  // image(buttonImage, baseX, baseY + 2 * offset + 50, width*0.25, height*0.13);// "Click to Start"
-  text("Enter to Continue", baseX, baseY + 2 * offset + (height*0.054));
+  text("Right arrow \nfor next page\n >>", baseX, baseY + 2 * offset + (height*0.054));
  // imageMode(CORNER);
   }
   
@@ -84,7 +85,8 @@ public class PageManager{
   textSize(50);
   fill(#ffffff);
  // image(buttonImage, baseX, baseY + 2 * offset + 50, width*0.25, height*0.13);// "Click to Start"
-  text("Enter to play", baseX, baseY + 2 * offset + (height*0.054));
+  text("Enter\n to play", baseX+3*offset, baseY + 2 * offset + (height*0.05));
+  text("Left arrow \nto go back\n <<", baseX-3*offset, baseY+2 * offset + (height*0.054));
  // imageMode(CORNER);
   }
   
@@ -99,6 +101,7 @@ public class PageManager{
     textSize(100);
     fill(#ffffff);
     text("MENU",width*0.5,height*0.1);
+    text("INSTRUCTION 1/2", width*0.5, height*0.15);
 
   float baseX = width / 2;
   float baseY = height / 2;
@@ -111,11 +114,42 @@ public class PageManager{
   //image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
   textLeading(37);
   fill(#ffffff);
-  text("Enter to\nResume",(width*0.33), height*0.71);
+  text("Enter\n to Resume",(width*0.23), height*0.71);
   textSize(40);
   fill(#ffffff);
  // image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
-  text("Shift to Quit", (width*0.7), height*0.72);
+  text("Shift\n to Quit", (width*0.8), height*0.71);
+  textSize(43);
+   text("Right arrow \nfor next page\n >>", (width*0.5), height*0.72);
+ // imageMode(CORNER);
+  }
+     public void MenuTwoPage(){
+     background(0);
+    //imageMode(CORNER);
+    //float topLeftX = -(playerInfo.x - (width/2));
+    //float topLeftY = -(playerInfo.y - (height/2));
+    image(gameStartImage, width / 2, height/ 2, width, height*1.5);
+    //imageMode(CENTER);
+    textSize(100);
+    fill(#ffffff);
+    text("MENU",width*0.5,height*0.1);
+    text("INSTRUCTION 1/2", width*0.5, height*0.15);
+
+    healthInstr();
+    speedInstr();
+    portalInstr();
+
+  textSize(40);
+  //image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
+  textLeading(37);
+  fill(#ffffff);
+  text("Enter\n to Resume",(width*0.23), height*0.71);
+  textSize(40);
+  fill(#ffffff);
+ // image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
+  text("Shift\n to Quit", (width*0.8), height*0.71);
+  textSize(43);
+   text("Left arrow \n to go back\n <<", (width*0.5), height*0.72);
  // imageMode(CORNER);
   }
   
@@ -171,15 +205,23 @@ public class PageManager{
       pageNumber = 1;
     }
     
+    if(pageNumber == 3 && keyCode == RIGHT){
+      pageNumber++;
+    }
+    if(pageNumber == 4 && keyCode == LEFT){
+      pageNumber--;
+    }
+    
+    
   }
   
   private void oxygenInstr(){
     textSize(height*0.045);
     fill(0, 0, 255); // Blue color for oxygen
-    rect(width/10, height*0.4, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
+    rect(width/13, height*0.4, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
     fill(#ffffff);
     textLeading(33);
-    text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", (width/4.4), height*0.49);
+    text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", (width/4.7), height*0.49);
     
   }
     private void healthInstr(){
@@ -215,8 +257,8 @@ public class PageManager{
     textAlign(CENTER, CENTER);
     fill(#ffffff);
     textLeading(30);
-    image(zombieImage, width*0.8, height*0.36, width*0.1, width*0.1);
-    text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.8), height*0.49);
+    image(zombieImage, width*0.83, height*0.36, width*0.1, width*0.1);
+    text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.83), height*0.49);
   }
   
   
@@ -240,7 +282,7 @@ public class PageManager{
 
   textLeading(30);
   textSize(height*0.05);
-  text("Mouse to aim \nand shoot", width*0.52, height*0.47 );
+  text("Use Mouse to aim \nand shoot", width*0.52, height*0.48 );
   }
   
   

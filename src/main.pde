@@ -35,6 +35,7 @@ void setup() {
   portalImage.resize(50,95);
   speedImage = loadImage("../Assets/speed.png");
   speedImage.resize(72,50);
+
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
   textFont(font);
@@ -104,12 +105,15 @@ void draw() {
      case 7:
          pageManager.helpPage();
          break;
+     case 8:
+         pageManager.MenuTwoPage();
+         break;
    
     }     
 }
 
 void keyPressed(){
-  if(pageManager.pageNumber == 5 || pageManager.pageNumber == 7){
+  if(pageManager.pageNumber == 5 || pageManager.pageNumber == 7 || pageManager.pageNumber == 8){
     player.keyPressed();
   }
   else{
