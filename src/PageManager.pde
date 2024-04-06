@@ -1,12 +1,24 @@
-public class PageManager{
-  int pageNumber;
-  EnemyManager enemyManager;
-  Character playerInfo;
-  public PageManager(Character player, int pageNumber, EnemyManager enemyManager){
-    this.playerInfo = player;
-    this.pageNumber = pageNumber;
-    this.enemyManager = enemyManager; 
-  }
+import java.util.ArrayList;
+
+public class PageManager {
+    int pageNumber;
+    EnemyManager enemyManager;
+    Character playerInfo;
+    ArrayList<Character> name;
+    ArrayList<Integer> highScores;
+    Integer currentScore;
+    StringBuilder nameBuilder = new StringBuilder();
+    String playerName = "";
+    
+
+    public PageManager(Character player, int pageNumber, EnemyManager enemyManager) {
+        this.playerInfo = player;
+        this.pageNumber = pageNumber;
+        this.enemyManager = enemyManager;
+        this.name = new ArrayList<Character>();
+        this.highScores = new ArrayList<Integer>();
+        this.currentScore = null;
+    }
   
   //page 1
   public void gameStart() {
@@ -28,7 +40,21 @@ public class PageManager{
 
   }
   
-  //page 2
+  // Page 2
+  public void enterName() {
+    background(0);
+    image(gameStartImage, width / 2, height/ 2, width, height*1.5);
+    textSize(180);
+    text("Enter Name", (width / 2), 160);
+
+    playerName = nameBuilder.toString();
+    textSize(300);
+    // Display the name
+    text(playerName + "_".repeat(Math.max(0, 5 - playerName.length())), width / 2, 500);
+}
+
+  
+  //page 4
   public void homePage(){
     background(0);
    // imageMode(CORNER);
@@ -178,7 +204,7 @@ public class PageManager{
  
   
   
-  //page 5
+  //page 7
   public void gameOverPage(int previousScore){
     background(0);
     imageMode(CENTER);
@@ -193,27 +219,83 @@ public class PageManager{
     textAlign(CENTER);
     text("ENTER TO RESTART", (width / 2), height*0.6425);
     text("Score: "+ previousScore ,width / 2, height / 2 );
+    
+    textSize(50);
+    textAlign(CENTER);
+    text("Right arrow \nfor leaderboard\n >>", (width*0.5), height*0.72);
   }
+  
+  // Page 8
+  public void leaderboard() {
+    background(0);
+    image(gameStartImage, width / 2, height/ 2, width, height*1.5);
+    textSize(150);
+    text("LEADER BOARD", (width / 2), 300);
+    int scoreHeight = 320;
+    textSize(100);
+    for (int i = 0; i < Math.min(5, highScores.size()); i++) {
+        String scoreText = (i + 1) + ". " + highScores.get(i);
+        text(scoreText, (width / 2), scoreHeight);
+        scoreHeight += 70;
+    }
+    if (highScores.size() > 5) {
+        if (currentScore != null && highScores.indexOf(currentScore) >= 5) {
+            String scoreText = "Your score: " + currentScore;
+            text(scoreText, (width / 2), scoreHeight);
+        } // Else part removed as currentScore.print(int) is not valid.
+    }
+
+    textSize(40);
+    //image(button1, 100, 50, 100, 50);
+    text("Left arrow \nto go back\n <<", 100, 60);
+}
   
   
   public void keyPressed(){
-    if (keyCode == ENTER) {
+    
+   
+     
+    if(pageNumber == 7 && keyCode == ENTER ){
+      pageNumber = 0;
+    }
+    
+    if (keyCode == ENTER){
       pageNumber++;
     }
     
-    if(pageNumber == 7){
+    if(pageNumber == 9){
       pageNumber = 1;
     }
     
-    if(pageNumber == 3 && keyCode == RIGHT){
+    if(pageNumber == 4 && keyCode == RIGHT){
       pageNumber++;
     }
-    if(pageNumber == 4 && keyCode == LEFT){
+    if(pageNumber == 5 && keyCode == LEFT){
       pageNumber--;
     }
     
+    if(pageNumber == 7 && keyCode == RIGHT ){
+      pageNumber++;
+    }
     
+   if(pageNumber == 8 && keyCode == LEFT ){
+      pageNumber--;
+    } 
+    
+    if (pageNumber == 2) {
+            if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
+                nameBuilder.append(key); // Accumulate name input
+            } else if (keyCode == ENTER && nameBuilder.length() > 0) {
+                playerName = nameBuilder.toString(); // Convert to string and store
+                nameBuilder.setLength(0); // Reset for next input
+            }
+        }
   }
+  
+  public void saveName(String name) {
+    System.out.println("Name saved: " + name);
+}
+
   
   private void oxygenInstr(){
     textSize(height*0.045);
@@ -326,4 +408,16 @@ public class PageManager{
     }
     healthDisplay();
   }
+  
+  void setName(String name) {
+    playerName = name;
+}
+
+  void displayPlayerName() {
+    fill(255); // Set text color 
+    textSize(32); 
+     text(playerName, (width*(0.8666)),(height*0.0625)); 
+    
+}
+  
 }

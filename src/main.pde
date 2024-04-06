@@ -69,15 +69,19 @@ void draw() {
       pageManager.gameStart();
       break;
     case 2:
-      pageManager.story();
+      pageManager.enterName();
+      pageManager.displayPlayerName();
       break;
     case 3:
-      pageManager.homePage();
+      pageManager.story();
       break;
     case 4:
-      pageManager.InstructionPage();
+      pageManager.homePage();
       break;
     case 5:
+      pageManager.InstructionPage();
+      break;
+    case 6:
       if(player.health == 0){
         previousScore = player.score;
         gameReset();
@@ -99,13 +103,16 @@ void draw() {
       pageManager.StatisticsDisplay();
       //println(frameRate);
       break;
-      case 6:
+      case 7:
         pageManager.gameOverPage(previousScore);
         break;
-     case 7:
+      case 8:
+         pageManager.leaderboard();
+         break;
+      case 9:
          pageManager.helpPage();
          break;
-     case 8:
+      case 10:
          pageManager.MenuTwoPage();
          break;
    
@@ -113,7 +120,7 @@ void draw() {
 }
 
 void keyPressed(){
-  if(pageManager.pageNumber == 5 || pageManager.pageNumber == 7 || pageManager.pageNumber == 8){
+  if(pageManager.pageNumber == 6 || pageManager.pageNumber == 9 || pageManager.pageNumber == 10){
     player.keyPressed();
   }
   else{
@@ -132,7 +139,7 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 6, enemyManager);
+  pageManager = new PageManager(player, 7, enemyManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
   
   
