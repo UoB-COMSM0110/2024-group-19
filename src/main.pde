@@ -8,9 +8,12 @@ PageManager pageManager;
 TreeManager treeManager;
 ObstacleManager obstacleManager;
 PowerUpManager powerUpManager;
+PlayerScore playerScore;
 float mapX, mapY;
 int playerSpeed = 2, playerHealth = 5, previousScore = 0;
 PFont font;
+String playerName = ""; 
+
 
 void setup() {
   // Set renderer to P2D or it lags horrifically.
@@ -141,6 +144,6 @@ void gameReset(){
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 7, enemyManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
-  
+  pageManager.addScore(playerName, previousScore);
   
 }

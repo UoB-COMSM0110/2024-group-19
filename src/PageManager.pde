@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PageManager {
     int pageNumber;
     EnemyManager enemyManager;
     Character playerInfo;
     ArrayList<Character> name;
-    ArrayList<Integer> highScores;
+    ArrayList<PlayerScore> highScores = new ArrayList<PlayerScore>();
     Integer currentScore;
     StringBuilder nameBuilder = new StringBuilder();
     String playerName = "";
@@ -15,8 +16,6 @@ public class PageManager {
         this.playerInfo = player;
         this.pageNumber = pageNumber;
         this.enemyManager = enemyManager;
-        this.name = new ArrayList<Character>();
-        this.highScores = new ArrayList<Integer>();
         this.currentScore = null;
     }
   
@@ -234,21 +233,22 @@ public class PageManager {
     int scoreHeight = 320;
     textSize(100);
     for (int i = 0; i < Math.min(5, highScores.size()); i++) {
-        String scoreText = (i + 1) + ". " + highScores.get(i);
-        text(scoreText, (width / 2), scoreHeight);
-        scoreHeight += 70;
+        PlayerScore ps = highScores.get(i);
+        String scoreText = (i + 1) + ". " + ps.playerName + " - " + ps.score;
+        text(scoreText, (width / 2), scoreHeight*1.2);
+        scoreHeight += 70; 
     }
-    if (highScores.size() > 5) {
-        if (currentScore != null && highScores.indexOf(currentScore) >= 5) {
-            String scoreText = "Your score: " + currentScore;
-            text(scoreText, (width / 2), scoreHeight);
-        } // Else part removed as currentScore.print(int) is not valid.
-    }
-
-    textSize(40);
-    //image(button1, 100, 50, 100, 50);
-    text("Left arrow \nto go back\n <<", 100, 60);
+    
+    textSize(50);
+    text("Left arrow \nto go back\n <<", (width*0.5), height*0.72); 
 }
+
+
+public void addScore(String playerName, int score) {
+    highScores.add(new PlayerScore(playerName, score));
+    Collections.sort(highScores); 
+}
+
   
   
   public void keyPressed(){
@@ -258,6 +258,7 @@ public class PageManager {
     if(pageNumber == 7 && keyCode == ENTER ){
       pageNumber = 0;
     }
+    
     
     if (keyCode == ENTER){
       pageNumber++;
@@ -282,14 +283,22 @@ public class PageManager {
       pageNumber--;
     } 
     
-    if (pageNumber == 2) {
-            if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
-                nameBuilder.append(key); // Accumulate name input
-            } else if (keyCode == ENTER && nameBuilder.length() > 0) {
-                playerName = nameBuilder.toString(); // Convert to string and store
-                nameBuilder.setLength(0); // Reset for next input
-            }
+   if (pageNumber == 2) {
+     if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
+        if(nameBuilder.length() < 5) { 
+            nameBuilder.append(key); 
         }
+     } else if (keyCode == ENTER) {
+        playerName = nameBuilder.toString(); // Update global playerName
+        pageManager.addScore(playerName, previousScore); 
+        nameBuilder.setLength(0); // Clear StringBuilder for future use
+       
+     } else if ((nameBuilder.length() > 0) && keyCode == BACKSPACE) {
+     nameBuilder.deleteCharAt(nameBuilder.length() - 1); 
+     }
+   }
+        
+        
   }
   
   public void saveName(String name) {
