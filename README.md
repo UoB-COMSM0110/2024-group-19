@@ -3,6 +3,8 @@
 ### Team
 <img src='/ReportMaterial/MicrosoftTeams-image.png'/>
 
+L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
+
 Weijian Li ,  me23202@bristol.ac.uk , LassonLi
 
 Xinyue Feng , qg23773@bristol.ac.uk , XinyueFeng99 
@@ -13,9 +15,10 @@ Jamie Bell-Thomas , ws19177@bristol.ac.uk , jamiebellthomas
 
 Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 
-### Introduction
+## Introduction
 
-In our single player roguelite survival game, the player takes on the role of a one-man army aiming to survive waves of mutated rats and the collection of gems. The gems are generated from killing the rats, allowing for a more powerful weapon or statistical upgrades. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with the bullets shooting out of the character oriented through the directions of the mouse. Players can strategise to either kill their way through or survive through the incoming waves of rats. As the player progresses onto the next level, the difficulty of the game increases with more rats that are harder to kill. The game is lightly based off a mobile game “[Suvivor.io](http://suvivor.io/)”. We included an endurance bar that decreases as the character moves as a twist to our game. Leading the character to stay still to build up their endurance and run further after. Our twists allows for an increased difficulty level as the player will need to bare their endurance in mind, simultaneously causing the player to confront the waves of rats.
+In our single player roguelite survival game, the player takes on the role of a one-man army aiming to survive waves of mutated rats and the collection of power ups. The gems are generated from killing the enemies, allowing for a more powerful weapon or statistical upgrades as the game progresses. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with the bullets shooting out of the character oriented through the directions of the mouse. Players can strategize to either kill their way through or survive through the incoming waves of enemies. As the player progresses onto the next level, the difficulty of the game increases with more rats that are harder to kill. The game is based off a mobile game “[Suvivor.io](http://suvivor.io/)”. We included an endurance bar that decreases as the character moves as a twist to our game. Leading the character to stay still to build up their endurance and run further after. Our twists allows for an increased difficulty level as the player will need to bare their endurance in mind, simultaneously causing the player to confront the waves of rats. Furthermore, it causes players to be creative and implement a strategic method of surviving the waves of enemies rather than a straightforward killing game. Our team found that this endurance bar idea was both interesting and novel yet allows players to realistically play the game.
+
 
 ---
 
@@ -26,14 +29,14 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above
 
 ---
 
-### Requirements
+## Requirements
 
 ### Use-case Diagram
 <img src='/Use-case diagram.png'/>
 
 **Early stages design. Ideation process**
 
-In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which is a 2D-kill-zombie game. Through an anonymous vote, majority decided on the survivor game due to its creativity as well as difficulty level. In week 3, we started to discuss about the basic function of this game before creating initial paper prototype mock-ups. In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements that wanted in our game. Using our requirements, we redid the paper prototype and recorded a video to depict ideally how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
+In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which is a 2D-kill-zombie game. Through an anonymous voting system, majority decided on the survivor game due to its creativity as well as difficulty level. We started to discuss about the basic function of this game before creating initial paper prototype mock-ups. In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements that wanted in our game. Using our requirements, we redid the paper prototype and recorded a video to depict ideally how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
 
 
 **User Stories**
@@ -90,16 +93,15 @@ In inital stages of development, our group brainstormed about several types of g
 
 *Entered page of win after level2*
 
->Show congratulation page
-
+>Show congratulation page:
 >System displays high score onto the scoresheet
-> If they are exisiting players, higher scores placed above previous scores. 
+> If they are existing players, higher scores placed above previous scores. 
 > First time players places their score in the middle, ighlight the current game score using border
 >System shows: most recent 3 scores to show improvement or deprovement from previous games 
 
 >System display back to original page showing the login
 
-### Design 
+## Design 
 
 750 words 
 System Architecture 
@@ -108,10 +110,11 @@ System Architecture
 
 ---
 
-### Implementation 
-750 words 
-Describe implementation + 3 challenges chosen 
+## Implementation 
 
+**Implementation**
+
+**Challenges**
 The 3 largest areas of challenges identified during the production of the game was: 1) planning and Implementation of a Dynamic Map; 2) creating an accurate shooting process using the mouse whilst making it efficient; and 3) the separation of enemies based on Particle Swarm Optimisation. These challenges were derived from the process of improving our game through our evaluative feedback.
 
 1. Dynamic Maps
@@ -130,7 +133,12 @@ Based on the qualitative evaluations we received, one theme that stood out was t
 Image below: Image of planning phase for dynamic mapping. 
  <img src='ReportMaterial/ImplementationC2.1jpeg.jpeg'/> 
 
--> insert Tree borders
+
+
+Furthermore, to allow Users to play the game more strategically, we had implemented obstacles on the map. It can be used to orientate themselves of their location or used to hide away from the zombies. This was implemented using JSON files, which was populated with the different types, coordinates and dimensions of the obstacles.
+ <img src='Treeborder.png'/> 
+
+
 
 2. Accurate and Effective Shooting
 
@@ -145,7 +153,7 @@ Image below: reflects how bullet comes from the middle of the character in a str
 Furthermore, as the game was built on multiple loops that check the boundary of the character and the bullets, checks for the collision of the bullets with the enemies and the removal of bullets whilst having a constant loop to release the waves of enemies; the game was running very slowly. As such we had to make multiple changes. such as instantly deleting any bullets that were outside the window of the user’s perception to reduce the number of bullets to check for. Additionally, we kept track of the number of enemies that could be perceived by the user as a list and narrow down the global list of enemies to the perceived list, further lowering down the number of collisions to be checked for.
 
 
-3. Partical Swarm Optimisation on Enemy Positioning
+3. Particle Swarm Optimisation on Enemy Positioning
 
 In early iterations of the game, enemies were allowed to overlap freely. This created an issue. With all enemies are trying to proceed to the same point on the map (the coordinates of the player), it became a common occurrence that they coalesced into a single entity, significantly detracting from the quality of the game. To combat this, we utilised a bio-inspired algorithm called Swarm Intelligence.
 Swarm Intelligence is a mathematical representation of a sub-set of systems that exhibit emergent complexity, and one of its underlying behaviours is Separation, which ensures that the action space is delegated amongst the swarm’s agents.
@@ -156,7 +164,7 @@ To enforce this each enemy has a protected radius, and when other enemies enter 
 
    ---
 
-### Evaluations 
+## Evaluations
 Stage 1 : mid-production evaluations
 
 
@@ -170,14 +178,6 @@ Negatives: There isn’t much fun or interesting movements to the character. Its
 
 Think Aloud Participant #2:
 
-Positives: Like that the character can move diagonally and the stamina bar is quite interesting.
-
-Negatives: the enemy’s colour scheme is too similar to the background. Having a border or background of a different colour for instructional texts might be useful. The bullets could be more accurate with the speed of the mouse and it should not be able to hurt more than one zombie with one bullet. The health bar and the stamina bar could be moved down. Would prefer a larger more interactive map. 
-
----
-
-Think Aloud Participant #3:
-
 Positives: good amount of challenging. 
 
 Negatives: Unsure what stamina means. Felt that the background was too colourful and distracting from the enemy. When the enemy is too close to the character, the visuals of the bullet deteriorate. The font used for texts are too small and white makes it hard to see. Did not catch or fully grasps what the instructions were before starting the game. 
@@ -186,13 +186,21 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 **Heuristic Evaluation** 
 
 <img src='/HeuristicEvalS1.png'/>
+Based on the Heuristic Evaluation of the different game pages, we found that the issue regarding the design of the game was severely impacting the player's experience.
+
 
 ---
 **System Usability Scale**
-<img src='/SUS stage 1.png'/>
+<img src='/SUS1.png'/>
+The final score was derieved and processed accordingly to their question number. Odd numbered questions had 1 subtracted from their scale score and mulitplied by 2.5 for the overall score. Whilst even numbered questions were subtracted from 5, before being multiplicated by 2.5 for the overall score. The processing of the SUS scores was completed over Microsoft Exel. 
+
 ---
 **NASA TLX**
 <img src='/TLXstage1.png'/>
+The NASA TLX questions were weighted by the users who underwent the TLX scoring and determined based on their opinions. Using the average weightage, it informed the final aggregate workload as sum of each individual score was multiplied by the question weightage before being divided by 15. The TLX scores highlighted that majority of the effort needed to play out game came from the performance of each player, the effort and their frustrations. 
+
+---
+**Insights**
 
 Through analysing the data recorded from the qualitative and quantitative evaluations of the first stages of development, after we had our first viable product. 
 We identified some key themes that guided our development onto the next stage for further improvement based on feedback. 
@@ -207,14 +215,24 @@ As such, the team underwent brain storming to further improve the game whilst us
 ---
 Stage 2: Final evaluation 
 
-> quantitative evaluation
-> wilcoxin significant testing for quantitative
->  How code was tested in evaluation
-> was there a significant difference??
+The team held another SUS evaluation after redesigning the game. Changes to the design included a fixed font and colour throughout the game, change in ingame background and a menu button to remind users of the instructions and ability to exit the game safely. These changes aimed to help distinguish the text and the backgrounds to be more distinct and clearer, whilst maintaining an aesthetic 8-bit look to the game. 
+
+**System Usability Scale**
+<img src='/SUS2.png'/>
 
 
-### Process ###
+**Wilcoxin Significant Testing** 
 
+To evaluate if there was a significant difference in usability, the team used Wilcoxin Ranked test from on online W-test calculator. https://www.statology.org/wilcoxon-signed-rank-test-calculator/. We used the final System Usability Scale results of both Stage 1 (pre-design changes) and Stage 2(post-design changes) for the W-ranked test. 
+<img src='/TtestScore.png'/>
+<img src='/alphaLevel.png'/>
+
+We found that there was not a significant improvement in usability. With a T test score of 13 on 10 non-paired pairs, we needed a score of 8 to have a 95% certainty that the difference in usability was due to the changes rather than due to random noise. Whilst there is no significant difference in usability, in future rendition of the game, we aim to find different possibilities to implement on our design to further improve user usability. 
+
+
+
+
+## Process ##
 
 **Teamwork:**
 
@@ -238,8 +256,7 @@ Our team communicates via Teams to confirm the time and place for our meeting. W
 Whilst every member played a role in contributing to the working code, prototyping ,ideation process and report writing, some members who had stronger coding skills had roles of being the team leaders in the code development and they delegated code work to the rest of the members. Some members took on roles of recording and keeping track of what tasks were completed during the meetings and updated the report to be as accurate as possible. While the rests of the members worked on the video presentation and sourcing of assets. 
 
 
-**Reflection on how you worked together** 
-// guys pls write you reflections on our work and how much you think you contributed to the role 
+**Reflection** 
 
 Charmaine: 1.0
 
@@ -250,6 +267,8 @@ XinYue: 1.0
 I really enjoy the whole process of us figuring out the idea for the game. A lot of the initial design has to be modified during the process, and that is the chance we got to understand and practice agile development and teamwork. In the team, every member contributes their understanding of what makes the game work well and what makes it appealing to people. Therefore, we have a broader view of how to deliver a quality product. 
 
 Jamie: 1.0
+
+In this project my main area of responsibility has been the development of the source code. I played a key role in the development and testing of base mechanics of our game. Once a minimal viable product had been developed, I took a step back and restructured our code base, really focusing on the principals of agile object orientated design. This increased the readability and the performance of the code significantly as well as making it simpler to understand and further develop our game. More recently I have been working on higher level features such as the dynamic background as-well as the ‘power-up’ mechanics. Overall, I have thoroughly enjoyed working as a part of this team. I feel we have placed great emphasis on regular communication, creating a clear sense of direction for this team and allowing a wide variety of ideas to be considered. 
 
 WeiJian: 1.0
 
@@ -262,8 +281,17 @@ In my role, I undertook game display design tasks such as creating game characte
 
 
 ### Conclusion ###
-In conclusion, ... 
-reflect on project as a whole, lessons learnt and reflect on future work)
+When we started the project, our team was extremely excited to create a new game that we could call our own. We wanted it to be fun, to look cool and for us to be proud of our production. Through our continuous hard work and commitment towards this project, we found that we have accomplished just that. This game has brought many challenges that we had to overcome, even starting from the basic of deciding how to format the game and to explore the different features processing was difficult. Furthermore, the challenges we found ourselves facing as we wanted to further improve the game, not only made us realise how important communication and independent learning was, but we also realised that working together as an agile team helped us bounce ideas and process information better. Looking back, whilst the main idea of the game still resides, we realised that game development is an ongoing process, and we need to remain flexible and open to new ideas. 
+
+With the final product in hand, it might be easy to say that the entire process was smooth sailing, however key challenges the team faced was the need to refactor the game halfway through production. We found our code to be messy and the classes were unorganised. Aiming to allow the game to be as robust as possible, we decided to refactor the game over the Easter break. Majority of the production was held over those 3 weeks. Furthermore, whilst there were technical challenges that we faced during the game production. One of the challenges that blind sighted us was the design aspect. The team did not realise how big of an impact design has on a game, from making it look like an amateur production to something of better quality. Whilst our usability difference might not have been significant. We found that having a consistent look by using similar backgrounds, fonts, colour schemes, all made the game clearer and more professional. In future endeavours, we hope to have the time and ability to explore different ways to implement new enemies, each having their own skill to kill, and finding creative ways for the User to power up. Furthermore, in the future, the team feels that we could implement some scientifically informed user experience design to further improve the usability of the game, allowing for it to be second nature and easy to use. 
+
+We would also like to use this space to thanks the different artists who gave them their permissions to use their different art works as assets. Other assets from artists who we were unable to contact were open sourced and available to use for school productions. 
+
+Purple Zaffre: Assets for character [https://www.deviantart.com/purplezaffre]
+
+Tyler Dunn: 8-bit Madness Font [https://www.fontzillion.com/fonts/tyler-dunn/8-bit-madness]
+
+Forheksed: game background [https://www.deviantart.com/forheksed/art/Evening-in-the-coniferous-forest-603798203]
 
 
 <br>
@@ -274,7 +302,4 @@ System Architecture
   - Class Diagrams
   - Behaviour Diagrams
 
-Describe implementation + 3 challenges chosen 
 
-Process for teamwork (what tools, team rolls, reflection on working together)
-Conclusion (reflect on project as a whole, lessons learnt and reflect on future work)
