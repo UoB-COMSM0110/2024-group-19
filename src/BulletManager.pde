@@ -2,7 +2,9 @@ public class BulletManager{
   
   private float mapX, mapY;
   // How many milliseconds between shots.
-  public float fireRate, bulletSpeed;
+  public int baseFireRate, bulletSpeed, increasedFireRate, fireRate;
+  private float lastFireRateActivate = 0, increasedFireRateTimeLimit;
+  private boolean increasedFireRateActive = false;
   private float lastBulletTime = 0;
   ArrayList<Bullet> bulletList = new ArrayList();
   Character playerInfo;
@@ -11,8 +13,11 @@ public class BulletManager{
     this.mapX = mapX;
     this.mapY = mapY;
     playerInfo = player;
-    fireRate = 150;
+    baseFireRate = 150;
+    increasedFireRate = 75;
     bulletSpeed = 5;
+    fireRate = baseFireRate;
+    increasedFireRateTimeLimit = 5000;
     
   }
   
@@ -20,7 +25,7 @@ public class BulletManager{
     
     if (millis() - lastBulletTime > fireRate) {
       float bulletDirection = atan2(mouseY - (height/2), mouseX - width/2); 
-      bulletList.add(new Bullet((player.x+(player.img.width/2)), (player.y+(player.img.height/2)), bulletSpeed,bulletImage, bulletDirection));
+      bulletList.add(new Bullet((player.x/*+(player.img.width/2)*/), (player.y/*+(player.img.height/2)*/), bulletSpeed,bulletImage, bulletDirection));
       lastBulletTime = millis();
     }
   }
@@ -77,7 +82,25 @@ public class BulletManager{
     }
   }
   
+  public void increaseFireRate(){
+    lastFireRateActivate = millis();
+    fireRate = increasedFireRate;
+    increasedFireRateActive = true;
+  }
+  
+  private void fireRateEndCheck(){
+    
+    if(increasedFireRateActive){
+      if((millis() - lastFireRateActivate) > increasedFireRateTimeLimit){
+        increasedFireRateActive = false;
+        fireRate = baseFireRate;
+      }
+    }
+  
+  }
+  
   private void update(){
+    fireRateEndCheck();
     newBulletCheck();
     removeBulletBoundary();
     removeBulletOffScreen();

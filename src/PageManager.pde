@@ -10,13 +10,15 @@ public class PageManager {
     Integer currentScore;
     StringBuilder nameBuilder = new StringBuilder();
     String playerName = "";
+    BulletManager bulletManager;
     
 
-    public PageManager(Character player, int pageNumber, EnemyManager enemyManager) {
+    public PageManager(Character player, int pageNumber, EnemyManager enemyManager, BulletManager bulletManager) {
         this.playerInfo = player;
         this.pageNumber = pageNumber;
         this.enemyManager = enemyManager;
         this.currentScore = null;
+        this.bulletManager = bulletManager;
     }
   
   //page 1
@@ -401,6 +403,13 @@ public void addScore(String playerName, int score) {
     float barSize = 100*(1-(timeElapsed/player.speedBoostTimeLimit));
     rect(width/150, height*0.125, (barSize * (width * 0.00266)), height/35,height*0.02);
   }
+
+  private void fireRateBoostDisplay(){
+    fill(255, 0, 0); // Blue color for oxygen
+    float timeElapsed = millis() - bulletManager.lastFireRateActivate;
+    float barSize = 100*(1-(timeElapsed/bulletManager.increasedFireRateTimeLimit));
+    rect(width/150, height*0.16, (barSize * (width * 0.00266)), height/35,height*0.02);
+  }
   
   private void healthDisplay(){
     for (int i = 0; i < player.health; i++) {
@@ -414,6 +423,9 @@ public void addScore(String playerName, int score) {
     oxygenDisplay();
     if(player.speedBoostActive){
       speedBoostDisplay();
+    }
+    if(bulletManager.increasedFireRateActive){
+    fireRateBoostDisplay();
     }
     healthDisplay();
   }

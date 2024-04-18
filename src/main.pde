@@ -1,4 +1,4 @@
-PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, speedImage,gameStartImage;
+PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, rapidFireImage, speedImage,gameStartImage;
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -38,6 +38,9 @@ void setup() {
   portalImage.resize(50,95);
   speedImage = loadImage("../Assets/speed.png");
   speedImage.resize(72,50);
+  rapidFireImage = loadImage("../Assets/3bullet.png");
+  rapidFireImage.resize(80,25);
+  
 
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
@@ -51,11 +54,11 @@ void setup() {
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 1, enemyManager);
+  pageManager = new PageManager(player, 1, enemyManager, bulletManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
   treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
   // Power up probability currently hard-coded at 0.1, this can be adjusted later.
-  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.5);
+  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
   obstacleManager =new ObstacleManager("../src/obstacles.json");
   frameRate(300);
   //println(width + "," + height);
@@ -142,8 +145,8 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 7, enemyManager);
-  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.1);
+  pageManager = new PageManager(player, 7, enemyManager, bulletManager);
+  powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
   pageManager.addScore(playerName, previousScore);
   
 }

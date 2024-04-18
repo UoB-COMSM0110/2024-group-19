@@ -3,15 +3,17 @@ public class PowerUpManager{
   ArrayList<PowerUp> powerUpList = new ArrayList();
   private float mapX, mapY;
   Character playerInfo;
+  BulletManager bulletManager;
   // This is the probability that a powerUp will appear (between 0 and 1)
   float spawnProbability;
   int despawnTimeSeconds = 10, powerCollectionDist = 15;
   
-  public PowerUpManager(float mapX, float mapY, Character player, float probability){
+  public PowerUpManager(float mapX, float mapY, Character player, float probability, BulletManager bulletManager){
     this.mapX = mapX;
     this.mapY = mapY;
     this.playerInfo = player;
     this.spawnProbability = probability;
+    this.bulletManager = bulletManager;
   }
   
   public void powerUpCreate(float x, float y){
@@ -27,13 +29,17 @@ public class PowerUpManager{
       String type = null;
       float randomNumberType = random(0.0,1.0);
       
-      if(randomNumberType < 0.33){
+      if(randomNumberType < 0.25){
         img = heartImage;
         type = "health";
       }
-      else if(randomNumberType < 0.66){
+      else if(randomNumberType < 0.5){
         img = speedImage;
         type = "speed";
+      }
+      else if(randomNumberType < 0.75){
+        img = rapidFireImage;
+        type = "rapidFire";
       }
       else{
         img = portalImage;
@@ -90,6 +96,10 @@ public class PowerUpManager{
         
         case "speed":
           player.speedBoostActivate();
+          break;
+        
+        case "rapidFire":
+          bulletManager.increaseFireRate();
           break;
       }
     }
