@@ -100,24 +100,9 @@ class Character extends Entity {
       pageManager.pageNumber = 10;
     }
         if(keyCode == ENTER && pageManager.pageNumber == 10){
-          pageManager.pageNumber = 5;
-        }
-        else if(keyCode == RIGHT && pageManager.pageNumber == 10){
-          pageManager.pageNumber = 8;
+          pageManager.pageNumber = 6;
         }
         else if(keyCode == SHIFT && pageManager.pageNumber == 10){
-          gameReset();
-          pageManager.pageNumber = 1;
-        }
-        
-        
-        if(keyCode == ENTER && pageManager.pageNumber == 8){
-          pageManager.pageNumber = 5;
-        }
-        if(keyCode == LEFT && pageManager.pageNumber == 8){
-          pageManager.pageNumber = 10;
-        }
-        if(keyCode == SHIFT && pageManager.pageNumber == 8){
           gameReset();
           pageManager.pageNumber = 1;
         }

@@ -24,6 +24,7 @@ public class PageManager {
         this.bulletManager = bulletManager;
         createScoreFile();
         loadScores();
+        Collections.sort(highScores);
     }
   
   //page 1
@@ -152,40 +153,51 @@ public class PageManager {
   fill(#ffffff);
  // image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
   text("Shift\n to Quit", (width*0.8), height*0.71);
-  textSize(43);
-   text("Right arrow \nfor next page\n >>", (width*0.5), height*0.72);
- // imageMode(CORNER);
   }
-     public void MenuTwoPage(){
-     background(0);
-    imageMode(CORNER);
-    //float topLeftX = -(playerInfo.x - (width/2));
-    //float topLeftY = -(playerInfo.y - (height/2));
+  
+  
+  public void MenuTwoPage(){
+    imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
-    //imageMode(CENTER);
     textSize(100);
     fill(#ffffff);
-    text("MENU",width*0.5,height*0.1);
-    text("INSTRUCTION 1/2", width*0.5, height*0.15);
+    text("GAME PAUSED",width*0.5,height*0.1);
 
     healthInstr();
     speedInstr();
     portalInstr();
     fireRateInstr();
 
+    
+
   textSize(40);
-  //image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
   textLeading(37);
   fill(#ffffff);
-  text("Enter\n to Resume",(width*0.23), height*0.71);
+  text("Enter\n to Resume",(width*0.23), height*0.85);
   textSize(40);
   fill(#ffffff);
- // image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
-  text("Shift\n to Quit", (width*0.8), height*0.71);
-  textSize(43);
-   text("Left arrow \n to go back\n <<", (width*0.5), height*0.72);
- // imageMode(CORNER);
+  text("Shift\n to Quit", (width*0.8), height*0.85);
+  
+  textSize(100);
+    text("LEADERBOARD", width / 2, height/1.6);
+    int textSize = 60;
+    textSize(textSize);
+    float y = height/1.47;  // Start position for player scores
+       
+     // Loops through the top 5 scores stored in highScores
+    for (int i = 0; i < Math.min(5, highScores.size()); i++) {
+        PlayerScore ps = highScores.get(i);// Retrieves the i-th player score.
+        text((i + 1) + ". " + ps.toString(), width / 2, y);
+        y += textSize;  // Move down for the next score
+    }
+    
+    text(playerName + "'s current Score: \n" + playerInfo.score, (width*0.8), height*0.71);
+    
+    
   }
+  
+  
+  
   
   public void story (){
     background(0);
@@ -345,7 +357,7 @@ public class PageManager {
      background(0);
         image(gameStartImage, width / 2, height / 2, width, height * 1.5);
         textSize(100);
-        text("LEADER BOARD", width / 2, 140);
+        text("LEADERBOARD", width / 2, 140);
         textSize(70);
         int y = 200;  // Start position for player scores
        
@@ -407,7 +419,7 @@ public class PageManager {
     textAlign(CENTER, CENTER);
     fill(#ffffff);
     textLeading(30);
-    image(rapidFireImage, width*widthPos, height*0.36, width*0.15, width*0.04);
+    image(rapidFireImage, width*widthPos, height*0.36, width*0.15, width*0.038);
     text("This power will\n increase your \n rate of fire ", (width*widthPos), height*0.49);
     
   }
