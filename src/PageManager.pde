@@ -105,7 +105,7 @@ public class PageManager {
     text("INSTRUCTIONS 2/2",width*0.5,height*0.1);
     textSize(30);
     fill(#ffffff);
-    text("Press 'M' for menu and instructions",width*0.5,height*0.15);
+    text("Press 'M' in-game for to see this info again",width*0.5,height*0.15);
              // "W", "A", "S", "D" 
   float baseX = width / 2;
   float baseY = height / 2;
@@ -445,7 +445,7 @@ public class PageManager {
     textAlign(CENTER, CENTER);
     fill(#ffffff);
     textLeading(30);
-    image(zombieImage, width*0.83, height*0.36, width*0.1, width*0.1);
+    image(zombieImage, width*0.83, height*0.36, width*0.06, width*0.09);
     text("Survive the incoming\n waves of zombies for\n as long as possible. ", (width*0.83), height*0.49);
   }
   

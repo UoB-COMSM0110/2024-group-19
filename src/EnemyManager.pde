@@ -61,7 +61,7 @@ public class EnemyManager{
     
     if(enemyListOnScreen == null){return;}
     
-    float yClose, xClose, protectedDistance = enemyImage.width/2, direction;
+    float yClose, xClose, protectedDistance = enemyImage.width, direction;
     int collisions;
     // These track the net distance between a given enemy (enemyOne) and all other enemies in its protected radius
     // Rather than stopping them from moving when they get to close to one another (which causes large groups of enemies to effectively become 'stuck'

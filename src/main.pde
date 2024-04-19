@@ -27,8 +27,8 @@ void setup() {
   backgroundImage.resize(width*3, height*3);
   bulletImage = loadImage("../Assets/bullet.png");
   bulletImage.resize(20,20);
-  zombieImage = loadImage("../Assets/enemy.png");
-  zombieImage.resize(zombieImage.width/11, zombieImage.height/11);
+  zombieImage = loadImage("../Assets/enemyWalking/tile000.png");
+  //zombieImage.resize(zombieImage.width/11, zombieImage.height/11);
   gameStartImage = loadImage("../Assets/gameStart.png");
   gameStartImage.resize(width, height);
   buttonImage = loadImage("../Assets/button.png");

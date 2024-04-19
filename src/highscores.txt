@@ -1,3 +1,6 @@
+xXGXx,11550,(Hard)
+bert,8880,(Hard)
+jamie,1740,(Hard)
 paul,530,(Hard)
 kelly,270,(Hard)
 leana,200,(Hard)
