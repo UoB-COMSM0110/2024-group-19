@@ -14,7 +14,8 @@ public class PageManager {
     StringBuilder nameBuilder = new StringBuilder();
     //String playerName = "";
     BulletManager bulletManager;
-    File scoreFile = new File(System.getProperty("user.home"), "highscores.txt");
+    String scoreFile = "highscores.txt";
+    //File scoreFile = new File("highscores.txt");
 
     public PageManager(Character player, int pageNumber, EnemyManager enemyManager, BulletManager bulletManager) {
         this.playerInfo = player;
@@ -232,19 +233,22 @@ public class PageManager {
     //addScore(playerName, previousScore); 
   }
   
-  private void createScoreFile() {
-        try {
-            if (!scoreFile.exists()) {
-                scoreFile.createNewFile();
+ private void createScoreFile() {
+        //createif it doesn't exist
+        File file = new File(sketchPath(scoreFile));
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                System.out.println("Failed to create score file: " + e.getMessage());
             }
-        } catch (IOException e) {
-            System.out.println("Failed to create score file: " + e.getMessage());
         }
     }
 
     private void loadScores() {
         highScores.clear();
-        try (Scanner scanner = new Scanner(scoreFile)) {
+        File file = new File(sketchPath(scoreFile));
+        try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
@@ -252,10 +256,9 @@ public class PageManager {
                     String name = parts[0].trim();
                     int score = Integer.parseInt(parts[1].trim());
                     highScores.add(new PlayerScore(name, score));
-                    System.out.println("name + score" + name + score);
                 }
             }
-            Collections.sort(highScores);
+            Collections.sort(highScores, Collections.reverseOrder()); // Assuming PlayerScore implements Comparable
         } catch (IOException e) {
             System.out.println("Error reading from score file: " + e.getMessage());
         }
@@ -272,9 +275,8 @@ public class PageManager {
          
     }
 
-    private void saveScores() {
-       
-        try (PrintWriter pw = new PrintWriter(new FileWriter(scoreFile, false))) {
+   private void saveScores() {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(sketchPath(scoreFile), false))) {
             for (PlayerScore ps : highScores) {
                 pw.println(ps.playerName + "," + ps.score);
             }
@@ -338,20 +340,21 @@ public class PageManager {
    if (keyCode == ENTER){
       pageNumber++;
     }
-} 
+  } 
+  
    public void leaderboard() {
      background(0);
         image(gameStartImage, width / 2, height / 2, width, height * 1.5);
-        textSize(50);
-        text("LEADER BOARD", width / 2, 100);
-        textSize(30);
-        int y = 150;  // Start position for player scores
+        textSize(100);
+        text("LEADER BOARD", width / 2, 140);
+        textSize(70);
+        int y = 200;  // Start position for player scores
        
         // Loops through the top 5 scores stored in highScores
         for (int i = 0; i < Math.min(5, highScores.size()); i++) {
             PlayerScore ps = highScores.get(i);// Retrieves the i-th player score.
             text((i + 1) + ". " + ps.toString(), width / 2, y);
-            y += 40;  // Move down for the next score
+            y += 50;  // Move down for the next score
     }
 
     textSize(50);
