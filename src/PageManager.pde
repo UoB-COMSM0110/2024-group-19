@@ -1,24 +1,28 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.IOException;
 
 public class PageManager {
     int pageNumber;
     EnemyManager enemyManager;
     Character playerInfo;
-    ArrayList<Character> name;
-    ArrayList<PlayerScore> highScores = new ArrayList<PlayerScore>();
-    Integer currentScore;
+    ArrayList<PlayerScore> highScores = new ArrayList<>();//sets up an empty list holding PlayerScore objects
     StringBuilder nameBuilder = new StringBuilder();
-    String playerName = "";
+    //String playerName = "";
     BulletManager bulletManager;
-    
+    File scoreFile = new File(System.getProperty("user.home"), "highscores.txt");
 
     public PageManager(Character player, int pageNumber, EnemyManager enemyManager, BulletManager bulletManager) {
         this.playerInfo = player;
         this.pageNumber = pageNumber;
         this.enemyManager = enemyManager;
-        this.currentScore = null;
         this.bulletManager = bulletManager;
+        createScoreFile();
+        loadScores();
     }
   
   //page 1
@@ -30,7 +34,7 @@ public class PageManager {
     text("The Chase", (width / 2), height*0.325);
     textSize(50);
     text("Group 19",width*0.5, height*0.375);
-    //image(button2, WIDTH - 70, 70, 100, 100); // leaderboard
+    //image(button2, WIDTH - 70, 70, 100, 100); 
     imageMode(CENTER);
    // image(buttonImage, (width / 2), height*0.625, width*0.3666, height*0.1375); //start
     textSize(60);
@@ -224,32 +228,61 @@ public class PageManager {
     textSize(50);
     textAlign(CENTER);
     text("Right arrow \nfor leaderboard\n >>", (width*0.5), height*0.72);
+    //System.out.println("NAME:" + playerName);
+    //addScore(playerName, previousScore); 
   }
   
-  // Page 8
-  public void leaderboard() {
-    background(0);
-    image(gameStartImage, width / 2, height/ 2, width, height*1.5);
-    textSize(150);
-    text("LEADER BOARD", (width / 2), 300);
-    int scoreHeight = 320;
-    textSize(100);
-    for (int i = 0; i < Math.min(5, highScores.size()); i++) {
-        PlayerScore ps = highScores.get(i);
-        String scoreText = (i + 1) + ". " + ps.playerName + " - " + ps.score;
-        text(scoreText, (width / 2), scoreHeight*1.2);
-        scoreHeight += 70; 
+  private void createScoreFile() {
+        try {
+            if (!scoreFile.exists()) {
+                scoreFile.createNewFile();
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to create score file: " + e.getMessage());
+        }
     }
-    
-    textSize(50);
-    text("Left arrow \nto go back\n <<", (width*0.5), height*0.72); 
-}
 
+    private void loadScores() {
+        highScores.clear();
+        try (Scanner scanner = new Scanner(scoreFile)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    String name = parts[0].trim();
+                    int score = Integer.parseInt(parts[1].trim());
+                    highScores.add(new PlayerScore(name, score));
+                    System.out.println("name + score" + name + score);
+                }
+            }
+            Collections.sort(highScores);
+        } catch (IOException e) {
+            System.out.println("Error reading from score file: " + e.getMessage());
+        }
+    }
 
-public void addScore(String playerName, int score) {
-    highScores.add(new PlayerScore(playerName, score));
-    Collections.sort(highScores); 
-}
+    public void addScore() {
+        
+        highScores.add(new PlayerScore(playerName, previousScore));
+        Collections.sort(highScores);
+        for(PlayerScore sc: highScores){
+          sc.toString();
+        }
+        saveScores();
+         
+    }
+
+    private void saveScores() {
+       
+        try (PrintWriter pw = new PrintWriter(new FileWriter(scoreFile, false))) {
+            for (PlayerScore ps : highScores) {
+                pw.println(ps.playerName + "," + ps.score);
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing to score file: " + e.getMessage());
+        }
+    }
+
 
   
   
@@ -262,9 +295,7 @@ public void addScore(String playerName, int score) {
     }
     
     
-    if (keyCode == ENTER){
-      pageNumber++;
-    }
+    
     
     if(pageNumber == 9){
       pageNumber = 1;
@@ -289,22 +320,42 @@ public void addScore(String playerName, int score) {
      if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
         if(nameBuilder.length() < 5) { 
             nameBuilder.append(key); 
+            playerName = nameBuilder.toString(); // Update global playerName
+            //System.out.println("Debug: Added score for " + playerName);
         }
      } else if (keyCode == ENTER) {
-        playerName = nameBuilder.toString(); // Update global playerName
-        pageManager.addScore(playerName, previousScore); 
+        playerName = nameBuilder.toString(); 
+        System.out.println("Debug: Added score for " + playerName);
+        
         nameBuilder.setLength(0); // Clear StringBuilder for future use
        
      } else if ((nameBuilder.length() > 0) && keyCode == BACKSPACE) {
+       //System.out.println("Debug: Added score for " + playerName);
      nameBuilder.deleteCharAt(nameBuilder.length() - 1); 
      }
    }
-        
-        
-  }
-  
-  public void saveName(String name) {
-    System.out.println("Name saved: " + name);
+   
+   if (keyCode == ENTER){
+      pageNumber++;
+    }
+} 
+   public void leaderboard() {
+     background(0);
+        image(gameStartImage, width / 2, height / 2, width, height * 1.5);
+        textSize(50);
+        text("LEADER BOARD", width / 2, 100);
+        textSize(30);
+        int y = 150;  // Start position for player scores
+       
+        // Loops through the top 5 scores stored in highScores
+        for (int i = 0; i < Math.min(5, highScores.size()); i++) {
+            PlayerScore ps = highScores.get(i);// Retrieves the i-th player score.
+            text((i + 1) + ". " + ps.toString(), width / 2, y);
+            y += 40;  // Move down for the next score
+    }
+
+    textSize(50);
+    text("Left arrow \nto go back\n <<", (width * 0.5), height * 0.72);
 }
 
   
@@ -429,10 +480,6 @@ public void addScore(String playerName, int score) {
     }
     healthDisplay();
   }
-  
-  void setName(String name) {
-    playerName = name;
-}
 
   void displayPlayerName() {
     fill(255); // Set text color 

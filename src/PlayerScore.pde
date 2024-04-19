@@ -1,6 +1,6 @@
 public class PlayerScore implements Comparable<PlayerScore> {
-    String playerName;
-    int score;
+    private String playerName = "";
+    private int score;
 
     public PlayerScore(String playerName, int score) {
         this.playerName = playerName;
@@ -9,6 +9,11 @@ public class PlayerScore implements Comparable<PlayerScore> {
 
     @Override
     public int compareTo(PlayerScore other) {
-        return Integer.compare(other.score, this.score); // For descending order
+        return Integer.compare(other.score, this.score);  // Sort in descending order
+    }
+
+    @Override
+    public String toString() {
+        return playerName/*"abc"*/ + " - " + score;  // String representation for easy display
     }
 }

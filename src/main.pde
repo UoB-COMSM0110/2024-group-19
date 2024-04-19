@@ -66,7 +66,7 @@ void setup() {
 
 
 
-
+int loopCount = 0;
 void draw() {
   //println(frameRate);
   
@@ -111,6 +111,11 @@ void draw() {
       break;
       case 7:
         pageManager.gameOverPage(previousScore);
+        if(loopCount == 0){
+          pageManager.addScore();
+        }
+        
+        loopCount++;
         break;
       case 8:
          pageManager.leaderboard();
@@ -122,7 +127,8 @@ void draw() {
          pageManager.MenuTwoPage();
          break;
    
-    }     
+    }
+   
 }
 
 void keyPressed(){
@@ -147,6 +153,6 @@ void gameReset(){
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
   pageManager = new PageManager(player, 7, enemyManager, bulletManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
-  pageManager.addScore(playerName, previousScore);
+  loopCount = 0;
   
 }
