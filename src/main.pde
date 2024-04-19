@@ -1,5 +1,6 @@
 PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, rapidFireImage, speedImage,gameStartImage;
 ArrayList<PImage> characterWalkingForward = new ArrayList(), characterWalkingBackward = new ArrayList(), characterWalkingLeft = new ArrayList(), characterWalkingRight = new ArrayList(), characterStationary = new ArrayList();
+ArrayList<PImage> enemyWalkingForward = new ArrayList(), enemyWalkingBackward = new ArrayList(), enemyWalkingLeft = new ArrayList(), enemyWalkingRight = new ArrayList(), enemyStationary = new ArrayList();
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -66,6 +67,33 @@ void setup() {
   characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
   characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
   characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
+  
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile001.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile002.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile003.png"));
+  
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile004.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile005.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile006.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile007.png"));
+  
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile008.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile009.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile010.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile011.png"));
+  
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile012.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile013.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile014.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile015.png"));
+  
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  
+  
   
 
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);

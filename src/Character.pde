@@ -25,6 +25,13 @@ class Character extends Entity {
     imageArrays.add(characterWalkingRight);
     imageArrays.add(characterWalkingBackward);
     imageArrays.add(characterWalkingLeft);
+    /*
+    for(ArrayList<PImage> list:imageArrays){
+      for(PImage image: list){
+        image.resize(50,50);
+      }
+    }
+    */
 
     walkingAnimation = new Animation(imageArrays, false);
     
@@ -181,7 +188,7 @@ class Character extends Entity {
     float curentTime = millis();
     if((curentTime - currentFramePeriod) > animationFramePeriod){
       currentFramePeriod = millis();
-      walkingAnimation.selectImageArray(keys);
+      walkingAnimation.selectImageArrayCharacter(keys);
       walkingAnimation.nextImage();
       img = walkingAnimation.activeImage;
     }

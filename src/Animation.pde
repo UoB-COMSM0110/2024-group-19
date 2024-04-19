@@ -22,7 +22,7 @@ public class Animation{
     
   }
   
-  public void selectImageArray(boolean[] keys){
+  public void selectImageArrayCharacter(boolean[] keys){
     // This will simply look at all the permutations of keys and pick the appropriate image array
     ArrayList<Integer> trueIndex = new ArrayList();
     
