@@ -2,13 +2,15 @@ class Character extends Entity {
   public boolean[] keys = new boolean[4]; // For tracking WASD key states
   boolean invulnerable = false;
   public float lastHitReceived = 0;
-  public float invulnerablePeroid = 2000;
+  public float invulnerablePeroid = 2000, animationFramePeriod = 100, currentFramePeriod = 0;
   public boolean speedBoostActive = false;
   public float lastSpeedTime = 0, speedBoostTimeLimit = 5000;
   public int health, score;
   float oxygenLevel = 100; // Initialize oxygen level to 100
   private BoundaryChecker boundary;
   float baseSpeed, increasedSpeed;
+  ArrayList<ArrayList<PImage>> imageArrays = new ArrayList();
+  Animation walkingAnimation;
   
   Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed, img);
@@ -18,6 +20,14 @@ class Character extends Entity {
     this.score = 0;
     this.baseSpeed = speed;
     this.increasedSpeed = speed*2;
+    imageArrays.add(characterStationary);
+    imageArrays.add(characterWalkingForward);
+    imageArrays.add(characterWalkingRight);
+    imageArrays.add(characterWalkingBackward);
+    imageArrays.add(characterWalkingLeft);
+
+    walkingAnimation = new Animation(imageArrays, false);
+    
   }
 
   // Overrides the Entity update method to include movement logic and oxygen recovery
@@ -72,6 +82,7 @@ class Character extends Entity {
   // Display the character image at its current position
   @Override
   void display() {
+    animationImageSelector();
     image(img, width/2, height/2);
   }
 
@@ -160,6 +171,16 @@ class Character extends Entity {
     if((millis() - lastSpeedTime) > speedBoostTimeLimit){
       player.speed = baseSpeed;
       speedBoostActive = false;
+    }
+  }
+  
+  private void animationImageSelector(){
+    float curentTime = millis();
+    if((curentTime - currentFramePeriod) > animationFramePeriod){
+      currentFramePeriod = millis();
+      walkingAnimation.selectImageArray(keys);
+      walkingAnimation.nextImage();
+      img = walkingAnimation.activeImage;
     }
   }
   
