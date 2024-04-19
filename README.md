@@ -288,6 +288,7 @@ With the final product in hand, it might be easy to say that the entire process 
 We would also like to use this space to thanks the different artists who gave them their permissions to use their different art works as assets. Other assets from artists who we were unable to contact were open sourced and available to use for school productions. 
 
 Purple Zaffre: Assets for character [https://www.deviantart.com/purplezaffre]
+TheStoryTeller01: Assets for zombies [https://www.deviantart.com/thestoryteller01]
 
 Tyler Dunn: 8-bit Madness Font [https://www.fontzillion.com/fonts/tyler-dunn/8-bit-madness]
 

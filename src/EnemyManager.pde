@@ -110,7 +110,7 @@ public class EnemyManager{
     for(Enemy enemy : enemyList){
       screenPositionX = enemy.x - playerInfo.x + width/2;
       screenPositionY = enemy.y - playerInfo.y + height/2;
-      image(enemyImage,screenPositionX,screenPositionY);
+      image(enemy.img,screenPositionX,screenPositionY);
       
     }
   }

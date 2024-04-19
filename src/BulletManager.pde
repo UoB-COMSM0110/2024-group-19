@@ -22,10 +22,11 @@ public class BulletManager{
   }
   
   private void newBulletCheck(){
+    imageMode(CORNER);
     
     if (millis() - lastBulletTime > fireRate) {
       float bulletDirection = atan2(mouseY - (height/2), mouseX - width/2); 
-      bulletList.add(new Bullet((player.x/*+(player.img.width/2)*/), (player.y/*+(player.img.height/2)*/), bulletSpeed,bulletImage, bulletDirection));
+      bulletList.add(new Bullet((player.x+(player.img.width/2)), (player.y+(player.img.height/2)), bulletSpeed,bulletImage, bulletDirection));
       lastBulletTime = millis();
     }
   }

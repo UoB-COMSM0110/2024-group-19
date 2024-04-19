@@ -1,4 +1,6 @@
 PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, gameOverImage, heartImage, treeImage, portalImage, rapidFireImage, speedImage,gameStartImage;
+ArrayList<PImage> characterWalkingForward = new ArrayList(), characterWalkingBackward = new ArrayList(), characterWalkingLeft = new ArrayList(), characterWalkingRight = new ArrayList(), characterStationary = new ArrayList();
+ArrayList<PImage> enemyWalkingForward = new ArrayList(), enemyWalkingBackward = new ArrayList(), enemyWalkingLeft = new ArrayList(), enemyWalkingRight = new ArrayList(), enemyStationary = new ArrayList();
 Character player;
 Background background;
 BulletManager bulletManager;
@@ -40,6 +42,58 @@ void setup() {
   speedImage.resize(72,50);
   rapidFireImage = loadImage("../Assets/3bullet.png");
   rapidFireImage.resize(80,25);
+  
+  characterWalkingForward.add(loadImage("../Assets/characterWalking/tile000.png"));
+  characterWalkingForward.add(loadImage("../Assets/characterWalking/tile001.png"));
+  characterWalkingForward.add(loadImage("../Assets/characterWalking/tile002.png"));
+  characterWalkingForward.add(loadImage("../Assets/characterWalking/tile003.png"));
+  
+  characterWalkingLeft.add(loadImage("../Assets/characterWalking/tile004.png"));
+  characterWalkingLeft.add(loadImage("../Assets/characterWalking/tile005.png"));
+  characterWalkingLeft.add(loadImage("../Assets/characterWalking/tile006.png"));
+  characterWalkingLeft.add(loadImage("../Assets/characterWalking/tile007.png"));
+  
+  characterWalkingRight.add(loadImage("../Assets/characterWalking/tile008.png"));
+  characterWalkingRight.add(loadImage("../Assets/characterWalking/tile009.png"));
+  characterWalkingRight.add(loadImage("../Assets/characterWalking/tile010.png"));
+  characterWalkingRight.add(loadImage("../Assets/characterWalking/tile011.png"));
+  
+  characterWalkingBackward.add(loadImage("../Assets/characterWalking/tile012.png"));
+  characterWalkingBackward.add(loadImage("../Assets/characterWalking/tile013.png"));
+  characterWalkingBackward.add(loadImage("../Assets/characterWalking/tile014.png"));
+  characterWalkingBackward.add(loadImage("../Assets/characterWalking/tile015.png"));
+  
+  characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
+  characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
+  characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
+  characterStationary.add(loadImage("../Assets/characterWalking/tile000.png"));
+  
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile001.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile002.png"));
+  enemyWalkingForward.add(loadImage("../Assets/enemyWalking/tile003.png"));
+  
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile004.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile005.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile006.png"));
+  enemyWalkingLeft.add(loadImage("../Assets/enemyWalking/tile007.png"));
+  
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile008.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile009.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile010.png"));
+  enemyWalkingRight.add(loadImage("../Assets/enemyWalking/tile011.png"));
+  
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile012.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile013.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile014.png"));
+  enemyWalkingBackward.add(loadImage("../Assets/enemyWalking/tile015.png"));
+  
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
+  
+  
   
 
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
