@@ -164,6 +164,8 @@ class Character extends Entity {
     lastSpeedTime = millis();
     speedBoostActive = true;
     player.speed = increasedSpeed;
+    animationFramePeriod = 50;
+    
     
   }
   
@@ -171,6 +173,7 @@ class Character extends Entity {
     if((millis() - lastSpeedTime) > speedBoostTimeLimit){
       player.speed = baseSpeed;
       speedBoostActive = false;
+      animationFramePeriod = 100;
     }
   }
   
