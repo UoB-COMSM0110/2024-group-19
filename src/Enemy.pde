@@ -36,6 +36,7 @@ class Enemy extends Entity {
   public void update() {
     angle = atan2(player.y - y, player.x - x);
     animationImageSelector();
+    imageMode(CORNER);
     
     // Calculate distance to the player
     float distance = dist(x, y, player.x, player.y);
