@@ -26,7 +26,7 @@ class Enemy extends Entity {
       }
     }
     
-    walkingAnimation = new Animation(imageArrays, false);
+    walkingAnimation = new Animation(imageArrays);
     
   }
 

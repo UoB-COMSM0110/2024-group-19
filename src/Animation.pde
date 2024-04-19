@@ -4,14 +4,12 @@ public class Animation{
   ArrayList<PImage> activeArray;
   PImage activeImage;
   public int activeImageIndex = 0, activeArrayIndex = 0;
-  public boolean finite;
   
-  public Animation(ArrayList<ArrayList<PImage>> imageArrays, boolean finite){
+  public Animation(ArrayList<ArrayList<PImage>> imageArrays){
     
     this.imageArrays = imageArrays;
     activeArray = imageArrays.get(activeArrayIndex);
     activeImage = activeArray.get(activeImageIndex);
-    this.finite = finite;
     
   }
   

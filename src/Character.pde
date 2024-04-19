@@ -33,7 +33,7 @@ class Character extends Entity {
     }
     */
 
-    walkingAnimation = new Animation(imageArrays, false);
+    walkingAnimation = new Animation(imageArrays);
     
   }
 
@@ -97,15 +97,15 @@ class Character extends Entity {
   void keyPressed() {
     updateKey(key, true);
     if(key == 'M' || key == 'm'){
-      pageManager.pageNumber = 7;
+      pageManager.pageNumber = 10;
     }
-        if(keyCode == ENTER && pageManager.pageNumber == 7){
+        if(keyCode == ENTER && pageManager.pageNumber == 10){
           pageManager.pageNumber = 5;
         }
-        if(keyCode == RIGHT && pageManager.pageNumber == 7){
+        else if(keyCode == RIGHT && pageManager.pageNumber == 10){
           pageManager.pageNumber = 8;
         }
-        if(keyCode == SHIFT && pageManager.pageNumber == 7){
+        else if(keyCode == SHIFT && pageManager.pageNumber == 10){
           gameReset();
           pageManager.pageNumber = 1;
         }
@@ -115,7 +115,7 @@ class Character extends Entity {
           pageManager.pageNumber = 5;
         }
         if(keyCode == LEFT && pageManager.pageNumber == 8){
-          pageManager.pageNumber = 7;
+          pageManager.pageNumber = 10;
         }
         if(keyCode == SHIFT && pageManager.pageNumber == 8){
           gameReset();

@@ -123,6 +123,7 @@ void setup() {
 int loopCount = 0;
 void draw() {
   //println(frameRate);
+
   
   switch(pageManager.pageNumber){
     case 1:

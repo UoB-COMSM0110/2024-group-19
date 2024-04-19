@@ -112,6 +112,7 @@ public class PageManager {
   healthInstr();
   speedInstr();
   portalInstr();
+  fireRateInstr();
 
   textSize(50);
   fill(#ffffff);
@@ -156,7 +157,7 @@ public class PageManager {
   }
      public void MenuTwoPage(){
      background(0);
-    //imageMode(CORNER);
+    imageMode(CORNER);
     //float topLeftX = -(playerInfo.x - (width/2));
     //float topLeftY = -(playerInfo.y - (height/2));
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
@@ -169,6 +170,7 @@ public class PageManager {
     healthInstr();
     speedInstr();
     portalInstr();
+    fireRateInstr();
 
   textSize(40);
   //image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
@@ -228,8 +230,7 @@ public class PageManager {
     textSize(50);
     textAlign(CENTER);
     text("Right arrow \nfor leaderboard\n >>", (width*0.5), height*0.72);
-    //System.out.println("NAME:" + playerName);
-    //addScore(playerName, previousScore); 
+
   }
   
   private void createScoreFile() {
@@ -252,7 +253,6 @@ public class PageManager {
                     String name = parts[0].trim();
                     int score = Integer.parseInt(parts[1].trim());
                     highScores.add(new PlayerScore(name, score));
-                    System.out.println("name + score" + name + score);
                 }
             }
             Collections.sort(highScores);
@@ -290,33 +290,30 @@ public class PageManager {
     
    
      
-    if(pageNumber == 7 && keyCode == ENTER ){
+    if((pageNumber == 7 || pageNumber == 8) && keyCode == ENTER ){
       pageNumber = 0;
     }
     
-    
-    
-    
-    if(pageNumber == 9){
+    else if(pageNumber == 9){
       pageNumber = 1;
     }
     
-    if(pageNumber == 4 && keyCode == RIGHT){
+    else if(pageNumber == 4 && keyCode == RIGHT){
       pageNumber++;
     }
-    if(pageNumber == 5 && keyCode == LEFT){
+    else if(pageNumber == 5 && keyCode == LEFT){
       pageNumber--;
     }
     
-    if(pageNumber == 7 && keyCode == RIGHT ){
+    else if(pageNumber == 7 && keyCode == RIGHT ){
       pageNumber++;
     }
     
-   if(pageNumber == 8 && keyCode == LEFT ){
+   else if(pageNumber == 8 && keyCode == LEFT ){
       pageNumber--;
     } 
     
-   if (pageNumber == 2) {
+   else if (pageNumber == 2) {
      if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
         if(nameBuilder.length() < 5) { 
             nameBuilder.append(key); 
@@ -326,6 +323,7 @@ public class PageManager {
      } else if (keyCode == ENTER) {
         playerName = nameBuilder.toString(); 
         System.out.println("Debug: Added score for " + playerName);
+        pageNumber++;
         
         nameBuilder.setLength(0); // Clear StringBuilder for future use
        
@@ -335,7 +333,7 @@ public class PageManager {
      }
    }
    
-   if (keyCode == ENTER){
+   else if (keyCode == ENTER){
       pageNumber++;
     }
 } 
@@ -365,34 +363,48 @@ public class PageManager {
     rect(width/13, height*0.4, (playerInfo.oxygenLevel * (width * 0.00266)), height/35,height/50);
     fill(#ffffff);
     textLeading(33);
-    text("This is your stamina.\n Your can't move if it's empty. \nFreeze to refill.", (width/4.7), height*0.49);
+    text("This is your stamina.\n Your can't move if it's empty. \n Stand still to refill.", (width/4.7), height*0.49);
     
   }
     private void healthInstr(){
+    float widthPos = 0.15;
     textSize(height*0.045);
-    image(heartImage, width*0.17, height*0.36, width*0.1, width*0.1);
+    image(heartImage, width*widthPos, height*0.36, width*0.1, width*0.1);
     fill(#ffffff);
     textLeading(33);
-    text("This power up increases \nyour health by 1", width*0.17, height*0.49);
+    text("This power up \n increases your \n health by 1", width*widthPos, height*0.49);
     
   }
   
   private void portalInstr(){
+    float widthPos = 0.37;
     textSize(height*0.04);
     textAlign(CENTER, CENTER);
     fill(#ffffff);
     textLeading(30);
-    image(portalImage, width*0.85, height*0.36, width*0.1, width*0.1);
-    text("This power up is a portal \n it will teleport you to a \nrandom spot on the map ", (width*0.85), height*0.49);
+    image(portalImage, width*widthPos, height*0.36, width*0.05, width*0.1);
+    text("This power up is a \n portal it will teleport \n you to a random \n spot on the map ", (width*widthPos), height*0.51);
   }
   
   private void speedInstr(){
+    float widthPos = 0.59;
     textSize(height*0.04);
     textAlign(CENTER, CENTER);
     fill(#ffffff);
     textLeading(30);
-    image(speedImage, width*0.5, height*0.36, width*0.1, width*0.1);
-    text("This power will\n increase your speed ", (width*0.5), height*0.49);
+    image(speedImage, width*widthPos, height*0.36, width*0.1, width*0.1);
+    text("This power will\n increase your \n speed ", (width*widthPos), height*0.49);
+    
+  }
+  
+  private void fireRateInstr(){
+    float widthPos = 0.81;
+    textSize(height*0.04);
+    textAlign(CENTER, CENTER);
+    fill(#ffffff);
+    textLeading(30);
+    image(rapidFireImage, width*widthPos, height*0.36, width*0.15, width*0.04);
+    text("This power will\n increase your \n rate of fire ", (width*widthPos), height*0.49);
     
   }
   
