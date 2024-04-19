@@ -100,7 +100,7 @@ class Character extends Entity {
       pageManager.pageNumber = 10;
     }
         if(keyCode == ENTER && pageManager.pageNumber == 10){
-          pageManager.pageNumber = 6;
+          pageManager.pageNumber = 7;
         }
         else if(keyCode == SHIFT && pageManager.pageNumber == 10){
           gameReset();

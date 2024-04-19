@@ -1,5 +1,3 @@
-jamie,12440
-caleb,1440
-jeff,1200
-charm,790
-leana,580
+paul,530,(Hard)
+kelly,270,(Hard)
+leana,200,(Hard)

@@ -2,6 +2,7 @@ PImage backgroundImage, characterImage, bulletImage, zombieImage, buttonImage, g
 ArrayList<PImage> characterWalkingForward = new ArrayList(), characterWalkingBackward = new ArrayList(), characterWalkingLeft = new ArrayList(), characterWalkingRight = new ArrayList(), characterStationary = new ArrayList();
 ArrayList<PImage> enemyWalkingForward = new ArrayList(), enemyWalkingBackward = new ArrayList(), enemyWalkingLeft = new ArrayList(), enemyWalkingRight = new ArrayList(), enemyStationary = new ArrayList();
 Character player;
+boolean hardMode;
 Background background;
 BulletManager bulletManager;
 EnemyManager enemyManager;
@@ -122,8 +123,6 @@ void setup() {
 
 int loopCount = 0;
 void draw() {
-  //println(frameRate);
-
   
   switch(pageManager.pageNumber){
     case 1:
@@ -134,15 +133,18 @@ void draw() {
       pageManager.displayPlayerName();
       break;
     case 3:
-      pageManager.story();
+      pageManager.difficultySelection();
       break;
     case 4:
-      pageManager.homePage();
+      pageManager.story();
       break;
     case 5:
-      pageManager.InstructionPage();
+      pageManager.homePage();
       break;
     case 6:
+      pageManager.InstructionPage();
+      break;
+    case 7:
       if(player.health == 0){
         previousScore = player.score;
         gameReset();
@@ -158,13 +160,12 @@ void draw() {
       enemyManager.update();
       collisionManager.update();
       powerUpManager.update();
-      //background.update();
       treeManager.drawTrees(background);
       
       pageManager.StatisticsDisplay();
       //println(frameRate);
       break;
-      case 7:
+      case 8:
         pageManager.gameOverPage(previousScore);
         if(loopCount == 0){
           pageManager.addScore();
@@ -172,11 +173,8 @@ void draw() {
         
         loopCount++;
         break;
-      case 8:
-         pageManager.leaderboard();
-         break;
       case 9:
-         pageManager.helpPage();
+         pageManager.leaderboard();
          break;
       case 10:
          pageManager.MenuTwoPage();
@@ -187,7 +185,7 @@ void draw() {
 }
 
 void keyPressed(){
-  if(pageManager.pageNumber == 6 || pageManager.pageNumber == 9 || pageManager.pageNumber == 10){
+  if(pageManager.pageNumber == 7 || pageManager.pageNumber == 10){
     player.keyPressed();
   }
   else{
@@ -206,7 +204,7 @@ void gameReset(){
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
   collisionManager = new CollisionManager(player, enemyManager, bulletManager);
-  pageManager = new PageManager(player, 7, enemyManager, bulletManager);
+  pageManager = new PageManager(player, 8, enemyManager, bulletManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
   loopCount = 0;
   

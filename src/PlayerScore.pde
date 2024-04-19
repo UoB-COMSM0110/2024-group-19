@@ -1,10 +1,11 @@
 public class PlayerScore implements Comparable<PlayerScore> {
-    private String playerName = "";
+    private String playerName = "", difficulty;
     private int score;
 
-    public PlayerScore(String playerName, int score) {
+    public PlayerScore(String playerName, int score, String difficulty) {
         this.playerName = playerName;
         this.score = score;
+        this.difficulty = difficulty;
     }
 
     @Override
@@ -14,6 +15,6 @@ public class PlayerScore implements Comparable<PlayerScore> {
 
     @Override
     public String toString() {
-        return playerName/*"abc"*/ + " - " + score;  // String representation for easy display
+        return playerName/*"abc"*/ + " - " + score + " " + difficulty;  // String representation for easy display
     }
 }

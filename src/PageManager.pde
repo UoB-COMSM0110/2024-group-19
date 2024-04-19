@@ -124,39 +124,43 @@ public class PageManager {
  // imageMode(CORNER);
   }
   
- 
-   public void helpPage(){
-     background(0);
-    //imageMode(CORNER);
-    //float topLeftX = -(playerInfo.x - (width/2));
-    //float topLeftY = -(playerInfo.y - (height/2));
+  public void difficultySelection(){
+    background(0);
+    imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
-    //imageMode(CENTER);
     textSize(100);
+    textAlign(CENTER, CENTER);
     fill(#ffffff);
-    text("MENU",width*0.5,height*0.1);
-    text("INSTRUCTION 1/2", width*0.5, height*0.15);
-
-  float baseX = width / 2;
-  float baseY = height / 2;
-  float offset = width/15; 
-    oxygenInstr();
-    zombieInstr();
-    buttonInstr(baseX,baseY,offset);
-
-  textSize(40);
-  //image(buttonImage, (width/3), height*0.72, width*0.2, height*0.13);// "Enter to Resume"
-  textLeading(37);
-  fill(#ffffff);
-  text("Enter\n to Resume",(width*0.23), height*0.71);
-  textSize(40);
-  fill(#ffffff);
- // image(buttonImage, (width*0.7), height*0.72, width*0.2, height*0.13);// "Shift to Quit"
-  text("Shift\n to Quit", (width*0.8), height*0.71);
+    text("SELECT DIFFICULTY", width*0.5, height*0.25);
+    textSize(80);
+    text("EASY", width*0.33, height*0.5);
+    text("HARD", width*0.66, height*0.5);
+    textSize(50);
+    text("On hard mode zombies will: \n - Have more health \n -  Move faster \n \n The rounds will: \n - Be faster \n - Have more zombies", width*0.5, height*0.75);
+    textSize(80);
+    fill(#ff0000);
+    
+    if(dist(mouseX,mouseY,width*0.33, height*0.5) < width*0.04){
+      text("EASY", width*0.33, height*0.5);
+      if (mousePressed){
+        hardMode = false;
+        pageNumber++;
+        
+      }
+    }
+    else if(dist(mouseX,mouseY,width*0.66, height*0.5) < width*0.04){
+      text("HARD", width*0.66, height*0.5);
+      if (mousePressed){
+        hardMode = true;
+        pageNumber++;
+      }
+    }
   }
   
   
+  
   public void MenuTwoPage(){
+    background(0);
     imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
     textSize(100);
@@ -265,10 +269,11 @@ public class PageManager {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
-                if (parts.length == 2) {
+                if (parts.length == 3) {
                     String name = parts[0].trim();
                     int score = Integer.parseInt(parts[1].trim());
-                    highScores.add(new PlayerScore(name, score));
+                    String difficulty = parts[2].trim();
+                    highScores.add(new PlayerScore(name, score, difficulty));
                 }
             }
             Collections.sort(highScores, Collections.reverseOrder()); // Assuming PlayerScore implements Comparable
@@ -278,8 +283,16 @@ public class PageManager {
     }
 
     public void addScore() {
+        String difficulty;
+      
+        if(hardMode){
+          difficulty = "(Hard)";
+        }
+        else{
+          difficulty = "(Easy)";
+        }
         
-        highScores.add(new PlayerScore(playerName, previousScore));
+        highScores.add(new PlayerScore(playerName, previousScore, difficulty));
         Collections.sort(highScores);
         for(PlayerScore sc: highScores){
           sc.toString();
@@ -289,9 +302,17 @@ public class PageManager {
     }
 
    private void saveScores() {
+     String difficulty;
+      
+        if(hardMode){
+          difficulty = "(Hard)";
+        }
+        else{
+          difficulty = "(Easy)";
+        }
         try (PrintWriter pw = new PrintWriter(new FileWriter(sketchPath(scoreFile), false))) {
             for (PlayerScore ps : highScores) {
-                pw.println(ps.playerName + "," + ps.score);
+                pw.println(ps.playerName + "," + ps.score + "," + difficulty);
             }
         } catch (IOException e) {
             System.out.println("Error writing to score file: " + e.getMessage());
@@ -305,26 +326,22 @@ public class PageManager {
     
    
      
-    if((pageNumber == 7 || pageNumber == 8) && keyCode == ENTER ){
-      pageNumber = 0;
-    }
-    
-    else if(pageNumber == 9){
+    if((pageNumber == 9 || pageNumber == 8) && keyCode == ENTER ){
       pageNumber = 1;
     }
     
-    else if(pageNumber == 4 && keyCode == RIGHT){
+    else if(pageNumber == 5 && keyCode == RIGHT){
       pageNumber++;
     }
-    else if(pageNumber == 5 && keyCode == LEFT){
+    else if(pageNumber == 6 && keyCode == LEFT){
       pageNumber--;
     }
     
-    else if(pageNumber == 7 && keyCode == RIGHT ){
+    else if(pageNumber == 8 && keyCode == RIGHT ){
       pageNumber++;
     }
     
-   else if(pageNumber == 8 && keyCode == LEFT ){
+   else if(pageNumber == 9 && keyCode == LEFT ){
       pageNumber--;
     } 
     
@@ -337,7 +354,6 @@ public class PageManager {
         }
      } else if (keyCode == ENTER) {
         playerName = nameBuilder.toString(); 
-        System.out.println("Debug: Added score for " + playerName);
         pageNumber++;
         
         nameBuilder.setLength(0); // Clear StringBuilder for future use
@@ -348,7 +364,7 @@ public class PageManager {
      }
    }
    
-   else if (keyCode == ENTER){
+   else if (keyCode == ENTER && pageNumber !=3){
       pageNumber++;
     }
   } 
