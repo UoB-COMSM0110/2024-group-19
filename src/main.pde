@@ -108,7 +108,7 @@ void setup() {
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
-  collisionManager = new CollisionManager(player, enemyManager, bulletManager);
+  collisionManager = new CollisionManager(player, enemyManager, bulletManager, obstacleManager);
   pageManager = new PageManager(player, 1, enemyManager, bulletManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
   treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
@@ -203,7 +203,7 @@ void gameReset(){
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
-  collisionManager = new CollisionManager(player, enemyManager, bulletManager);
+  collisionManager = new CollisionManager(player, enemyManager, bulletManager, obstacleManager);
   pageManager = new PageManager(player, 8, enemyManager, bulletManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
   loopCount = 0;

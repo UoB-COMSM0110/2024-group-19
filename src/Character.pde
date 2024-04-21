@@ -11,6 +11,7 @@ class Character extends Entity {
   float baseSpeed, increasedSpeed;
   ArrayList<ArrayList<PImage>> imageArrays = new ArrayList();
   Animation walkingAnimation;
+  float prevX, prevY; 
   
   Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed, img);
@@ -40,6 +41,9 @@ class Character extends Entity {
   // Overrides the Entity update method to include movement logic and oxygen recovery
   @Override
   void update() {
+    prevX = x;
+    prevY = y;
+
     positionUpdate();
     boundary.playerCheck();
     if(speedBoostActive){

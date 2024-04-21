@@ -26,6 +26,10 @@ public class ObstacleManager {
             Obstacle obstacle = new Obstacle(img, x,y, Owidth, Oheight);
             obstacles.add(obstacle);
         }
+        
+        for (Obstacle obstacle : obstacles) {
+            obstacle.image.resize(width/5, width/5);
+        }
     }
 
     public void displayAll() {
@@ -33,7 +37,7 @@ public class ObstacleManager {
             //obstacle.display();
             screenPositionX = obstacle.x- player.x + width/2;
             screenPositionY = obstacle.y- player.y + height/2;
-           obstacle.image.resize(width/5,width/5);
+           //obstacle.image.resize(width/5,width/5);
             image(obstacle.image,screenPositionX,screenPositionY);
         }
     }
