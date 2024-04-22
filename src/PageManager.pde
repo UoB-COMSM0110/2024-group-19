@@ -478,6 +478,13 @@ public class PageManager {
     fill(0);
    textSize(width*0.03);
    text("Score: " + playerInfo.score , (width*(0.8666)),(height*0.0625));
+   
+  }
+  
+  private void pauseOption(){
+   fill(0);
+   textSize(width*0.02);
+   text("Press 'M' to pause game." , (width*(0.8666)),height*0.95);
   }
   
   
@@ -485,6 +492,17 @@ public class PageManager {
    fill(0);
    textSize(width*0.03);
    text("Waves spawned: " + enemyManager.waveNumber , (width*(0.8666)),height*0.1);
+   
+   if(hardMode){
+     fill(#ff0000);
+     text("Hard" , (width*(0.8666)),height*0.1375);
+   }
+   else{
+     fill(#00ff00);
+     text("Easy" , (width*(0.8666)),height*0.1375);
+   }
+   
+   fill(0);
   }
   
   private void oxygenDisplay(){
@@ -516,6 +534,7 @@ public class PageManager {
     scoreDisplay();
     waveDisplay();
     oxygenDisplay();
+    pauseOption();
     if(player.speedBoostActive){
       speedBoostDisplay();
     }
