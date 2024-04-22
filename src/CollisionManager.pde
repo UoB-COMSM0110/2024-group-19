@@ -65,6 +65,23 @@ public class CollisionManager{
         playerInfo.y = playerInfo.prevY;
     }
     
+    private void bulletObstacleCollision(){
+      
+      ArrayList<Bullet> bulletsToRemove = new ArrayList();
+      
+      for(Bullet bullet: bulletManager.bulletList){
+        for(Obstacle obstacle : obstacleManager.obstacles){
+          if(dist(bullet.centreX, bullet.centreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+bullet.img.width/2)){
+            bulletsToRemove.add(bullet);
+          }
+        }
+      }
+      
+      for (Bullet bullet : bulletsToRemove) {
+          bulletManager.bulletList.remove(bullet);
+      }
+    }
+    
   private void CharacterEnemyCollisions(){
     
     if(player.invulnerable && ((millis() - player.lastHitReceived) >= player.invulnerablePeroid)){
@@ -123,5 +140,6 @@ public class CollisionManager{
     BulletEnemyCollisions();
     CharacterObstacleCollisions();
     EnemyObstacleCollisions();
+    bulletObstacleCollision();
   }
 }
