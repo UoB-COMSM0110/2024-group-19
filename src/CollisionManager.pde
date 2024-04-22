@@ -88,10 +88,6 @@ public class CollisionManager{
               enemy.centreX = enemy.x + (enemy.img.width/2);
               enemy.centreY = enemy.y + (enemy.img.height/2);
             }
-            
-            
-
-
           }  
         }
       }
