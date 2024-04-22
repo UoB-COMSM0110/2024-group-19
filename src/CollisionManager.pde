@@ -28,20 +28,12 @@ public class CollisionManager{
    private void CharacterObstacleCollisions() {
         for (Obstacle obstacle : obstacleManager.obstacles) {
             // Calculate the player's bounding box (assuming the player's position is centered)
-            float playerLeft = playerInfo.x - playerInfo.img.width / 2;
-            float playerRight = playerInfo.x + playerInfo.img.width / 2;
-            float playerTop = playerInfo.y - playerInfo.img.height / 2;
-            float playerBottom = playerInfo.y + playerInfo.img.height / 2;
-
-            // Calculate the obstacle's bounding box
-            float obstacleLeft = obstacle.x;
-            float obstacleRight = obstacle.x + obstacle.width;
-            float obstacleTop = obstacle.y;
-            float obstacleBottom = obstacle.y + obstacle.height;
+            float playerCentreX = playerInfo.x + playerInfo.img.width/2;
+            float playerCentreY = playerInfo.y + playerInfo.img.height/2;
 
             // Check for collision
-            if (playerRight > obstacleLeft && playerLeft < obstacleRight &&
-                playerBottom > obstacleTop && playerTop < obstacleBottom) {
+            if (dist(playerCentreX, playerCentreY, obstacle.x, obstacle.y) < obstacle.image.width) {
+                   //playerBottom > obstacleTop &&
                 // Handle collision
                 // For example, stop the player's movement or push them back
                 handlePlayerObstacleCollision(obstacle);

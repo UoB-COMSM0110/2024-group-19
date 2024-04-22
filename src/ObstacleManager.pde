@@ -38,7 +38,8 @@ public class ObstacleManager {
             screenPositionX = obstacle.x- player.x + width/2;
             screenPositionY = obstacle.y- player.y + height/2;
            //obstacle.image.resize(width/5,width/5);
-            image(obstacle.image,screenPositionX,screenPositionY);
+           imageMode(CENTER);
+           image(obstacle.image,screenPositionX,screenPositionY);
         }
     }
 

@@ -15,7 +15,7 @@ class Character extends Entity {
   
   Character(float x, float y, float speed, PImage img, int health) {
     super(x, y, speed, img);
-    this.health = health;
+    this.health = health+1000;
     // We can initialise using x*2 and y*2 as these are the centre of the background at initialisation.
     boundary = new BoundaryChecker(this, x*2, y*2);
     this.score = 0;
