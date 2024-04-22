@@ -16,6 +16,7 @@ public class PageManager {
     BulletManager bulletManager;
     String scoreFile = "highscores.txt";
     //File scoreFile = new File("highscores.txt");
+    private boolean nameWarning = false;
 
     public PageManager(Character player, int pageNumber, EnemyManager enemyManager, BulletManager bulletManager) {
         this.playerInfo = player;
@@ -52,12 +53,16 @@ public class PageManager {
     background(0);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
     textSize(180);
-    text("Enter Name", (width / 2), 160);
+    text("Enter Name", (width / 2), height/4);
 
     playerName = nameBuilder.toString();
     textSize(300);
     // Display the name
-    text(playerName + "_".repeat(Math.max(0, 5 - playerName.length())), width / 2, 500);
+    text(playerName + "_".repeat(Math.max(0, 5 - playerName.length())), width / 2, height/2);
+    if(nameWarning){
+      textSize(150);
+       text("Please enter a name." ,width / 2, height / 1.2 );
+     }
 }
 
   
@@ -354,7 +359,14 @@ public class PageManager {
         }
      } else if (keyCode == ENTER) {
         playerName = nameBuilder.toString(); 
-        pageNumber++;
+        if(playerName.length() == 0){
+          nameWarning = true;
+        }
+        else{
+          nameWarning = false;
+          pageNumber++;
+        }
+        
         
         nameBuilder.setLength(0); // Clear StringBuilder for future use
        
