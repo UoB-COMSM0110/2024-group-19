@@ -25,8 +25,7 @@ public class CollisionManager{
     
     
   }
-  
-  private void CharacterObstacleCollisions() {
+   private void CharacterObstacleCollisions() {
         for (Obstacle obstacle : obstacleManager.obstacles) {
             // Calculate the player's bounding box (assuming the player's position is centered)
             float playerLeft = playerInfo.x - playerInfo.img.width / 2;
@@ -45,14 +44,13 @@ public class CollisionManager{
                 playerBottom > obstacleTop && playerTop < obstacleBottom) {
                 // Handle collision
                 // For example, stop the player's movement or push them back
-                            System.out.println("Collision detected between player and obstacle.");
-
-                //handlePlayerObstacleCollision(obstacle);
+                handlePlayerObstacleCollision(obstacle);
                 break; // Optional: break if you only handle one collision at a time
             }
         }
     }
-    
+
+    // Handle the response to a collision (e.g., stop movement, bounce back, etc.)
     private void handlePlayerObstacleCollision(Obstacle obstacle) {
         // This is a simple example that stops the player's movement.
         // You could add more complex responses like sliding along the obstacle.

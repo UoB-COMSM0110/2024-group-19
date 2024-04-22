@@ -108,13 +108,14 @@ void setup() {
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
+  obstacleManager =new ObstacleManager("../src/obstacles.json");
   collisionManager = new CollisionManager(player, enemyManager, bulletManager, obstacleManager);
   pageManager = new PageManager(player, 1, enemyManager, bulletManager);
   BoundaryChecker boundaryChecker = new BoundaryChecker(player, mapX, mapY);
   treeManager = new TreeManager(treeImage, mapX, mapY, 6000, boundaryChecker);
   // Power up probability currently hard-coded at 0.1, this can be adjusted later.
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
-  obstacleManager =new ObstacleManager("../src/obstacles.json");
+  
   frameRate(300);
   //println(width + "," + height);
 }
@@ -159,6 +160,7 @@ void draw() {
       player.display();
       enemyManager.update();
       collisionManager.update();
+      
       powerUpManager.update();
       treeManager.drawTrees(background);
       
@@ -203,6 +205,7 @@ void gameReset(){
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
   enemyManager = new EnemyManager(mapX, mapY, player, zombieImage);
+  obstacleManager = new ObstacleManager("../src/obstacles.json");
   collisionManager = new CollisionManager(player, enemyManager, bulletManager, obstacleManager);
   pageManager = new PageManager(player, 8, enemyManager, bulletManager);
   powerUpManager = new PowerUpManager(mapX, mapY, player, 0.2, bulletManager);
