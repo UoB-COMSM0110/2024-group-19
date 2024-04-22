@@ -1,5 +1,7 @@
 public class BulletManager{
   
+  // This class manages the functionality of all Bullet objects 
+  
   private float mapX, mapY;
   // How many milliseconds between shots.
   public int baseFireRate, bulletSpeed, increasedFireRate, fireRate;
@@ -25,6 +27,7 @@ public class BulletManager{
     imageMode(CORNER);
     
     if (millis() - lastBulletTime > fireRate) {
+      // This makes new bullets appear at a constant rate.
       float bulletDirection = atan2(mouseY - (height/2), mouseX - width/2); 
       bulletList.add(new Bullet((player.x+(player.img.width/2)), (player.y+(player.img.height/2)), bulletSpeed,bulletImage, bulletDirection));
       lastBulletTime = millis();
@@ -32,6 +35,8 @@ public class BulletManager{
   }
   
   private void removeBulletBoundary() {
+      // Despawn bullets that leave the map, avoiding a ConcurrentModificationError 
+      
       // Create a copy of the bulletList to avoid ConcurrentModificationException
       ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
       
@@ -53,6 +58,9 @@ public class BulletManager{
   }
   
   private void removeBulletOffScreen(){
+    // This goes a step further and despawns all bullets that are off screen.
+    // This will save alot of computational power and create the perception of range
+    
     // Create a copy of the bulletList to avoid ConcurrentModificationException
       ArrayList<Bullet> bulletsToRemove = new ArrayList<Bullet>();
       
@@ -84,13 +92,14 @@ public class BulletManager{
   }
   
   public void increaseFireRate(){
+    // Activate rapid fire & reset power-up timer
     lastFireRateActivate = millis();
     fireRate = increasedFireRate;
     increasedFireRateActive = true;
   }
   
   private void fireRateEndCheck(){
-    
+    // This deactiveates power up once timer has exceeded limit
     if(increasedFireRateActive){
       if((millis() - lastFireRateActivate) > increasedFireRateTimeLimit){
         increasedFireRateActive = false;

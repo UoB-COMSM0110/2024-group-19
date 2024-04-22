@@ -129,6 +129,9 @@ class Character extends Entity {
   
   // Handle enemy collisions
   boolean enemyCollision(Enemy enemy, long time) {
+    // Takes an enemy as a argument, if it is close enough and
+    // invulnerability isn't active, damage is taken.
+    
     boolean proximity = dist(enemy.x, enemy.y, this.x, this.y) < 100;
     if (!proximity) return false;
     
@@ -149,6 +152,8 @@ class Character extends Entity {
   
   
   public void randomTeleport(){
+    // Randomly teleport anywhere on the map
+    // EDIT: making sure it isn't inside an obstacle.
     float newX = random(width/2, backgroundImage.width/2);
     float newY = random(height/2, backgroundImage.height/2);
     player.x = newX;
@@ -159,6 +164,9 @@ class Character extends Entity {
     }
   }
   
+  // Same idea as rapid fire, this method activates it and resets the
+  // power-up timer 
+  
   public void speedBoostActivate(){
     lastSpeedTime = millis();
     speedBoostActive = true;
@@ -167,7 +175,7 @@ class Character extends Entity {
     
     
   }
-  
+  //... and this one checks if the power-up has expired it and removes it if so
   private void speedBoostEndCheck(){
     if((millis() - lastSpeedTime) > speedBoostTimeLimit){
       player.speed = baseSpeed;
@@ -176,6 +184,7 @@ class Character extends Entity {
     }
   }
   
+  // this uses the Animation class defined in initiation to collect the correct image for rendering. 
   private void animationImageSelector(){
     float curentTime = millis();
     if((curentTime - currentFramePeriod) > animationFramePeriod){

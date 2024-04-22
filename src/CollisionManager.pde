@@ -48,6 +48,10 @@ public class CollisionManager{
       // This needs alot more work, because enemies are getting stuck way too easily currently.
       // Rather than just resetting them we need a way for them to be able to move around the obstacle.
       
+      // Plan:
+      // Because obstacles are effectively modelled as circles, when a collision is detected we make them move 
+      // tangentially to that circle in the direction of the character.
+      
        
       for (Obstacle obstacle : obstacleManager.obstacles) {
         for(Enemy enemy: enemyManager.enemyList){
@@ -119,6 +123,7 @@ public class CollisionManager{
     private void bulletObstacleCollision(){
       
       ArrayList<Bullet> bulletsToRemove = new ArrayList();
+      // Remove bullets that hit obstacles
       
       for(Bullet bullet: bulletManager.bulletList){
         for(Obstacle obstacle : obstacleManager.obstacles){
@@ -134,6 +139,8 @@ public class CollisionManager{
     }
     
   private void CharacterEnemyCollisions(){
+    
+    // If a zombie is near a player, damage the player
     
     if(player.invulnerable && ((millis() - player.lastHitReceived) >= player.invulnerablePeroid)){
       
@@ -161,6 +168,8 @@ public class CollisionManager{
   private void BulletEnemyCollisions(){
     ArrayList<Bullet> bulletsToRemove = new ArrayList();
     ArrayList<Enemy> enemiesToRemove = new ArrayList();
+    
+    // When a bullet enters the proteccted radius of an enemy, log the damage, despawn the bullet and the enemy if necessary.
 
     
     for(Enemy enemy : enemyManager.enemyListOnScreen){
@@ -168,11 +177,16 @@ public class CollisionManager{
 
         if(dist(bullet.centreX, bullet.centreY, enemy.centreX, enemy.centreY) < (enemy.img.width/2 + bullet.img.width/2)){
           bulletsToRemove.add(bullet);
+          // Decrease enemy health
           enemy.health--;
+          // Reward player for a hit
           player.score += 10;
           if(enemy.health < 0){
+          // If there is a kill, remove the zombie...
           enemiesToRemove.add(enemy);
+          // ... activate power-up creation method 
           powerUpManager.powerUpCreate(enemy.x,enemy.y);
+          // and reward further
           player.score += 20;
           }
           

@@ -17,7 +17,6 @@ class Bullet extends Entity {
     centreY = y + (img.height/2);
     
   }
-  
-  // Override the display method to show the bullet
+
 
 }

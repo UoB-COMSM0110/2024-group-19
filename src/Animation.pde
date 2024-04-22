@@ -8,20 +8,25 @@ public class Animation{
   public Animation(ArrayList<ArrayList<PImage>> imageArrays){
     
     this.imageArrays = imageArrays;
+    // Active array chooses which animation strip we are using. This will
+    // be determined by the direction of motion of the character.
     activeArray = imageArrays.get(activeArrayIndex);
+    
+    // Active image is the image currently being rendered.
     activeImage = activeArray.get(activeImageIndex);
     
   }
   
   public void nextImage(){
     
+    // This is a simple method that moves one animation time-step
     activeImageIndex=(activeImageIndex+1)%activeArray.size();
     activeImage = activeArray.get(activeImageIndex);
     
   }
   
   public void selectImageArrayCharacter(boolean[] keys){
-    // This will simply look at all the permutations of keys and pick the appropriate image array
+    // This will simply map all combination of a keys (WASD) boolean list and set the appropriate activeArrayIndex
     ArrayList<Integer> trueIndex = new ArrayList();
     
     for (int i = 0; i < keys.length; i++) {

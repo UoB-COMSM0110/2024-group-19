@@ -1,5 +1,7 @@
 public class EnemyManager{
   
+  // This handles the Enemy instanses and how the mob behaves.
+  
   Character playerInfo;
   PImage enemyImage;
   int waveNumber = 0, safeDistance = width/10;
@@ -21,6 +23,7 @@ public class EnemyManager{
   }
   
   private void roundHandler(){
+    // This activates the next round if one of the round-ending conditions are triggered.
     if (waveNumber == 0 || millis() - lastRoundTime > currentRound.roundTime || (enemyList.size() == 0 && player.oxygenLevel==100)) { 
       currentRound = new Round(++waveNumber);
       lastRoundTime = millis();
@@ -28,6 +31,7 @@ public class EnemyManager{
   }
   
   private void enemySpawner(){
+    // This method spawns all the zombies within a round.
     if(millis()-lastEnemySpawned > 200 && currentRound.leftToSpawn > 0){
       spawnEnemy();
       lastEnemySpawned = millis();
@@ -36,6 +40,7 @@ public class EnemyManager{
   }
   
   private void spawnEnemy(){
+    // This handles the spawning of an individual enemy. It ensures it isn't too close to the player or inside an obstacle at spawn.
     boolean obstacleCollision = true;
     float enemyX, enemyY;
     do {
@@ -110,6 +115,10 @@ public class EnemyManager{
   
   private void enemyOnScreen(){
     
+    // This generates a sub-set of zombies who are on screen. By only considering this handful of zombies at any one point we save computational power.
+    // This generated list is for rendering, boundary and seperation calculations.
+    
+    
     enemyListOnScreen = new ArrayList();
     
     for(Enemy enemy : enemyList){
@@ -122,7 +131,7 @@ public class EnemyManager{
   
   private void enemyRender(){
     float screenPositionX, screenPositionY;
-    for(Enemy enemy : enemyList){
+    for(Enemy enemy : enemyListOnScreen){
       screenPositionX = enemy.x - playerInfo.x + width/2;
       screenPositionY = enemy.y - playerInfo.y + height/2;
       image(enemy.img,screenPositionX,screenPositionY);

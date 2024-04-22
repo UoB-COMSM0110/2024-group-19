@@ -1,5 +1,11 @@
 public class BoundaryChecker{
   
+  /*
+  
+  This class handles the various issues involving boundaries 
+  
+  */
+  
   Entity entity;
   float mapX, mapY;
   
@@ -11,6 +17,8 @@ public class BoundaryChecker{
   
   public void playerCheck(){
     
+    // This method ensures the player doesn't cross the map edge.
+    
     entity.x = min(entity.x, (mapX - (width/2) - entity.img.width));
     entity.x = max(entity.x, width/2);
     entity.y = min(entity.y, (mapY - (height/2) - entity.img.height));
@@ -18,7 +26,8 @@ public class BoundaryChecker{
   }
   
   public boolean bulletCheck(){
-    //println("Entity.x" + entity.x + "Entity.y" + entity.y + "Left Boarder" + width/2 + "Right Boarder" + (mapX - (width/2)) + "Top Boarder" + height/2 + "Bottom boarder" + (mapY - (height/2)));
+    
+    // This is a out of bound checker for bullets so they despawn when they leave the map
     return (entity.x<(width/2 ) ||
        entity.x>(mapX - (width/2)) ||
        entity.y<(height/2) ||

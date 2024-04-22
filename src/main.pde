@@ -21,6 +21,8 @@ String playerName = "";
 void setup() {
   // Set renderer to P2D or it lags horrifically.
   fullScreen(P2D);
+  
+  // Next is loading in all the seperate images 
   characterImage = loadImage("../Assets/character.png");
   //characterImage.resize(width/20, height/20);
   backgroundImage = loadImage("../Assets/background.png");
@@ -96,15 +98,17 @@ void setup() {
   enemyStationary.add(loadImage("../Assets/enemyWalking/tile000.png"));
   
   
-  
+  // ... and the font
 
   font= createFont("../Assets/data/Eight-Bit Madness.ttf", 180);
   //font = loadFont("../Assets/data/Silom-48.vlw");
   textFont(font);
 
-  
+  // Extracting map dimensions 
   mapX = backgroundImage.width;
   mapY = backgroundImage.height;
+  
+  // Initialise classes that manage vaarious aspects of the game.
   player = new Character(mapX / 2, mapY / 2, playerSpeed, characterImage, playerHealth);
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);
@@ -125,6 +129,9 @@ void setup() {
 
 int loopCount = 0;
 void draw() {
+  
+  // Switch-case statament to determine which segment of the game should be loaded
+  // Page number is varied by doing certain actions on each page.
   
   switch(pageManager.pageNumber){
     case 1:
@@ -147,6 +154,8 @@ void draw() {
       pageManager.InstructionPage();
       break;
     case 7:
+    // This is the main game segment
+    // Here the various game manager updater methods are called to progress the game
       if(player.health == 0){
         previousScore = player.score;
         gameReset();
@@ -187,6 +196,8 @@ void draw() {
    
 }
 
+// This says where to redirect the keyboard inputs.
+
 void keyPressed(){
   if(pageManager.pageNumber == 7 || pageManager.pageNumber == 10){
     player.keyPressed();
@@ -202,6 +213,7 @@ void keyReleased(){
 }
 
 void gameReset(){
+  // At the end of the game all the manager classes are re-initialised.
   player = new Character(mapX / 2, mapY / 2, playerSpeed, characterImage, playerHealth);
   background = new Background(player, mapX, mapY, backgroundImage);
   bulletManager = new BulletManager(mapX, mapY, bulletImage, player);

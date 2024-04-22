@@ -35,6 +35,8 @@ class Enemy extends Entity {
   // Overrides the Entity update method to include movement logic
   @Override
   public void update() {
+    
+    // Calculate position based off characters current position
     prevX = x;
     prevY = y;
     angle = atan2(player.y - y, player.x - x);
@@ -55,6 +57,8 @@ class Enemy extends Entity {
   
   public void specificMovement(float angle){
     
+    // This allows for manual motion, this is used in the seperation method.
+    
      x += cos(angle) * speed;
      y += sin(angle) * speed;
      centreX = x + (img.width/2);
@@ -63,6 +67,10 @@ class Enemy extends Entity {
   }
   
   private void keysGenerator(){
+    
+    // This converts an enemy's trajectory to a list of boolean WASD keys, so we can use the
+    // same animation method we used for the Character.
+    
     // First we need to reset keys:
     float absAngle = abs(angle);
     

@@ -1,5 +1,10 @@
 public class Background{
+  /*
   
+  The primary function of this class is to draw the map in an appropriate position 
+  relative to the user's position to create the illusion of movement.
+  
+  */
   private Character playerInfo;
   private PImage image;
   private float mapX, mapY;
