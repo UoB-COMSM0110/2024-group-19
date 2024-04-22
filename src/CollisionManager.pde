@@ -45,15 +45,70 @@ public class CollisionManager{
     
     private void EnemyObstacleCollisions(){
       
+      // This needs alot more work, because enemies are getting stuck way too easily currently.
+      // Rather than just resetting them we need a way for them to be able to move around the obstacle.
+      
+       
       for (Obstacle obstacle : obstacleManager.obstacles) {
-        for(Enemy enemy: enemyManager.enemyListOnScreen){
+        for(Enemy enemy: enemyManager.enemyList){
           if (dist(enemy.centreX, enemy.centreY, (obstacle.x+(obstacle.image.width/2)), (obstacle.y+(obstacle.image.height/2))) < (obstacle.image.width/2+enemy.img.width/2)) {
+            // First reset their position, then we'll calculcate their new vector.
             enemy.x = enemy.prevX;
             enemy.y = enemy.prevY;
+            
+            // Calculate angle to the centre of the obstacle 
+            float angleToObstacle = atan2((obstacle.y+(obstacle.image.height/2)) - enemy.centreY, (obstacle.x+(obstacle.image.width/2)) - enemy.centreX);
+            // Calculate tangent angles
+            float tangentOne = angleToObstacle+90;
+            tangentOne = adjustedAngle(tangentOne);
+            float tangentTwo = angleToObstacle-90;
+            tangentTwo = adjustedAngle(tangentTwo);
+            
+            // See which is closer to current angle so entity moves in the right general direction
+            float absDifferenceOne = abs(enemy.angle - tangentOne);
+            float absDifferenceTwo = abs(enemy.angle - tangentTwo);
+            
+            float newAngle;
+            
+            if(absDifferenceOne < absDifferenceTwo){
+              newAngle = tangentOne;
+            }
+            else{
+              newAngle = tangentTwo;
+            }
+            
+            // Now we move the enemy.
+            
+            float distance = dist(enemy.x, enemy.y, player.x, player.y);
+            
+            // Move towards the player if farther than stopDistance
+            if (distance > enemy.stopDistance) {
+              enemy.x += cos(newAngle) * enemy.speed;
+              enemy.y += sin(newAngle) * enemy.speed;
+              enemy.centreX = enemy.x + (enemy.img.width/2);
+              enemy.centreY = enemy.y + (enemy.img.height/2);
+            }
+            
+            
+
 
           }  
         }
       }
+    }
+    
+    private float adjustedAngle(float angle){
+      // Angles must be between -180 and 180, this will make sure that is the case.
+      // While it won't effect an calculations it needs to be like this for comparison purposes
+      if(angle > 180){
+        angle -=360;
+        return angle;
+      }
+      else if(angle < -180){
+        angle += 360;
+        return angle;
+      }
+      else{return angle;}
     }
 
 
