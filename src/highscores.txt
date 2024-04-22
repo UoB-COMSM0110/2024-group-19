@@ -1,5 +1,7 @@
 xXGXx,11550,(Easy)
 bert,8880,(Easy)
+,6190,(Easy)
+jamie,4880,(Easy)
 ,2020,(Easy)
 jamie,1740,(Easy)
 ,1180,(Easy)

@@ -25,25 +25,40 @@ public class CollisionManager{
     
     
   }
-   private void CharacterObstacleCollisions() {
+   public boolean CharacterObstacleCollisions() {
         for (Obstacle obstacle : obstacleManager.obstacles) {
             // Calculate the player's bounding box (assuming the player's position is centered)
             float playerCentreX = playerInfo.x + playerInfo.img.width/2;
             float playerCentreY = playerInfo.y + playerInfo.img.height/2;
 
             // Check for collision
-            if (dist(playerCentreX, playerCentreY, obstacle.x, obstacle.y) < obstacle.image.width) {
+            if (dist(playerCentreX, playerCentreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+player.img.width/2)) {
                    //playerBottom > obstacleTop &&
                 // Handle collision
                 // For example, stop the player's movement or push them back
-                handlePlayerObstacleCollision(obstacle);
-                break; // Optional: break if you only handle one collision at a time
+                handlePlayerObstacleCollision();
+                return true;
             }
         }
+        return false;
+    }
+    
+    private void EnemyObstacleCollisions(){
+      
+      for (Obstacle obstacle : obstacleManager.obstacles) {
+        for(Enemy enemy: enemyManager.enemyListOnScreen){
+          if (dist(enemy.centreX, enemy.centreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+enemy.img.width/2)) {
+            enemy.x = enemy.prevX;
+            enemy.y = enemy.prevY;
+
+          }  
+        }
+      }
     }
 
+
     // Handle the response to a collision (e.g., stop movement, bounce back, etc.)
-    private void handlePlayerObstacleCollision(Obstacle obstacle) {
+    public void handlePlayerObstacleCollision() {
         // This is a simple example that stops the player's movement.
         // You could add more complex responses like sliding along the obstacle.
         playerInfo.x = playerInfo.prevX;
@@ -107,5 +122,6 @@ public class CollisionManager{
     CharacterEnemyCollisions();
     BulletEnemyCollisions();
     CharacterObstacleCollisions();
+    EnemyObstacleCollisions();
   }
 }

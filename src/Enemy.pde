@@ -2,7 +2,8 @@ class Enemy extends Entity {
   public float stopDistance = 50, hitDistance = 50;
   float health, angle;
   Character player;
-  float centreX, centreY, currentFramePeriod = 0, animationFramePeriod = 200;
+  public float prevX, prevY;
+  public float centreX, centreY, currentFramePeriod = 0, animationFramePeriod = 200;
   private ArrayList<ArrayList<PImage>> imageArrays = new ArrayList();
   Animation walkingAnimation;
   // We'll add keys and set them based of the enemy's vector.
@@ -34,6 +35,8 @@ class Enemy extends Entity {
   // Overrides the Entity update method to include movement logic
   @Override
   public void update() {
+    prevX = x;
+    prevY = y;
     angle = atan2(player.y - y, player.x - x);
     animationImageSelector();
     imageMode(CORNER);

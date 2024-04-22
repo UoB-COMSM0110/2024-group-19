@@ -154,6 +154,9 @@ class Character extends Entity {
     player.x = newX;
     player.y = newY;
     boundary.playerCheck();
+    if(collisionManager.CharacterObstacleCollisions()){
+      randomTeleport();
+    }
   }
   
   public void speedBoostActivate(){
