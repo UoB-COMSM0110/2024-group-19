@@ -19,7 +19,7 @@
     {
       "id": 3,
       "type": "ruins3",
-      "x": 0.8,
+      "x": 0.74,
       "y": 0.5,
       "width": 50,
       "height": 50
@@ -37,6 +37,46 @@
       "type": "ruins5",
       "x": 0.2,
       "y": 0.5,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "id": 1,
+      "type": "ruins1",
+      "x": 0.55,
+      "y": 0.31,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "id": 2,
+      "type": "ruins2",
+      "x": 0.32,
+      "y": 0.48,
+      "width": 75,
+      "height": 75
+    },
+    {
+      "id": 3,
+      "type": "ruins3",
+      "x": 0.4,
+      "y": 0.4,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "id": 4,
+      "type": "ruins4",
+      "x": 0.5,
+      "y": 0.81,
+      "width": 75,
+      "height": 75
+    },
+    {
+      "id": 5,
+      "type": "ruins5",
+      "x": 0.37,
+      "y": 0.16,
       "width": 50,
       "height": 50
     }
