@@ -2,7 +2,7 @@ public class EnemyManager{
   
   Character playerInfo;
   PImage enemyImage;
-  int waveNumber = 0, safeDistance = 150;
+  int waveNumber = 0, safeDistance = width/10;
   float lastRoundTime = 0, lastEnemySpawned = 0;
   float mapX, mapY;
   ArrayList<Enemy> enemyList = new ArrayList();
@@ -35,14 +35,29 @@ public class EnemyManager{
     }
   }
   
-  private void spawnEnemy(){float enemyX, enemyY;
+  private void spawnEnemy(){
+    boolean obstacleCollision = true;
+    float enemyX, enemyY;
     do {
+      obstacleCollision = true;
       enemyX = random(width/2, (mapX-width/2));
       enemyY = random(height/2, (mapY-height/2));
-    } while (dist(enemyX, enemyY, player.x, player.y) < safeDistance); // Ensure enemy spawns away from player
+      
+      for(Obstacle obstacle:obstacleManager.obstacles){
+        if(dist((obstacle.x+(obstacle.image.width/2)), (obstacle.y+(obstacle.image.height/2)), enemyX+(enemyImage.width/2), enemyY+(enemyImage.height/2)) < (obstacle.image.width/2 + characterWalkingForward.get(0).width/2)){
+          obstacleCollision = false;
+          break;
+        }
+      }
+      
+    } while ((dist(enemyX, enemyY, player.x, player.y) < safeDistance) && obstacleCollision); // Ensure enemy spawns away from player
   
       enemyList.add(new Enemy(enemyX, enemyY, currentRound.enemySpeed, enemyImage, currentRound.averageHealth, player));
   }
+  
+
+
+
   
   private void updatePosition(){
     float prevX, prevY;

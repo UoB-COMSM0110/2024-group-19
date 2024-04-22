@@ -32,7 +32,7 @@ public class CollisionManager{
             float playerCentreY = playerInfo.y + playerInfo.img.height/2;
 
             // Check for collision
-            if (dist(playerCentreX, playerCentreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+player.img.width/2)) {
+            if (dist(playerCentreX, playerCentreY, (obstacle.x+(obstacle.image.width/2)), (obstacle.y+(obstacle.image.height/2))) < (obstacle.image.width/2+player.img.width/2)) {
                    //playerBottom > obstacleTop &&
                 // Handle collision
                 // For example, stop the player's movement or push them back
@@ -47,7 +47,7 @@ public class CollisionManager{
       
       for (Obstacle obstacle : obstacleManager.obstacles) {
         for(Enemy enemy: enemyManager.enemyListOnScreen){
-          if (dist(enemy.centreX, enemy.centreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+enemy.img.width/2)) {
+          if (dist(enemy.centreX, enemy.centreY, (obstacle.x+(obstacle.image.width/2)), (obstacle.y+(obstacle.image.height/2))) < (obstacle.image.width/2+enemy.img.width/2)) {
             enemy.x = enemy.prevX;
             enemy.y = enemy.prevY;
 
@@ -71,7 +71,7 @@ public class CollisionManager{
       
       for(Bullet bullet: bulletManager.bulletList){
         for(Obstacle obstacle : obstacleManager.obstacles){
-          if(dist(bullet.centreX, bullet.centreY, obstacle.x, obstacle.y) < (obstacle.image.width/2+bullet.img.width/2)){
+          if(dist(bullet.centreX, bullet.centreY, (obstacle.x+(obstacle.image.width/2)), (obstacle.y+(obstacle.image.height/2))) < (obstacle.image.width/2+bullet.img.width/2)){
             bulletsToRemove.add(bullet);
           }
         }

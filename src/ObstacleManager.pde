@@ -28,7 +28,7 @@ public class ObstacleManager {
         }
         
         for (Obstacle obstacle : obstacles) {
-            obstacle.image.resize(width/5, width/5);
+            obstacle.image.resize((int)obstacle.imgWidth*4, (int)obstacle.imgHeight*4);
         }
     }
 
@@ -38,7 +38,7 @@ public class ObstacleManager {
             screenPositionX = obstacle.x- player.x + width/2;
             screenPositionY = obstacle.y- player.y + height/2;
            //obstacle.image.resize(width/5,width/5);
-           imageMode(CENTER);
+           imageMode(CORNER);
            image(obstacle.image,screenPositionX,screenPositionY);
         }
     }
