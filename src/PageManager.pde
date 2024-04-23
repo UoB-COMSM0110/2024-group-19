@@ -494,6 +494,19 @@ public class PageManager {
    text("Press 'M' to pause game." , (width*(0.8666)),height*0.95);
   }
   
+  private void hitWarning(){
+    fill(#ff0000);
+    textSize(width*0.05);
+    text("Hit!" , (width/2),height*0.0625);
+    fill(0);
+    textSize(width*0.025);
+    float timeLeft = 2-((millis() - playerInfo.lastHitReceived))/1000;
+    String roundedNumber = String.format("%.3f", timeLeft); 
+    text("Invulnerability: " + roundedNumber,width/2,height*0.125);
+    
+    
+  }
+  
   
   private void waveDisplay(){
    fill(0);
@@ -549,6 +562,9 @@ public class PageManager {
     fireRateBoostDisplay();
     }
     healthDisplay();
+    if(playerInfo.invulnerable){
+      hitWarning();
+    }
   }
 
   void displayPlayerName() {

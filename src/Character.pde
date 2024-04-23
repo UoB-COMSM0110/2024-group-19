@@ -1,6 +1,6 @@
 class Character extends Entity {
   public boolean[] keys = new boolean[4]; // For tracking WASD key states
-  boolean invulnerable = false;
+  public boolean invulnerable = false;
   public float lastHitReceived = 0;
   public float invulnerablePeroid = 2000, animationFramePeriod = 100, currentFramePeriod = 0;
   public boolean speedBoostActive = false;
