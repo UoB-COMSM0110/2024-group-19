@@ -1,12 +1,22 @@
 public class PowerUpManager{
   
+  /*
+  
+  This class handles:
+  The probabilty of power-ups spawning
+  The actual spawning of power-ups
+  The collection of power-ups
+  The effects of power-ups
+  
+  */
+  
   ArrayList<PowerUp> powerUpList = new ArrayList();
   private float mapX, mapY;
   Character playerInfo;
   BulletManager bulletManager;
   // This is the probability that a powerUp will appear (between 0 and 1)
   float spawnProbability;
-  int despawnTimeSeconds = 10, powerCollectionDist = 15;
+  int despawnTimeSeconds = 15, powerCollectionDist = 15;
   
   public PowerUpManager(float mapX, float mapY, Character player, float probability, BulletManager bulletManager){
     this.mapX = mapX;
@@ -56,7 +66,7 @@ public class PowerUpManager{
   }
   
   public void powerUpRemove(){
-    // This will go through the powerUpList and 'despawn' any powerUps that are over x seconds old.
+    // This will go through the powerUpList and 'despawn' any powerUps that are over 15 seconds old.
     ArrayList<PowerUp> powerUpToRemove = new ArrayList();
     for(PowerUp power:powerUpList){
       if(millis() - power.timeCreated > (despawnTimeSeconds*1000)){
@@ -70,6 +80,10 @@ public class PowerUpManager{
   }
   
   private void powerUpCollect(){
+    
+    // This simulates the idea of collecting power-ups
+    // If a player is close enough to one, it disappears and the effect is applied to the player
+    // using methods in the Character class.
 
     PowerUp activePowerUp = null;
     float playerXCentre = player.x+(player.img.width/2), playerYCentre = player.y+(player.img.height/2), powerXCentre, powerYCentre;

@@ -6,6 +6,14 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 
+/*
+
+This class handles all graphical formatting in the game, including page designs and on-screen statistics.
+A-lot of work was done here to make all dimensions factors of the screen dimensions so our fullscreen 
+game could scale to any display.
+
+*/
+
 public class PageManager {
     int pageNumber;
     EnemyManager enemyManager;
@@ -28,8 +36,8 @@ public class PageManager {
         Collections.sort(highScores);
     }
   
-  //page 1
   public void gameStart() {
+    // Title Screen formatting
     background(0);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
     textSize(width*0.16);
@@ -37,9 +45,7 @@ public class PageManager {
     text("The Chase", (width / 2), height*0.325);
     textSize(50);
     text("Group 19",width*0.5, height*0.375);
-    //image(button2, WIDTH - 70, 70, 100, 100); 
     imageMode(CENTER);
-   // image(buttonImage, (width / 2), height*0.625, width*0.3666, height*0.1375); //start
     textSize(60);
     textAlign(CENTER);
     fill(#ffffff);
@@ -48,8 +54,8 @@ public class PageManager {
 
   }
   
-  // Page 2
   public void enterName() {
+    // Name entry page formatting 
     background(0);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
     textSize(180);
@@ -65,16 +71,11 @@ public class PageManager {
      }
 }
 
-  
-  //page 4
+
   public void homePage(){
+    // Primary instruction page formatting
     background(0);
-   // imageMode(CORNER);
-  //  float topLeftX = -(playerInfo.x - (width/2));
-   // float topLeftY = -(playerInfo.y - (height/2));
-     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
-   // image(gameStartImage,topLeftX, topLeftY);
-   // imageMode(CENTER);
+    image(gameStartImage, width / 2, height/ 2, width, height*1.5);
     textSize(100);
     fill(#ffffff);
     text("INSTRUCTIONS 1/2",width*0.5,height*0.1);
@@ -97,7 +98,8 @@ public class PageManager {
  // imageMode(CORNER);
   }
   
-    public void InstructionPage(){
+  public void InstructionPage(){
+    // Secondary instruction page formatting
     background(0);
    // imageMode(CORNER);
   //  float topLeftX = -(playerInfo.x - (width/2));
@@ -130,6 +132,7 @@ public class PageManager {
   }
   
   public void difficultySelection(){
+    // Difficulty selection page selection and logic.
     background(0);
     imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
@@ -165,6 +168,7 @@ public class PageManager {
   
   
   public void MenuTwoPage(){
+    // Pause menu formatting 
     background(0);
     imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
@@ -209,16 +213,11 @@ public class PageManager {
   
   
   public void story (){
+    // Story page formatting
     background(0);
-    //bakchround
-   // imageMode(CORNER);
-    //float topLeftX = -(playerInfo.x - (width/2));
-    //float topLeftY = -(playerInfo.y - (height/2));
+
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
-    //grey box 
-   // fill(#808080);
-    //rect(width*0.1, height*0.25, width*0.8, height*0.5, 28);
-    //title 
+
     textSize(width*0.16);
     fill(#FFFFFF);
     text("The Chase", (width / 2), height*0.2);
@@ -233,8 +232,8 @@ public class PageManager {
  
   
   
-  //page 7
   public void gameOverPage(int previousScore){
+    // Game over page formatting
     background(0);
     imageMode(CENTER);
     image(gameStartImage, width / 2, height/ 2, width, height*1.5);
@@ -256,6 +255,7 @@ public class PageManager {
   }
   
  private void createScoreFile() {
+   // Ensures a highscore storage file exists (& creates on if not)
         //createif it doesn't exist
         File file = new File(sketchPath(scoreFile));
         if (!file.exists()) {
@@ -268,6 +268,7 @@ public class PageManager {
     }
 
     private void loadScores() {
+      // Reads in scores from highscores file and stores them for display & new score additions
         highScores.clear();
         File file = new File(sketchPath(scoreFile));
         try (Scanner scanner = new Scanner(file)) {
@@ -288,8 +289,8 @@ public class PageManager {
     }
 
     public void addScore() {
-      // THERE IS A BUG HERE
-      // ALL SCORES ARE BEING SAVED AS THE CURRENT DIFFICULTY BECUASE OF THIS
+      // This appends new scores to the current score of collection and sorts it so it is ready to be
+      // written back to the highscores file.
       
         String difficulty;
       
@@ -310,6 +311,7 @@ public class PageManager {
     }
 
    private void saveScores(){
+     // Saves scores to highscores file.
       try (PrintWriter pw = new PrintWriter(new FileWriter(sketchPath(scoreFile), false))) {
           for (PlayerScore ps : highScores) {
               pw.println(ps.playerName + "," + ps.score + "," + ps.difficulty);
@@ -323,6 +325,9 @@ public class PageManager {
   
   
   public void keyPressed(){
+    
+    // This function tracks key presses so the program knows when to move from one page to another
+    // It also contains the logic for what the sequence of pages are.
     
    
      
@@ -377,6 +382,7 @@ public class PageManager {
   } 
   
    public void leaderboard() {
+     // This displays the top 10 resluts from the query of the highscores file.
      background(0);
         image(gameStartImage, width / 2, height / 2, width, height * 1.5);
         textSize(100);
@@ -395,7 +401,10 @@ public class PageManager {
     text("Left arrow \nto go back\n <<", (width * 0.5), height * 0.72);
 }
 
+  /*
   
+  These next set of methods modularise the display of power-up explinations 
+  */
   private void oxygenInstr(){
     textSize(height*0.045);
     fill(0, 0, 255); // Blue color for oxygen
@@ -479,6 +488,13 @@ public class PageManager {
   textSize(height*0.05);
   text("Use Mouse to aim \nand shoot", width*0.52, height*0.48 );
   }
+  
+  /*
+  
+  This next set of methods are for ingame information for the user
+  
+  
+  */
   
   
   private void scoreDisplay(){
