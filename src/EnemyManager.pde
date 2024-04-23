@@ -135,6 +135,10 @@ public class EnemyManager{
       screenPositionX = enemy.x - playerInfo.x + width/2;
       screenPositionY = enemy.y - playerInfo.y + height/2;
       image(enemy.img,screenPositionX,screenPositionY);
+      // Let's add little health bars above each of the zombies too
+      float barSize = enemy.health/enemy.originalHealth;
+      fill(#ff0000);
+      rect(screenPositionX, screenPositionY-(enemyImage.height*0.12), (barSize * (enemyImage.width)), (enemyImage.height*0.1),enemyImage.height*0.05);
       
     }
   }

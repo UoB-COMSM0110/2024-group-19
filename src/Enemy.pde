@@ -1,6 +1,6 @@
 class Enemy extends Entity {
   public float stopDistance = 50, hitDistance = 50;
-  float health, angle;
+  float health, angle, originalHealth;
   Character player;
   public float prevX, prevY;
   public float centreX, centreY, currentFramePeriod = 0, animationFramePeriod = 200;
@@ -13,6 +13,7 @@ class Enemy extends Entity {
   Enemy(float x, float y, float speed, PImage img, float health, Character player) {
     super(x, y, speed, img);
     this.health = health;
+    this.originalHealth = health;
     this.player = player;
     
     imageArrays.add(enemyStationary);

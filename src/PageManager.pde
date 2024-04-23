@@ -288,6 +288,9 @@ public class PageManager {
     }
 
     public void addScore() {
+      // THERE IS A BUG HERE
+      // ALL SCORES ARE BEING SAVED AS THE CURRENT DIFFICULTY BECUASE OF THIS
+      
         String difficulty;
       
         if(hardMode){
@@ -306,22 +309,14 @@ public class PageManager {
          
     }
 
-   private void saveScores() {
-     String difficulty;
-      
-        if(hardMode){
-          difficulty = "(Hard)";
-        }
-        else{
-          difficulty = "(Easy)";
-        }
-        try (PrintWriter pw = new PrintWriter(new FileWriter(sketchPath(scoreFile), false))) {
-            for (PlayerScore ps : highScores) {
-                pw.println(ps.playerName + "," + ps.score + "," + difficulty);
-            }
-        } catch (IOException e) {
-            System.out.println("Error writing to score file: " + e.getMessage());
-        }
+   private void saveScores(){
+      try (PrintWriter pw = new PrintWriter(new FileWriter(sketchPath(scoreFile), false))) {
+          for (PlayerScore ps : highScores) {
+              pw.println(ps.playerName + "," + ps.score + "," + ps.difficulty);
+          }
+      } catch (IOException e) {
+          System.out.println("Error writing to score file: " + e.getMessage());
+      }
     }
 
 
@@ -390,7 +385,7 @@ public class PageManager {
         int y = 200;  // Start position for player scores
        
         // Loops through the top 5 scores stored in highScores
-        for (int i = 0; i < Math.min(5, highScores.size()); i++) {
+        for (int i = 0; i < Math.min(10, highScores.size()); i++) {
             PlayerScore ps = highScores.get(i);// Retrieves the i-th player score.
             text((i + 1) + ". " + ps.toString(), width / 2, y);
             y += 50;  // Move down for the next score
