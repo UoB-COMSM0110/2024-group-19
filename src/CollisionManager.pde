@@ -181,13 +181,15 @@ public class CollisionManager{
           enemy.health--;
           // Reward player for a hit
           player.score += 10;
+          if(hardMode){player.score+=3;}
           if(enemy.health < 0){
           // If there is a kill, remove the zombie...
-          enemiesToRemove.add(enemy);
-          // ... activate power-up creation method 
-          powerUpManager.powerUpCreate(enemy.x,enemy.y);
-          // and reward further
-          player.score += 20;
+            enemiesToRemove.add(enemy);
+            // ... activate power-up creation method 
+            powerUpManager.powerUpCreate(enemy.x,enemy.y);
+            // and reward further
+            player.score += 20;
+            if(hardMode){player.score+=6;}
           }
           
         }

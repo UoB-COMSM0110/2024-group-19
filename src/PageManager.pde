@@ -144,7 +144,7 @@ public class PageManager {
     text("EASY", width*0.33, height*0.5);
     text("HARD", width*0.66, height*0.5);
     textSize(50);
-    text("On hard mode zombies will: \n - Have more health \n -  Move faster \n \n The rounds will: \n - Be faster \n - Have more zombies", width*0.5, height*0.75);
+    text("On hard mode zombies will: \n - Have more health \n -  Move faster \n - Be worth more points \n \n The rounds will: \n - Be faster \n - Have more zombies", width*0.5, height*0.75);
     textSize(80);
     fill(#ff0000);
     
