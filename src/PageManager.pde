@@ -544,6 +544,17 @@ public class PageManager {
   private void oxygenDisplay(){
     fill(0, 0, 255); // Blue color for oxygen
     rect(width/150, height*0.09, (player.oxygenLevel * (width * 0.00266)), height/35,height*0.02);
+    
+    if(playerInfo.oxygenLevel < 10){
+      fill(#ff0000);
+      textSize(width*0.05);
+      text("Oxygen Low!" , (width/2),height*0.875);
+      fill(0);
+      textSize(width*0.025);
+      text("Stand still to regenerate." , (width/2),height*0.9375);
+      
+      
+    }
   }
   
   private void speedBoostDisplay(){
