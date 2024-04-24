@@ -185,18 +185,18 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
 ---
 **Heuristic Evaluation** 
 
-<img src='/HeuristicEvalS1.png'/>
+<img src='/ReportMaterial/HeuristicEvalS1.png'/>
 Based on the Heuristic Evaluation of the different game pages, we found that the issue regarding the design of the game was severely impacting the player's experience.
 
 
 ---
 **System Usability Scale**
-<img src='/SUS1.png'/>
+<img src='/ReportMaterial/SUS1.png'/>
 The final score was derieved and processed accordingly to their question number. Odd numbered questions had 1 subtracted from their scale score and mulitplied by 2.5 for the overall score. Whilst even numbered questions were subtracted from 5, before being multiplicated by 2.5 for the overall score. The processing of the SUS scores was completed over Microsoft Exel. 
 
 ---
 **NASA TLX**
-<img src='/TLXstage1.png'/>
+<img src='/ReportMaterial/TLXstage1.png'/>
 The NASA TLX questions were weighted by the users who underwent the TLX scoring and determined based on their opinions. Using the average weightage, it informed the final aggregate workload as sum of each individual score was multiplied by the question weightage before being divided by 15. The TLX scores highlighted that majority of the effort needed to play out game came from the performance of each player, the effort and their frustrations. 
 
 ---
@@ -218,14 +218,14 @@ Stage 2: Final evaluation
 The team held another SUS evaluation after redesigning the game. Changes to the design included a fixed font and colour throughout the game, change in ingame background and a menu button to remind users of the instructions and ability to exit the game safely. These changes aimed to help distinguish the text and the backgrounds to be more distinct and clearer, whilst maintaining an aesthetic 8-bit look to the game. 
 
 **System Usability Scale**
-<img src='/SUS2.png'/>
+<img src='/ReportMaterial/SUS2.png'/>
 
 
 **Wilcoxin Significant Testing** 
 
 To evaluate if there was a significant difference in usability, the team used Wilcoxin Ranked test from on online W-test calculator. https://www.statology.org/wilcoxon-signed-rank-test-calculator/. We used the final System Usability Scale results of both Stage 1 (pre-design changes) and Stage 2(post-design changes) for the W-ranked test. 
-<img src='/TtestScore.png'/>
-<img src='/alphaLevel.png'/>
+<img src='/ReportMaterial/TtestScore.png'/>
+<img src='/ReportMaterial/alphaLevel.png'/>
 
 We found that there was not a significant improvement in usability. With a T test score of 13 on 10 non-paired pairs, we needed a score of 8 to have a 95% certainty that the difference in usability was due to the changes rather than due to random noise. Whilst there is no significant difference in usability, in future rendition of the game, we aim to find different possibilities to implement on our design to further improve user usability. 
 
