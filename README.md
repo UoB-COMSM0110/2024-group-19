@@ -125,6 +125,21 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Pape
 
 ## Design 
 
+Generally speaking, the game's architecture has 3 layers of granularity. 
+
+### Entity Level
+The first and most fundamental level is the entity level. Each instance at this level represents the physical state of a given entity whether it's an obstacle, an enemy or even the character itself. Attributes stores at this level usually include the (x,y) position, the speed, and image used to represent the entity. Methods stored at this level usually look at updating and rendering the position of entities where applicable. 
+### Manager Level
+The second level is the manager level. Each manager class is responsible for governing the collective behaviour of it's respective entities. Some examples of this are the EnemyManager class which handles the handles the incrementing difficulty of enemies that are spawnes and the BulletManager class which monitors all active bullets, removing those that have either had a collision, left the game world or gone off screen.
+### Control Level
+The highest level is the control level. This is the Main class in the script it's role is to continually call the update methods of each of the Manager classes. This pivotal role not only ensures the synchronisation of the various game elements but also facilitates the smooth progression of gameplay dynamics. This layered systems-based approach not only enhances the efficiency of game management but also contributes to the overall player experience, ensuring a seamless and immersive gameplay journey.
+
+This structure is shown in the System Class Diagram below.
+<figure>
+  <img src='ReportMateiral/classDiagram.png' alt="class diagram" style="width:100%">
+</figure>
+
+
 750 words 
 System Architecture 
   - Class Diagrams
