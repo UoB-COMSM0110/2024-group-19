@@ -17,13 +17,29 @@ Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 
 ## Introduction
 
-In our single player roguelite survival game, the player takes on the role of a one-man army aiming to survive waves of mutated rats and the collection of power ups. The gems are generated from killing the enemies, allowing for a more powerful weapon or statistical upgrades as the game progresses. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with the bullets shooting out of the character oriented through the directions of the mouse. Players can strategize to either kill their way through or survive through the incoming waves of enemies. As the player progresses onto the next level, the difficulty of the game increases with more rats that are harder to kill. The game is based off a mobile game “[Suvivor.io](http://suvivor.io/)”. We included an endurance bar that decreases as the character moves as a twist to our game. Leading the character to stay still to build up their endurance and run further after. Our twists allows for an increased difficulty level as the player will need to bare their endurance in mind, simultaneously causing the player to confront the waves of rats. Furthermore, it causes players to be creative and implement a strategic method of surviving the waves of enemies rather than a straightforward killing game. Our team found that this endurance bar idea was both interesting and novel yet allows players to realistically play the game.
+In our single player roguelike survival game, the player takes on the role of a one-man army in a post-apocalyptic scenario, aiming to survive against waves of zombies using evasive techniques and power-ups that have a chance of spawning when you defeat an enemy. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with a continual stream of bullets shooting out of the character, whose trajectories are controlled by the position of the mouse. Players must be careful with the way they strategise to ensure they don't get trapped by the oncoming hoard. The game has 2 built in difficulty levels, and while there is no difference in the core mechanics between the levels, the harder setting creates a much more aggressive round structure, meaning enemies spawn more frequently, move faster, and are harder to defeat. The game is based off a mobile game “Suvivor.io" ([AppStore](https://apps.apple.com/sg/app/survivor-io/id1528941310) & [Google Play](https://play.google.com/store/apps/details?id=com.dxx.firenow&hl=en&gl=US&pli=1)). In this game, the user must fend off a continual onslaught of zombies to save their city. To make this game differ from it's inspiration we implemented 2 unique features. 
+
+The first is an endurance bar that depletes when the player is moving and replenishes when they are stationary, creating an additional layer of strategy by forcing them to manage their endurance while safely navigating their way through the incoming waves of enemies. Our team found that this endurance bar idea managed to be both interesting and novel without hindering the quality of the game.
+
+<figure>
+  <img src="ReportMaterial/StaminaDemo.gif" alt="stamina demonstration" style="width:30%">
+  <figcaption>Demonstration of stamina mechanics</figcaption>
+</figure>
+
+
+The second was in-game power-ups that have a chance of spawning when an enemy is defeated. We found that these power-ups not only made the latter stages of the game more accessible, but also increased user satisfaction by making the game more stimulating. 
+
+<figure>
+  <img src="ReportMaterial/powerUpDemo.gif" alt="power-up demonstration" style="width:30%">
+  <figcaption>Demonstration of power-up collection and effects</figcaption>
+</figure>
+
 
 
 ---
 
 ### Game Paper Prototype
-<img src='/game video.gif'/>
+<img src='ReportMateiral/game video.gif'/>
 
 Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above to watch our Game Paper Prototype!
 
@@ -119,19 +135,20 @@ The 3 largest areas of challenges identified during the production of the game w
 
 1. Dynamic Maps
    
-Originally, the game was written on a static perception of the map, where the enemies spawned will centred on the character. At this point, the character could accidentally hide on the map beyond the window, causing an issue for players as they needed to find their way back to the centre of the map without dying to continue playing.
+Originally, the game was was made up of entities moving around a static map, where all enemies converged on the characters potition. This created the immediate issue that entities could wonder off-screen and not be able to find their way back. However this was quickly fixed by establishing a simple coordinate boundary that limited all entity positions to within the area on-screen.
 
   Image below: User playing normally.
    <img src='/ReportMaterial/ImplementationC1.2.png'/>  
    Image below: User hiding off screen. 
    <img src='ReportMaterial/implementation C1.3.png'/> 
    
-   
-Based on the qualitative evaluations we received, one theme that stood out was to make the board dynamic, allowing for the player to have a wider playing area. This was implemented by changing the perception to be fixed on the character in the middle of the window. To further complement this perception, the zombies and bullets rendered will be spawned according to the position of the board and the absolute displacement of character in mind. To prevent the characters from falling off the map, we added in a border of trees that blocks the character.
-
+However, a persistant piece of feedback that emerged through qualitative evaluations was that  the game could become more engaging with a larger map extending beyond the confines of the screen. Such an expansion would serve two primary purposes: fostering a sense of exploration and enabling the spawning of a greater number of enemies without overcrowding the map. Implementing this proved to be conceptually challenging. To do so, all entities, including the map and any onscreen obstacles had a set attributes representing their x,y coordinates. Entities that move such as the Character and enemies had these attributes updated on each iteration. From there, the Character was rendered in the middle of the screen and new set of x,y measurements were generated for each entity. These measurements represented their position relative to the Character, and therefore where they should be rendered, even if it off-screen. This presented an issue, when the player approached the edge of the map, the render of background would no longer fill the screen. To solve this, the original boundary condition was ammended to create a vertical and horizontal margain equal to the half the width and half the height of the screen respectively. This created an 'invisible barrier', so trees were rendered in this margain space to display that it was out of bounds. These ideas are shown in the diagram below:
 
 Image below: Image of planning phase for dynamic mapping. 
  <img src='ReportMaterial/ImplementationC2.1jpeg.jpeg'/> 
+
+
+ 
 
 
 
