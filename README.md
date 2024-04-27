@@ -20,10 +20,12 @@ Hsuan Lin , ev23671@bristol.ac.uk , HsuanLin322
 In our single player roguelike survival game, the player takes on the role of a one-man army in a post-apocalyptic scenario, aiming to survive against waves of zombies using evasive techniques and power-ups that have a chance of spawning when you defeat an enemy. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with a continual stream of bullets shooting out of the character, whose trajectories are controlled by the position of the mouse. Players must be careful with the way they strategise to ensure they don't get trapped by the oncoming hoard. The game has 2 built in difficulty levels, and while there is no difference in the core mechanics between the levels, the harder setting creates a much more aggressive round structure, meaning enemies spawn more frequently, move faster, and are harder to defeat. The game is based off a mobile game “Suvivor.io" ([AppStore](https://apps.apple.com/sg/app/survivor-io/id1528941310) & [Google Play](https://play.google.com/store/apps/details?id=com.dxx.firenow&hl=en&gl=US&pli=1)). In this game, the user must fend off a continual onslaught of zombies to save their city. To make this game differ from it's inspiration we implemented 2 unique features. 
 
 The first is an endurance bar that depletes when the player is moving and replenishes when they are stationary, creating an additional layer of strategy by forcing them to manage their endurance while safely navigating their way through the incoming waves of enemies. Our team found that this endurance bar idea managed to be both interesting and novel without hindering the quality of the game.
-<img src='ReportMateiral/StaminaDemo.gif'/>
-
+![GIF showing the stamina feature](https://i.imgur.com/vLce3V9.gif)
+https://i.imgur.com/CIxmzx8.gif
 The second was in-game power-ups that have a chance of spawning when an enemy is defeated. We found that these power-ups not only made the latter stages of the game more accessible, but also increased user satisfaction by making the game more stimulating. 
-<img src='ReportMateiral/powerUpDemo.gif'/>
+
+![GIF showing the colleciton and effects of power-ups](https://i.imgur.com/vLce3V9.gif)
+
 
 
 ---
