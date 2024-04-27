@@ -39,9 +39,12 @@ The second was in-game power-ups that have a chance of spawning when an enemy is
 ---
 
 ### Game Paper Prototype
-<img src='ReportMateiral/game video.gif'/>
+<figure>
+  <img src='ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
+  <figcaption>Paper prototype</figcaption>
+</figure>
 
-Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) or on the image above to watch our Game Paper Prototype!
+Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Paper Prototype!
 
 ---
 
