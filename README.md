@@ -38,29 +38,15 @@ The second was in-game power-ups that have a chance of spawning when an enemy is
 
 ---
 
-### Game Paper Prototype
-<figure>
-  <img src='ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
-  <figcaption>Paper prototype</figcaption>
-</figure>
-
-Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Paper Prototype!
-
----
-
 ## Requirements
-
-### Use-case Diagram
-<img src='/ReportMaterial/Use-case diagram.png'/>
 
 **Early stages design. Ideation process**
 
-In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a [survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) game, which is a 2D-kill-zombie game. Through an anonymous voting system, majority decided on the survivor game due to its creativity as well as difficulty level. We started to discuss about the basic function of this game before creating initial paper prototype mock-ups. In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements that wanted in our game. Using our requirements, we redid the paper prototype and recorded a video to depict ideally how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
-
+In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a  a 2D-kill-zombie game. The majority opted for the survivor game through an anonymous voting system. It was selected because it offered a comparatively low minimal viable product requirement, while retaining ample room for overhead expansion into a more intricate game. Furthermore, the structure of the game leant itself to the concept of varying difficulty levels quite nicely. We started to discuss the basic functionality of the game. To better understand what ideas the users may be interested in, we started by creating some User Stories.
 
 **User Stories**
 
->“As a << Developer >> I want to << have a twist in the gamel>> so that << the game is more fun and unique >>”
+>“As a << Developer >> I want to << have a twist in the game>> so that << the game is more fun and unique >>”
 
 >“As a << User >> I want to << understand the game instructions >> so that << I can play the game intuitively >>”
 
@@ -69,6 +55,12 @@ In inital stages of development, our group brainstormed about several types of g
 >"As a << Negative Stakeholder>> I want to << find some bugs and difficulties in this game>> so that << I can provide some feedbacks for developers and earn money from them>>"
 
 >"As a << Original Developer >> I want to << protect my intellectual property >> so that << I can protect my property >>"
+
+
+
+In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements for our game. Using these requirements, we re-designed the paper prototype and recorded a video to depict how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
+
+<!--[survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) -->
 
 <br>
 
@@ -108,7 +100,7 @@ In inital stages of development, our group brainstormed about several types of g
 
 >System needs to reset the different bars
 
->Repeat till end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
+>Repeat until end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
 
 *Entered page of win after level2*
 
@@ -119,6 +111,17 @@ In inital stages of development, our group brainstormed about several types of g
 >System shows: most recent 3 scores to show improvement or deprovement from previous games 
 
 >System display back to original page showing the login
+
+### Use-case Diagram
+<img src='/ReportMaterial/Use-case diagram.png'/>
+
+**Paper Prototype**
+<figure>
+  <img src='ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
+  <figcaption>Paper prototype</figcaption>
+</figure>
+
+Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Paper Prototype!
 
 ## Design 
 
