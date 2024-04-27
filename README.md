@@ -117,7 +117,7 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 **Paper Prototype**
 <figure>
-  <img src='ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
+  <img src='/ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
   <figcaption>Paper prototype</figcaption>
 </figure>
 
@@ -136,7 +136,7 @@ The highest level is the control level. This is the Main class in the script it'
 
 This structure is shown in the System Class Diagram below.
 <figure>
-  <img src='ReportMateiral/classDiagram.png' alt="class diagram" style="width:100%">
+  <img src='/ReportMateiral/classDiagram.png' alt="class diagram" style="width:100%">
 </figure>
 
 
