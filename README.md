@@ -22,7 +22,7 @@ In our single player roguelike survival game, the player takes on the role of a 
 The first is an endurance bar that depletes when the player is moving and replenishes when they are stationary, creating an additional layer of strategy by forcing them to manage their endurance while safely navigating their way through the incoming waves of enemies. Our team found that this endurance bar idea managed to be both interesting and novel without hindering the quality of the game.
 
 <figure>
-  <img src="ReportMaterial/StaminaDemo.gif" alt="stamina demonstration" style="width:30%">
+  <img src="ReportMaterial/StaminaDemo.gif" alt="stamina demonstration" style="width:50%">
   <figcaption>Demonstration of stamina mechanics</figcaption>
 </figure>
 
@@ -30,7 +30,7 @@ The first is an endurance bar that depletes when the player is moving and replen
 The second was in-game power-ups that have a chance of spawning when an enemy is defeated. We found that these power-ups not only made the latter stages of the game more accessible, but also increased user satisfaction by making the game more stimulating. 
 
 <figure>
-  <img src="ReportMaterial/powerUpDemo.gif" alt="power-up demonstration" style="width:30%">
+  <img src="ReportMaterial/powerUpDemo.gif" alt="power-up demonstration" style="width:75%">
   <figcaption>Demonstration of power-up collection and effects</figcaption>
 </figure>
 
