@@ -16,18 +16,32 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 |Charmaine Suah (@Csuah09) | zx23187@bristol.ac.uk |
 | Hsuan Lin (@HsuanLin322) | ev23671@bristol.ac.uk  |
 
+
+
 # Table of Content 
-• [introduction](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#introduction)
+* [introduction](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#introduction)
 
-• [Requirements](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#requirements)
+* [Requirements](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#requirements)
+    * [Use Case specifications](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#use-case-specifications)
+    * [Early Designs & Ideation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#early-stages-design--ideation-process)
 
-• [Design](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#design)
+* [Design](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#design)
 
-• [Implementation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#implementation)
+  * [Class Diagram](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#class-diagrams)
+  * [Behavioural Diagram](url)
 
-• [Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#evaluations)
+* [Implementation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#implementation)
+  * [3 Challenges ](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#challenges) 
 
-• [Process](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#process)
+* [Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#evaluations)
+  * [Qualitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#stage-1--mid-production-evaluations)
+  * [Quantitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#system-usability-scale-1)
+  * [Evaluation Descriptions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#wilcoxin-significant-testing)
+
+
+* [Process](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#process)
+    * [Tools](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#tools-used)
+    * [Reflections](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#reflection)
 
 • [Conclusions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#conclusion)
 
@@ -172,7 +186,7 @@ The second is the Round class. This will called as part of the EnemyManager clas
 
 The final class worth mentioning is the Backgroud class. This class will be responsible for rendering the background appropriately relative to the players current position to create the perception that the player is moving across a large landscape. 
 
-<strong><u>Sequence Diagram</u></strong>
+## Sequence Diagram
 The above structure should ensure a smooth process from the perspective of development, however it offers little with regards to illustrating interactions between different objects within the system. The proposed sequence diagram for this system can be seen below. 
 <figure>
   <img src='/ReportMaterial/sequenceDiagram.png' alt="class diagram" style="width:100%">
