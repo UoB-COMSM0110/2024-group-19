@@ -1,5 +1,7 @@
 # 2024-group-19
 
+![Header](/ReportMaterial/github-header-image.png)
+
 ### Team
 <figure> 
   <img src='/ReportMaterial/MicrosoftTeams-image.png'alt="group photo" style="width:100%"/>
@@ -7,6 +9,7 @@
 
 
 L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
+
 
 
 | Name (github username)  | Email |
@@ -18,6 +21,8 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 | Jamie Bell Thomas (@jamiebellthomas) | ws19177@bristol.ac.uk |
 
 [**Game Video**](https://youtu.be/xEocnZ7FiOo)
+
+
 
 
 # Table of Content 
