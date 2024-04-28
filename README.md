@@ -309,7 +309,7 @@ Based on the Heuristic Evaluation of the different game pages, we found that the
 ---
 ### System Usability Scale
 <figure>
-<img src='/ReportMaterial/SUS1.png' lt=" SUS stage 1 " style="width:100%"/>
+<img src='/ReportMaterial/SUS.1.png' lt=" SUS stage 1 " style="width:100%"/>
 </figure>
 
 The final score was derieved and processed accordingly to their question number. Odd numbered questions had 1 subtracted from their scale score and mulitplied by 2.5 for the overall score. Whilst even numbered questions were subtracted from 5, before being multiplicated by 2.5 for the overall score. The processing of the SUS scores was completed over Microsoft Exel. 
@@ -342,8 +342,8 @@ The team held another SUS evaluation after redesigning the game. Changes to the 
 
 ### System Usability Scale
 <figure>
-  <img src='/ReportMaterial/SUS2.png'lt=" SUS stage 2 " style="width:100%"/>
-<img src='/ReportMaterial/FinalSUSScore.png'lt=" SUS final " style="width:100%"/>
+  <img src='/ReportMaterial/SUS.2.png'lt=" SUS stage 2 " style="width:100%"/>
+<img src='/ReportMaterial/SUS.3.png'lt=" SUS final " style="width:100%"/>
 </figure>
 
 
