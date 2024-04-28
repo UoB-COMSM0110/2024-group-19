@@ -359,7 +359,7 @@ To evaluate if there was a significant difference in usability, the team used Wi
 </figure>
 
 
-We found that there was a significant improvement in usability. With a T test score of 6 on 10 non-paired pairs, as such we have 95% certainty that the significant improvement to our design was due to our changes and not because of random noise. 
+We found that there was a significant improvement in usability. With a T test score of *t(10)= 6,  p=0.05* on 10 non-paired pairs, our results indicated with a 95% certainty that the significant difference in our design was due to our design changes and not because of random noise. Furthermore, with the average score of 72.1, our SUS testing (post design changes) scored above the average score of 68, indicating good usability practices in our game. 
 
 
 
