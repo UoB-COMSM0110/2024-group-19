@@ -251,7 +251,6 @@ This idea is displayed in the figure below:
 This figure shows the effect of the Enemy Separation algorithm:
 <figure>
   <img src="ReportMaterial/SepvsNoSep.gif" alt="stamina demonstration" style="width:70%">
-  <figcaption>Demonstration of stamina mechanics</figcaption>
 </figure>
 
 
@@ -268,7 +267,6 @@ For the purposes of collision avoidance calculations, the obstacles are modelled
 2. This figure shows the effect of the Obstacle Avoidance Algorithm.
 <figure>
   <img src="ReportMaterial/ObsvsNoObs.gif" alt="Obstacle avoidance demo" style="width:70%">
-  <figcaption>Demonstration of stamina mechanics</figcaption>
 </figure>
 
 
