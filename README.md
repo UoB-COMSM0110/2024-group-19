@@ -97,23 +97,23 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 ## Use-Case Specifications
 
+
 *Login use case*
 
 >System shows: Login page display
 
->User input: login parameters
+>User input: login parameters for score-board
 
->System checks: checks the parameters with the existing users
+*Difficulty level choosing use case*
+>use mouse to choose level of difficulty for game
 
-> If login parameter exist, match the game login with their account. Else, show user another page for new log in / register account.
+*Lore use case*
+>use arrow buttons or 'Enter' to move between lore and instructions
+>System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
 
 *Entered main page of game*
 
->Show the details of user’s game (levels/ existing highscore/ start game button )
-
 >User inputs: 'enter' as start game button
-
->System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
 
 >User starts playing using WASD, and the automatic gun shoots through aiming with a mouse
 
@@ -123,7 +123,12 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Once moving and killed zombie, system display health decrease if user attacked by zombie. With continuous movement, the endurance bar will depleat and user will need to stand still to refill their endurance bar to move again. 
 
->System displays hp to be full (indicator of entering next level system needs to know that we need to go to next level). With more zombie kills, power ups relating to the weapons or health bar will randomly appear to help with user.
+>System displays warning signs when endurance bar is low or getting hit by zombies
+
+*Menu page use case*
+> User inputs: 'm' during game to switch to menu page
+> System displays: instructions about the game, current score, and leaderboard
+> Users inputs: 'Enter' to resume game, or 'Shift' to quit the game
 
 *Entered page of level 2*
 
@@ -133,13 +138,12 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Repeat until end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
 
-*Entered page of win after level2*
+*Entered page of death after level2*
 
->Show congratulation page:
->System displays high score onto the scoresheet
+> Show game over page:
+> User input: right arrow for leaderboard that shows top 10 scores
 > If they are existing players, higher scores placed above previous scores. 
-> First time players places their score in the middle, ighlight the current game score using border
->System shows: most recent 3 scores to show improvement or deprovement from previous games 
+> User input: 'Enter' to restart the game
 
 >System display back to original page showing the login
 
