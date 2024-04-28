@@ -1,6 +1,7 @@
 # 2024-group-19
 
-![Header](ReportMaterial/welcomPage.png)
+[![Header](ReportMaterial/welcomPage.png)](https://youtu.be/xEocnZ7FiOo)
+Click the image to see our game's video :)
 
 ### Team
 <figure> 
@@ -277,6 +278,9 @@ For the purposes of collision avoidance calculations, the obstacles are modelled
 <figure>
   <img src="ReportMaterial/ObsvsNoObs.gif" alt="Obstacle avoidance demo" style="width:70%">
 </figure>
+
+
+These challenges are also explained in our [game video](https://youtu.be/xEocnZ7FiOo).
 
 
    ---
