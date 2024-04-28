@@ -286,14 +286,14 @@ These challenges and their implementations are also explained in our [game video
    ---
 
 # Evaluations
-## Stage 1 : mid-production evaluations
+## Stage 1 : Mid-production Evaluations
 
 
 Think Aloud Participant #1:
 
 Positives: fun game 
 
-Negatives: There isn’t much fun or interesting movements to the character. Its not necessary for the character to move to play the game (but will die faster). Without prior experience of playing games on a keyboard, it might be hard to control the characters. Felt that the colour scheme of most elements in the game was too similar, causing it to be hard to see. Would enjoy a leaderboard to feature or saving of past scores for sense of improvement. Misunderstood that it is not necessary to click on the mouse to shoot. 
+Negatives: There aren’t many fun or interesting movements available to the character. Its also not necessary for the character to move to play the game. Without prior experience of playing games on a keyboard, it as difficult to understand how to play the game. Felt that the colour scheme of most elements in the game was too similar, making it hard to see. The game would benefit from a leaderboard feature to save past scores to create a sense of improvement. Misunderstood that it is not necessary to click on the mouse to shoot. 
 
 ---
 
@@ -301,7 +301,7 @@ Think Aloud Participant #2:
 
 Positives: good amount of challenging. 
 
-Negatives: Unsure what stamina means. Felt that the background was too colourful and distracting from the enemy. When the enemy is too close to the character, the visuals of the bullet deteriorate. The font used for texts are too small and white makes it hard to see. Did not catch or fully grasps what the instructions were before starting the game. 
+Negatives: Unsure what stamina means or how it effects the game. Felt that the background was too colourful and distracting from the enemy. When the enemy is too close to the character, the visuals of the bullet deteriorate. The font used for texts are too small and white text makes it hard to see. Wasn't able to fully understand the pre-game instructions. 
 
 ---
 ### Heuristic Evaluation 
@@ -309,7 +309,7 @@ Negatives: Unsure what stamina means. Felt that the background was too colourful
   <img src='/ReportMaterial/HeuristicEvalS1.png'lt=" heuristic evaluation stage 1 " style="width:100%"/>
 </figure>
 
-Based on the Heuristic Evaluation of the different game pages, we found that the issue regarding the design of the game was severely impacting the player's experience.
+Based on the Heuristic Evaluation of the different game pages, we found that the issues surrounding the aesthetic design of the game was severely impacting the player's experience.
 
 
 ---
@@ -318,7 +318,7 @@ Based on the Heuristic Evaluation of the different game pages, we found that the
 <img src='/ReportMaterial/SUS.1.png' lt=" SUS stage 1 " style="width:100%"/>
 </figure>
 
-The final score was derieved and processed accordingly to their question number. Odd numbered questions had 1 subtracted from their scale score and mulitplied by 2.5 for the overall score. Whilst even numbered questions were subtracted from 5, before being multiplicated by 2.5 for the overall score. The processing of the SUS scores was completed over Microsoft Exel. 
+The final score was derieved and processed accordingly based off the question number. Odd numbered questions had 1 subtracted from their scale score whilst even numbered questions were subtracted from 5. The cumulative scores were then multiplied by 2.5 to transition it from a 0-40 scale to a 0-100 scale. The processing of the SUS scores was completed in Microsoft Exel. 
 
 ---
 ### NASA TLX
@@ -326,7 +326,9 @@ The final score was derieved and processed accordingly to their question number.
   <img src='/ReportMaterial/TLXstage1.png' lt=" TLX stage 1 " style="width:100%"/>
 </figure>
 
-The NASA TLX questions were weighted by the users who underwent the TLX scoring and determined based on their opinions. Using the average weightage, it informed the final aggregate workload as sum of each individual score was multiplied by the question weightage before being divided by 15. The TLX scores highlighted that majority of the effort needed to play out game came from the performance of each player, the effort and their frustrations. 
+The NASA TLX questions were subjected to pair-wise comparisons by users who underwent TLX scoring. These comparisons yielded weightings for each category, calculated using the average scores. These weightings were then utilized to determine the final aggregate workload. Each individual score was multiplied by the corresponding question weightage and divided by 15.
+
+The TLX scores revealed that the predominant effort required to engage with the game stemmed from the performance of each player, their exertion, and the frustrations encountered during gameplay.
 
 ---
 ### Insights
@@ -339,7 +341,7 @@ Key Themes:
 - Need more clearer instructions on the game and have instructions be more accessible.
 - Background and characters need more interactive features.
 
-As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided to change the background and include obstacles for the player to navigate. Secondly, we wanted a dynamic screen to follow the player, allowing for a larger map. Thirdly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
+As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided to change the background and include obstacles for the player to navigate. Secondly, we wanted a dynamic screen to follow the player, allowing for a larger map. Thirdly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, we'll include a help button that the player can use whilst playing the game to re-familiarise themselves with the rules.
 
 ---
 ## Stage 2: Final evaluation 
