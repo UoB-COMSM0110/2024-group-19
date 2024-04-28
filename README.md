@@ -38,7 +38,7 @@ In our single player roguelike survival game, the player takes on the role of a 
 
 The first is an endurance bar that depletes when the player is moving and replenishes when they are stationary, creating an additional layer of strategy by forcing them to manage their endurance while safely navigating their way through the incoming waves of enemies. Our team found that this endurance bar idea managed to be both interesting and novel without hindering the quality of the game.
 
-<figure align="center">
+<figure>
   <img src="ReportMaterial/StaminaDemo.gif" alt="stamina demonstration" style="width:50%">
   <figcaption>Demonstration of stamina mechanics</figcaption>
 </figure>
@@ -143,9 +143,10 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Pape
 
 # Design 
 
-Generally speaking, the game's architecture will have 3 layers of granularity. 
+
 
 ## Class Diagrams
+Generally speaking, the game's architecture will have 3 layers of granularity. 
 
 ### Entity Level
 The first and most fundamental level is the entity level. Each instance at this level represents the physical state of a given entity whether it's an obstacle, an enemy or even the character itself. Attributes stores at this level usually include the (x,y) position, the speed, and image used to represent the entity. Methods stored at this level usually look at updating and rendering the position of entities where applicable. 
@@ -193,60 +194,63 @@ This organised sequence aims to elevate gameplay quality by ensuring smooth mech
 
 ---
 
-# Implementation 
+# Challenges of Implementation 
 
-## Challenges
-The 3 largest areas of challenges identified during the production of the game was: 1) planning and Implementation of a Dynamic Map; 2) creating an accurate shooting process using the mouse whilst making it efficient; and 3) the separation of enemies based on Particle Swarm Optimisation. These challenges were derived from the process of improving our game through our evaluative feedback.
-
-### Challenge 1. Dynamic Maps
+The 3 most significant challenges that were encountered during the development of this game were: 
+1) Implementing a Dynamic Background
+2) Enemy Separation
+3) Enemy Obstacle Nagigation
+## Challenge 1. Dynamic Maps
    
 Originally, the game was was made up of entities moving around a static map, where all enemies converged on the characters potition. This created the immediate issue that entities could wonder off-screen and not be able to find their way back. However this was quickly fixed by establishing a simple coordinate boundary that limited all entity positions to within the area on-screen.
-
-  Image below: User playing normally.
-  <figure>
-   <img src='/ReportMaterial/ImplementationC1.2.png'lt="implementationC1.2" style="width:100%"/>  
-   Image below: User hiding off screen. 
-   <img src='ReportMaterial/implementation C1.3.png'lt="implementationC1.3" style="width:100%"/> 
-  </figure>
   
-However, a persistant piece of feedback that emerged through qualitative evaluations was that  the game could become more engaging with a larger map extending beyond the confines of the screen. Such an expansion would serve two primary purposes: fostering a sense of exploration and enabling the spawning of a greater number of enemies without overcrowding the map. Implementing this proved to be conceptually challenging. To do so, all entities, including the map and any onscreen obstacles had a set attributes representing their x,y coordinates. Entities that move such as the Character and enemies had these attributes updated on each iteration. From there, the Character was rendered in the middle of the screen and new set of x,y measurements were generated for each entity. These measurements represented their position relative to the Character, and therefore where they should be rendered, even if it off-screen. This presented an issue, when the player approached the edge of the map, the render of background would no longer fill the screen. To solve this, the original boundary condition was ammended to create a vertical and horizontal margain equal to the half the width and half the height of the screen respectively. This created an 'invisible barrier', so trees were rendered in this margain space to display that it was out of bounds. These ideas are shown in the diagram below:
+However, a persistant piece of feedback that emerged through qualitative evaluations was that  the game could become more engaging with a larger map extending beyond the confines of the screen. Such an expansion would serve two primary purposes: fostering a sense of exploration and enabling the spawning of a greater number of enemies without overcrowding the map. Implementing this proved to be conceptually challenging. To do so, all entities, including the map and any onscreen obstacles had a set attributes representing their x,y coordinates. Entities that move such as the Character and enemies had these attributes updated on each iteration. From there, the Character was rendered in the middle of the screen and new set of x,y measurements were generated for each entity. These measurements represented their position relative to the Character, and therefore where they should be rendered, even if it was off-screen. This presented an issue, when the player approached the edge of the map, the render of background would no longer fill the screen. To solve this, the original boundary condition was ammended to create a vertical and horizontal margain equal to the half the width and half the height of the screen respectively. This created an 'invisible barrier', so trees were rendered in this margain space to display that it was out of bounds. These ideas are shown in the diagrams below.
 
+1. This figure visualises the relatively simple calculations behind rendering the characters, background, and enemies on a static background:
 
 <figure> 
-  <img src='ReportMaterial/ImplementationC2.1jpeg.jpeg'lt="planning phase for dynamic mapping" style="width:100%"/> 
-   <figcaption>planning phase for dynamic mapping</figcaption>
+  <img src='ReportMaterial/staticBackgroundCalcs.jpg'alt="static map rendering calculations" style="width:90%"/> 
+</figure>
+2. This figure visualises the relatively complex calculations behind rendering the background and enemies relative to a centralised character in-order to create the perception of movement 
+<figure> 
+  <img src='ReportMaterial/dynamicBackgroundCalcs.jpg'alt="dynamic map rendering calculations" style="width:90%"/> 
+</figure>
+3. Finally, this figure shows the previously mentioned margains, and how they are defined.
+<figure> 
+  <img src='ReportMaterial/margainDemo.jpg'alt="background margain demo" style="width:90%"/> 
 </figure>
 
-
-
-Furthermore, to allow Users to play the game more strategically, we had implemented obstacles on the map. It can be used to orientate themselves of their location or used to hide away from the zombies. This was implemented using JSON files, which was populated with the different types, coordinates and dimensions of the obstacles.
-<figure>
- <img src='ReportMaterial/Treeborder.png' lt="tree border" style="width:100%"/> 
-</figure>
-
-### Challenge 2. Accurate and Effective Shooting
-
-When we first completed the first rendition of our game, we noticed some issues with how the bullet was shooting. It was off centred, leaning towards the top left of the character. This was not what we had planned for as we wanted the bullet to originate and shoot out from the middle of the character.
-
-
-After much trial and error to pinpoint exactly the reason that is causing the bullet to originate off centred, we realised that the image rendering from Processing has a corner imaging mode, as such we had to manually halved the width and height of the character as the co-ordinates for the bullets to originate from. This too allowed for the bullets to move flexibly as the character moved around the map.
-
-Image below: reflects how bullet comes from the middle of the character in a straightline.
-<figure>
-   <img src='ReportMaterial/bulletFromCenterWithProof.png'lt="bullet from center with proof " style="width:100%"/> 
-</figure>
-
-
-Furthermore, as the game was built on multiple loops that check the boundary of the character and the bullets, checks for the collision of the bullets with the enemies and the removal of bullets whilst having a constant loop to release the waves of enemies; the game was running very slowly. As such we had to make multiple changes. such as instantly deleting any bullets that were outside the window of the user’s perception to reduce the number of bullets to check for. Additionally, we kept track of the number of enemies that could be perceived by the user as a list and narrow down the global list of enemies to the perceived list, further lowering down the number of collisions to be checked for.
-
-
-### Challenge 3. Particle Swarm Optimisation on Enemy Positioning
+## Challenge 2. Enemy Separation
 
 In early iterations of the game, enemies were allowed to overlap freely. This created an issue. With all enemies are trying to proceed to the same point on the map (the coordinates of the player), it became a common occurrence that they coalesced into a single entity, significantly detracting from the quality of the game. To combat this, we utilised a bio-inspired algorithm called Swarm Intelligence.
 Swarm Intelligence is a mathematical representation of a sub-set of systems that exhibit emergent complexity, and one of its underlying behaviours is Separation, which ensures that the action space is delegated amongst the swarm’s agents.
 To enforce this each enemy has a protected radius, and when other enemies enter that radius, it ‘steers away’ from them by calculating a deflection vector. This deflection vector represents the optimal direction of travel to avoid collisions with nearby objects, creating a separation between them.
+This idea is displayed in the figure below:
+<figure>
+   <img src='ReportMaterial/separationDemo.jpg'lt="swarm intelligence separation" style="width:80%"/> 
+</figure>
+This figure shows the effect of the Enemy Separation algorithm:
+<figure>
+  <img src="ReportMaterial/SepvsNoSep.gif" alt="stamina demonstration" style="width:70%">
+  <figcaption>Demonstration of stamina mechanics</figcaption>
+</figure>
 
 
+## Challenge 3. Enemy Obstacle Navigation
+
+When obstacles were implemented, an immediate and pressing issue revealed itself; enemies were getting 'trapped' against these obstacles far too easily. Up until this point, collision resolutions was handled simply by resetting enemies to their previous position whenever they entered an illegal area. However this solution proved to be completely ineffective in this instance as if offered no ability to circumnavigate obstacles should the need arise. A new form of collision avoidance was required. 
+
+For the purposes of collision avoidance calculations, the obstacles are modelled as circles and if an entity were to breach the circumference of that circle, their position would be reset to what it was in the last iteration. What was required was for the enemy to navigate along the circumference of the obstacle border when encountering an obstacle. In that statement lies the key for the chosen solution. At the point of contact, both possible tangents are calculated. From there the tangent that is closest to the bearing from the enemy to the player was chosen as the new vector for that iteration. Repeating this process over the course of multiple successive iterations created the perception of seemless movement around obstacles. 
+1. Figure showing the concept of tangent generation and selection.
+<figure>
+   <img src='ReportMaterial/tangentialMotion.jpg'lt="tangential modion demo" style="width:90%"/> 
+</figure>
+
+2. This figure shows the effect of the Obstacle Avoidance Algorithm.
+<figure>
+  <img src="ReportMaterial/ObsvsNoObs.gif" alt="Obstacle avoidance demo" style="width:70%">
+  <figcaption>Demonstration of stamina mechanics</figcaption>
+</figure>
 
 
    ---
