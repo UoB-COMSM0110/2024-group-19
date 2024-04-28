@@ -91,8 +91,8 @@ In inital stages of development, our group brainstormed about several types of g
 * “As a **Teacher**, I want to **be specific** so that **I can mark the game accurately to the marking scheme** ”
 
 * "As a **Negative Stakeholder**, I want to **find some bugs and difficulties in this game** so that **I can provide some feedbacks for developers and earn money from them**"
+* As an **Original Developer** I want to **protect my intellectual property** so that I can **protect my rights** 
 
-* "As a **Original Developer** I want to  **protect my intellectual property**  so that  **I can protect my property** "
 
 
 
@@ -115,8 +115,10 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 >use mouse to choose level of difficulty for game
 
 *Lore use case*
->use arrow buttons or 'Enter' to move between lore and instructions
+
+>use arrow buttons or 'Enter' to move between lore and instructions 
 >System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
+
 
 *Entered main page of game*
 
@@ -137,9 +139,9 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 > System displays: instructions about the game, current score, and leaderboard
 > Users inputs: 'Enter' to resume game, or 'Shift' to quit the game
 
-*Entered page of level 2*
+*Entered page of wave 2*
 
->System display next level page
+>System display next wave
 
 >System needs to reset the different bars
 
@@ -333,7 +335,7 @@ Key Themes:
 - Need more clearer instructions on the game and have instructions be more accessible.
 - Background and characters need more interactive features.
 
-As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided that we were going to change the background and include obstacles for the player to navigate. The screen will be further improved to make it dynamic, where the screen will follow the player, allowing for a larger map. Secondly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
+As such, the team underwent brain storming to further improve the game whilst using these themes as the basis for improvement. Together, we decided to change the background and include obstacles for the player to navigate. Secondly, we wanted a dynamic screen to follow the player, allowing for a larger map. Thirdly, we will be making some design changes to the enemy and choosing a more distinct but complementary colour for the texts. Finally, include a help button where the player can access whilst playing the game to re-familiarise themselves with the rules.
 
 ---
 ## Stage 2: Final evaluation 
@@ -357,8 +359,7 @@ To evaluate if there was a significant difference in usability, the team used Wi
 </figure>
 
 
-We found that there was not a significant improvement in usability. With a T test score of 13 on 10 non-paired pairs, we needed a score of 8 to have a 95% certainty that the difference in usability was due to the changes rather than due to random noise. Whilst there is no significant difference in usability, in future rendition of the game, we aim to find different possibilities to implement on our design to further improve user usability. 
-
+We found that there was a significant improvement in usability. With a T test score of 6 on 10 non-paired pairs, as such we have 95% certainty that the significant improvement to our design was due to our changes and not because of random noise. 
 
 
 
@@ -366,7 +367,7 @@ We found that there was not a significant improvement in usability. With a T tes
 
 ## Teamwork:
 
-Our team communicates via Teams to confirm the time and place for our meeting. When we do come together, we first look through our KanBan board to understand which tasks take priority and write a to-do list for that session. These tasks are usually delagated to different individuals accordingly to what they are better and more confortable with. With each task being ticked off, we gather the group to show the difference and impact it has on the game and reminded each other to git-pull the new version of the repository. Our team usually stays in the meeting until everyone is mostly done with their tasks, before we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
+Our team communicates via Teams to confirm the time and place for our meetings. During which, we look through our KanBan board to understand which tasks take priority and write a to-do list for that session. These tasks are usually delagated to different individuals accordingly to their strengths. Once a task is completed, we gather to show the differences and impacts on the game and reminded each other to git-pull the new version of the repository. Before the sprint ends, we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
 
 
 ## Tools used:
@@ -409,7 +410,7 @@ I really enjoy the whole process of us figuring out the idea for the game. A lot
 
 Jamie: 1.0
 
-In this project my main area of responsibility has been the development of the source code. I played a key role in the development and testing of base mechanics of our game. Once a minimal viable product had been developed, I took a step back and restructured our code base, really focusing on the principals of agile object orientated design. This increased the readability and the performance of the code significantly as well as making it simpler to understand and further develop our game. More recently I have been working on higher level features such as the dynamic background as-well as the ‘power-up’ mechanics. Overall, I have thoroughly enjoyed working as a part of this team. I feel we have placed great emphasis on regular communication, creating a clear sense of direction for this team and allowing a wide variety of ideas to be considered. 
+My main responsibility was the development of the source code. I played a key role in the development and testing of base mechanics of our game. Once a minimal viable product had been developed, I took a step back and restructured our code base, focusing on the principals of agile object orientated design. This increased the readability and performance of the code significantly - making it simpler to understand and further develop our game. More recently I have been working on higher level features such as the dynamic background as-well as the ‘power-up’ mechanics. Overall, I have thoroughly enjoyed working as a part of this team. I feel we have placed great emphasis on regular communication, creating a clear sense of direction for this team and allowing a wide variety of ideas to be considered. 
 
 WeiJian: 1.0
 
