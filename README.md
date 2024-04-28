@@ -125,25 +125,51 @@ Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Pape
 
 ## Design 
 
-Generally speaking, the game's architecture has 3 layers of granularity. 
+Generally speaking, the game's architecture will have 3 layers of granularity. 
 
 ### Entity Level
 The first and most fundamental level is the entity level. Each instance at this level represents the physical state of a given entity whether it's an obstacle, an enemy or even the character itself. Attributes stores at this level usually include the (x,y) position, the speed, and image used to represent the entity. Methods stored at this level usually look at updating and rendering the position of entities where applicable. 
 ### Manager Level
-The second level is the manager level. Each manager class is responsible for governing the collective behaviour of it's respective entities. Some examples of this are the EnemyManager class which handles the handles the incrementing difficulty of enemies that are spawnes and the BulletManager class which monitors all active bullets, removing those that have either had a collision, left the game world or gone off screen.
+The second level is the manager level. Each manager class is responsible for governing the collective behaviour of it's respective entities. Some examples of this are the EnemyManager class which will handle the incrementing difficulty of enemies that are spawned and the BulletManager class which will monitor all active bullets, removing those that have either had a collision, left the game world, or gone off screen.
 ### Control Level
-The highest level is the control level. This is the Main class in the script it's role is to continually call the update methods of each of the Manager classes. This pivotal role not only ensures the synchronisation of the various game elements but also facilitates the smooth progression of gameplay dynamics. This layered systems-based approach not only enhances the efficiency of game management but also contributes to the overall player experience, ensuring a seamless and immersive gameplay journey.
+The highest level is the control level. This is the Main class in the script it's role is to continually call the update methods of each of the Manager classes. This pivotal role not only ensures the synchronisation of the various game elements but also facilitates the smooth progression of gameplay dynamics. This layered systems-based approach not only enhances the efficiency of game management but also contributes to the overall player experience, ensuring a seamless and immersive gameplay journey. Moreover, this structured approach facilitated highly effective test-driven development by providing clear progressions from unit testing to integration testing and finally to system testing.
 
-This structure is shown in the System Class Diagram below.
+The proposed structure is shown in the System Class Diagram below.
 <figure>
   <img src='/ReportMaterial/classDiagram.png' alt="class diagram" style="width:100%">
 </figure>
+<strong><u>Progression Through the Game</u></strong>
 
+The user's progression through our game will be managed collectively by two key components: a switch-case statement in the main class and the public pageNumber attribute in the PageManager class. Within the PageManager class, methods will be implemented to handle the formatting for each page as well as providing instructions for incrementing the pageNumber attribute. Subsequently, the switch-case statement in the main class will call the appropriate PageManager method based on the current pageNumber value. This implementation will not only create a seemless user progression through the game but will also work very well inside the draw function which is conotinually running. 
 
-750 words 
-System Architecture 
-  - Class Diagrams
-  - Behaviour Diagrams
+<strong><u>Other Classes</u></strong>
+
+There are a few additional classes that haven't been covered thus far.
+
+The first is the Animation class. For now this will only be applied to dynamic entities (Character & Enemy). Its primary attribute will be an array of image arrays. This array will have 4 image arrays, with each sub-array will representing an animation sequence of sprites travelling in one of the 4 fundamental directions. The sub-array that is chosen for render is depended on an array of boolean expressions, which in-turn represent the statuses of the W,A,S & D keys (true = pressed and false = not). Some simple conditional logic should be enough to implement this effectively. Once the correct sub-array has been selected it will simply be a case of looping through the images in this array. 
+
+The second is the Round class. This will called as part of the EnemyManager class and will calculate Enemy health, speed and number as a function of the current round number & return it to the EnemyManager class so it can deploy an appropriate wave of enemies. 
+
+The final class worth mentioning is the Backgroud class. This class will be responsible for rendering the background appropriately relative to the players current position to create the perception that the player is moving across a large landscape. 
+
+<strong><u>Sequence Diagram</u></strong>
+The above structure should ensure a smooth process from the perspective of development, however it offers little with regards to illustrating interactions between different objects within the system. The proposed sequence diagram for this system can be seen below. 
+<figure>
+  <img src='/ReportMaterial/sequenceDiagram.png' alt="class diagram" style="width:100%">
+</figure>
+
+The diagram outlines the proposed sequence of events for each loop of gameplay, divided into four sections.
+
+1. Position Update and Collision Detection: 
+This section begins by updating the positions of the Character and all enemies using the EnemyManager class. It then checks for collisions, deducts health points, and ends the round if necessary.
+2. Bullet Handling and Collision Resolution: 
+In this section, the system checks if a new bullet needs to be spawned. The CollisionManager then utilises a nested loop to detect collisions between bullets and enemies, taking appropriate actions when collisions occur.
+3. Rendering: 
+The third step involves rendering the new positions of the background, obstacles, and border trees, ensuring that the visual representation of the game world is updated accordingly.
+4. Power-up Proximity Check: 
+Finally, the system quickly checks if the player is in proximity to any spawned power-ups, enabling the player to interact with these beneficial items as needed.
+
+This organised sequence aims to elevate gameplay quality by ensuring smooth mechanics and seamless interactions between game elements. With clear steps for position updates, collision detection, rendering, and power-up checks, players will be able to enjoy a refined and engaging gaming experience.
 
 ---
 
