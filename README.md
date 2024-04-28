@@ -55,7 +55,7 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 
 # Introduction
 
-In our single player roguelike survival game, the player takes on the role of a one-man army in a post-apocalyptic scenario, aiming to survive against waves of zombies using evasive techniques and power-ups that have a chance of spawning when you defeat an enemy. Our main character is moved through the manipulation of the ‘W’’S’’A’’D’ characters, with a continual stream of bullets shooting out of the character, whose trajectories are controlled by the position of the mouse. Players must be careful with the way they strategise to ensure they don't get trapped by the oncoming hoard. The game has 2 built in difficulty levels, and while there is no difference in the core mechanics between the levels, the harder setting creates a much more aggressive round structure, meaning enemies spawn more frequently, move faster, and are harder to defeat. The game is based off a mobile game “Suvivor.io" ([AppStore](https://apps.apple.com/sg/app/survivor-io/id1528941310) & [Google Play](https://play.google.com/store/apps/details?id=com.dxx.firenow&hl=en&gl=US&pli=1)). In this game, the user must fend off a continual onslaught of zombies to save their city. To make this game differ from it's inspiration we implemented 2 unique features. 
+In our single player roguelike survival game, the player takes on the role of a one-man army in a post-apocalyptic scenario, aiming to survive against waves of zombies using evasive techniques and power-ups that have a chance of spawning when you defeat an enemy. Our main character is moved through the manipulation of the ‘W’’A’’S’’D’ characters, with a continual stream of bullets shooting out of the character, whose trajectories are controlled by the position of the mouse. Players must be careful with the way they strategise to ensure they don't get trapped by the oncoming hoard. The game has 2 built in difficulty levels, and while there is no difference in the core mechanics of either levels, the harder setting creates a much more aggressive round structure, resulting in enemies spawning more frequently, moving faster, and being harder to defeat. The game is based off a mobile game “Suvivor.io" ([AppStore](https://apps.apple.com/sg/app/survivor-io/id1528941310) & [Google Play](https://play.google.com/store/apps/details?id=com.dxx.firenow&hl=en&gl=US&pli=1)). In this game, the user must fend off a continual onslaught of zombies to save their city. To make this game differ from it's inspiration we implemented 2 unique features. 
 
 The first is an endurance bar that depletes when the player is moving and replenishes when they are stationary, creating an additional layer of strategy by forcing them to manage their endurance while safely navigating their way through the incoming waves of enemies. Our team found that this endurance bar idea managed to be both interesting and novel without hindering the quality of the game.
 
@@ -65,7 +65,7 @@ The first is an endurance bar that depletes when the player is moving and replen
 </figure>
 
 
-The second was in-game power-ups that have a chance of spawning when an enemy is defeated. We found that these power-ups not only made the latter stages of the game more accessible, but also increased user satisfaction by making the game more stimulating. 
+The second was in-game power-ups that have a chance of spawning when an enemy is defeated. We found that these power-ups not only made the latter stages of the game more manageable, but also increased user satisfaction by making the game more stimulating. 
 
 <figure>
   <img src="ReportMaterial/powerUpDemo.gif" alt="power-up demonstration" style="width:75%">
@@ -80,7 +80,7 @@ The second was in-game power-ups that have a chance of spawning when an enemy is
 
 ## Early stages design & Ideation process
 
-In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a  a 2D-kill-zombie game. The majority opted for the survivor game through an anonymous voting system. It was selected because it offered a comparatively low minimal viable product requirement, while retaining ample room for overhead expansion into a more intricate game. Furthermore, the structure of the game leant itself to the concept of varying difficulty levels quite nicely. We started to discuss the basic functionality of the game. To better understand what ideas the users may be interested in, we started by creating some User Stories.
+In inital stages of development, our group brainstormed about several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a  a 2D-Wave-Survival game. The majority opted for the survivor game through an anonymous voting system. It was selected because it offered a comparatively low minimal viable product requirement, while retaining ample room for overhead expansion into a more intricate game. Furthermore, the structure of the game leant itself to the concept of varying difficulty levels quite nicely. We started to discuss the basic functionality of the game. To better understand what ideas the users may be interested in, we started by creating some User Stories.
 
 ## User Stories
 
@@ -128,7 +128,7 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Character continuously shooting bullet, moving around around according to the user’s mouse input
 
->Once moving and killed zombie, system display health decrease if user attacked by zombie. With continuous movement, the endurance bar will depleat and user will need to stand still to refill their endurance bar to move again. 
+>Once moving and defeating zombie, system display health decrease if user attacked by zombie. With continuous movement, the endurance bar will depleat and user will need to stand still to replenish their endurance bar to move again. 
 
 >System displays warning signs when endurance bar is low or getting hit by zombies
 
@@ -143,7 +143,7 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >System needs to reset the different bars
 
->Repeat until end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
+>Repeat until end of game, with enemies that are harder to kill, either by needing more damage to kill or increased enemy points. 
 
 *Entered page of death after level2*
 
@@ -263,7 +263,7 @@ This figure shows the effect of the Enemy Separation algorithm:
 
 ## Challenge 3. Enemy Obstacle Navigation
 
-When obstacles were implemented, an immediate and pressing issue revealed itself; enemies were getting 'trapped' against these obstacles far too easily. Up until this point, collision resolutions was handled simply by resetting enemies to their previous position whenever they entered an illegal area. However this solution proved to be completely ineffective in this instance as if offered no ability to circumnavigate obstacles should the need arise. A new form of collision avoidance was required. 
+When obstacles were implemented, an immediate and pressing issue revealed itself; enemies were getting 'trapped' against these obstacles far too easily. Up until this point, collision resolutions was handled simply by resetting enemies to their previous position whenever they entered an illegal area. However this solution proved to be completely ineffective in this instance as no ability to circumnavigate obstacles were offered should the need arise. A new form of collision avoidance was required. 
 
 For the purposes of collision avoidance calculations, the obstacles are modelled as circles and if an entity were to breach the circumference of that circle, their position would be reset to what it was in the last iteration. What was required was for the enemy to navigate along the circumference of the obstacle border when encountering an obstacle. In that statement lies the key for the chosen solution. At the point of contact, both possible tangents are calculated. From there the tangent that is closest to the bearing from the enemy to the player was chosen as the new vector for that iteration. Repeating this process over the course of multiple successive iterations created the perception of seemless movement around obstacles. 
 1. Figure showing the concept of tangent generation and selection.
@@ -366,7 +366,7 @@ We found that there was not a significant improvement in usability. With a T tes
 
 ## Teamwork:
 
-Our team communicates via Teams to confirm the time and place for our meeting. When we do come together, we first look through our KanBan board to understand which tasks take priorityand writes a to-do list for that day. These tasks are usually delagated to different individuals accordingly to what they are better and more confortable with. With each task being ticked off, we gather the group to show the difference and impact it has on the game and remind each other to git-pull the new version of the repository. Our team usually stays in the meeting till everyone is mostly done with their tasks, before we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
+Our team communicates via Teams to confirm the time and place for our meeting. When we do come together, we first look through our KanBan board to understand which tasks take priority and write a to-do list for that session. These tasks are usually delagated to different individuals accordingly to what they are better and more confortable with. With each task being ticked off, we gather the group to show the difference and impact it has on the game and reminded each other to git-pull the new version of the repository. Our team usually stays in the meeting until everyone is mostly done with their tasks, before we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
 
 
 ## Tools used:
@@ -405,7 +405,7 @@ I feet that with all group work comes with friction and misunderstandings, but a
 
 XinYue: 1.0
 
-I really enjoy the whole process of us figuring out the idea for the game. A lot of the initial design has to be modified during the process, and that is the chance we got to understand and practice agile development and teamwork. In the team, every member contributes their understanding of what makes the game work well and what makes it appealing to people. Therefore, we have a broader view of how to deliver a quality product. 
+I really enjoy the whole process of us figuring out the idea for the game. A lot of the initial design had to be modified during the process, and that is the chance we got to understand and practice agile development and teamwork. In the team, every member contributes their understanding of what makes the game work well and what makes it appealing to people. Therefore, we have a broader view of how to deliver a quality product. 
 
 Jamie: 1.0
 
@@ -417,7 +417,7 @@ During the whole process of game design, I find the agile development more impor
 
 LinHsuan: 1.0 
 
-Upon discovering the task of designing a game in groups before the semester's end, I initially felt overwhelmed. However, through regular face-to-face group discussions and consistent effort, we are gradually overcoming obstacles and making progress.
+Upon discovering the task of designing a game in groups before the semester's end, I initially felt overwhelmed. However, through regular face-to-face group discussions and consistent effort, we gradually overcame obstacles and made progress.
 In my role, I undertook game display design tasks such as creating game characters and designing instruction pages. Designing a good game is not easy. With each meeting, our collective vision becomes clearer, and our tasks more manageable. Our teamwork and dedication are paving the way for us to steadily close the gap towards achieving our objective.
 
 # Documentation of code
@@ -426,7 +426,7 @@ Please see [Documentation ](ReportMaterial/Documentaion.md)
 
 
 # Conclusion 
-When we started the project, our team was extremely excited to create a new game that we could call our own. We wanted it to be fun, to look cool and for us to be proud of our production. Through our continuous hard work and commitment towards this project, we found that we have accomplished just that. This game has brought many challenges that we had to overcome, even starting from the basic of deciding how to format the game and to explore the different features processing was difficult. Furthermore, the challenges we found ourselves facing as we wanted to further improve the game, not only made us realise how important communication and independent learning was, but we also realised that working together as an agile team helped us bounce ideas and process information better. Looking back, whilst the main idea of the game still resides, we realised that game development is an ongoing process, and we need to remain flexible and open to new ideas. 
+When we started the project, our team was extremely excited to create a new game that we could call our own. We wanted it to be fun, to look cool and for us to be proud of our production. Through our continuous hard work and commitment towards this project, we found that we have accomplished that. This game has brought many challenges that we had to overcome, even starting from the basic of deciding how to format the game and to explore the different features processing was difficult. Furthermore, the challenges we found ourselves facing as we wanted to further improve the game, not only made us realise how important communication and independent learning was, but we also realised that working together as an agile team helped us bounce ideas and process information better. Looking back, whilst the main idea of the game still resides, we realised that game development is an ongoing process, and we need to remain flexible and open to new ideas. 
 
 With the final product in hand, it might be easy to say that the entire process was smooth sailing, however key challenges the team faced was the need to refactor the game halfway through production. We found our code to be messy and the classes were unorganised. Aiming to allow the game to be as robust as possible, we decided to refactor the game over the Easter break. Majority of the production was held over those 3 weeks. Furthermore, whilst there were technical challenges that we faced during the game production. One of the challenges that blind sighted us was the design aspect. The team did not realise how big of an impact design has on a game, from making it look like an amateur production to something of better quality. Whilst our usability difference might not have been significant. We found that having a consistent look by using similar backgrounds, fonts, colour schemes, all made the game clearer and more professional. In future endeavours, we hope to have the time and ability to explore different ways to implement new enemies, each having their own skill to kill, and finding creative ways for the User to power up. Furthermore, in the future, the team feels that we could implement some scientifically informed user experience design to further improve the usability of the game, allowing for it to be second nature and easy to use. 
 
