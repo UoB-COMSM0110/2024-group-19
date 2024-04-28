@@ -28,7 +28,7 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 * [Design](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#design)
 
   * [Class Diagram](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#class-diagrams)
-  * [Behavioural Diagram](url)
+  * [Behavioural Diagram](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#sequence-diagram)
 
 * [Implementation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#implementation)
   * [3 Challenges ](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#challenges) 
@@ -147,13 +147,14 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 <figure>
   <img src='/ReportMaterial/Use-case diagram.png' alt="use case diagram" style="width:100%"/>
 </figure>
+
 ## Paper Prototype
 <figure>
   <img src='/ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
-  <figcaption>Paper prototype</figcaption>
+
 </figure>
 
-Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Paper Prototype!
+Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) to watch our Game Paper Prototype!
 
 # Design 
 
@@ -424,10 +425,5 @@ Forheksed: game background [https://www.deviantart.com/forheksed/art/Evening-in-
 
 <br>
 
-TODO : 
-
-System Architecture 
-  - Class Diagrams
-  - Behaviour Diagrams
 
 
