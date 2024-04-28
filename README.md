@@ -422,7 +422,7 @@ In my role, I undertook game display design tasks such as creating game characte
 
 # Documentation of code
 
-Please see [Documentation ](./ReportMaterial/Documentation.md)
+Please see [Documentation ](/ReportMaterial/Documentation.md).
 
 # Conclusion 
 When we started the project, our team was extremely excited to create a new game that we could call our own. We wanted it to be fun, to look cool and for us to be proud of our production. Through our continuous hard work and commitment towards this project, we found that we have accomplished just that. This game has brought many challenges that we had to overcome, even starting from the basic of deciding how to format the game and to explore the different features processing was difficult. Furthermore, the challenges we found ourselves facing as we wanted to further improve the game, not only made us realise how important communication and independent learning was, but we also realised that working together as an agile team helped us bounce ideas and process information better. Looking back, whilst the main idea of the game still resides, we realised that game development is an ongoing process, and we need to remain flexible and open to new ideas. 
