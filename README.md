@@ -196,7 +196,7 @@ The user's progression through our game will be managed collectively by two key 
 
 There are a few additional classes that haven't been covered thus far.
 
-The first is the Animation class. For now this will only be applied to dynamic entities (Character & Enemy). Its primary attribute will be an array of image arrays. This array will have 4 image arrays, with each sub-array will representing an animation sequence of sprites travelling in one of the 4 fundamental directions. The sub-array that is chosen for render is depended on an array of boolean expressions, which in-turn represent the statuses of the W,A,S & D keys (true = pressed and false = not). Some simple conditional logic should be enough to implement this effectively. Once the correct sub-array has been selected it will simply be a case of looping through the images in this array. 
+The first is the Animation class. For now this will only be applied to dynamic entities (Character & Enemy). Its primary attribute will be an array of image arrays. This array will have 4 image arrays, with each sub-array representing an animation sequence of sprites travelling in one of the 4 fundamental directions. The sub-array that is chosen for render will depend on an array of boolean expressions, which in-turn represent the statuses of the W,A,S & D keys (true = pressed and false = not). Some simple conditional logic should be enough to implement this effectively. Once the correct sub-array has been selected it will simply be a case of looping through the images in this array. 
 
 The second is the Round class. This will called as part of the EnemyManager class and will calculate Enemy health, speed and number as a function of the current round number & return it to the EnemyManager class so it can deploy an appropriate wave of enemies. 
 
@@ -211,9 +211,9 @@ The above structure should ensure a smooth process from the perspective of devel
 The diagram outlines the proposed sequence of events for each loop of gameplay, divided into four sections.
 
 1. Position Update and Collision Detection: 
-This section begins by updating the positions of the Character and all enemies using the EnemyManager class. It then checks for collisions, deducts health points, and ends the round if necessary.
+This loop begins by updating the positions of the Character and all enemies using the EnemyManager class. It then checks for collisions, deducts health points, and ends the game if necessary.
 2. Bullet Handling and Collision Resolution: 
-In this section, the system checks if a new bullet needs to be spawned. The CollisionManager then utilises a nested loop to detect collisions between bullets and enemies, taking appropriate actions when collisions occur.
+In this section, the system checks if a new bullet needs to be spawned. The CollisionManager then utilises a nested loop to detect collisions between bullets and other entities, taking appropriate actions when collisions occur.
 3. Rendering: 
 The third step involves rendering the new positions of the background, obstacles, and border trees, ensuring that the visual representation of the game world is updated accordingly.
 4. Power-up Proximity Check: 
@@ -233,7 +233,7 @@ The 3 most significant challenges that were encountered during the development o
    
 Originally, the game was was made up of entities moving around a static map, where all enemies converged on the characters potition. This created the immediate issue that entities could wonder off-screen and not be able to find their way back. However this was quickly fixed by establishing a simple coordinate boundary that limited all entity positions to within the area on-screen.
   
-However, a persistant piece of feedback that emerged through qualitative evaluations was that the game could become more engaging with a larger map extending beyond the confines of the screen. Such an expansion would serve two primary purposes: fostering a sense of exploration and enabling the spawning of a greater number of enemies without overcrowding the map. Implementing this proved to be conceptually challenging. To do so, all entities, including the map and any onscreen obstacles had a set attributes representing their x,y coordinates. Entities that move such as the Character and enemies had these attributes updated on each iteration. From there, the Character was rendered in the middle of the screen and new set of x,y measurements were generated for each entity. These measurements represented their position relative to the Character, and therefore where they should be rendered, even if it was off-screen. This presented an issue, when the player approached the edge of the map, the render of background would no longer fill the screen. To solve this, the original boundary condition was ammended to create a vertical and horizontal margain equal to the half the width and half the height of the screen respectively. This created an 'invisible barrier', so trees were rendered in this margain space to display that it was out of bounds. These ideas are shown in the diagrams below.
+However, a persistant piece of feedback that emerged through qualitative evaluations was that the game could become more engaging with a larger map extending beyond the confines of the screen. Such an expansion would serve two primary purposes: fostering a sense of exploration and enabling the spawning of a greater number of enemies without overcrowding the map. Implementing this proved to be conceptually challenging. To do so, all entities, including the map and any onscreen obstacles had a set attributes representing their x,y coordinates. Entities that move such as the Character and enemies had these attributes updated on each iteration. From there, the Character was rendered in the middle of the screen and new set of x,y measurements were generated for each entity. These measurements represented their position relative to the Character, and therefore where they should be rendered, even if it was off-screen. This presented an issue, when the player approached the edge of the map, the render of background would no longer fill the screen. To solve this, the original boundary condition was ammended to create a vertical and horizontal margain equal to the half the width and half the height of the screen respectively. This created an 'invisible barrier', so trees were rendered in this margain space to display to the user that it was out of bounds. These ideas are shown in the diagrams below.
 
 1. This figure visualises the relatively simple calculations behind rendering the characters, background, and enemies on a __static__ background:
 
@@ -251,12 +251,12 @@ However, a persistant piece of feedback that emerged through qualitative evaluat
 
 ## Challenge 2. Enemy Separation
 
-In early iterations of the game, enemies were allowed to overlap freely. This created an issue. With all enemies are trying to proceed to the same point on the map (the coordinates of the player), it became a common occurrence that they coalesced into a single entity, significantly detracting from the quality of the game. To combat this, we utilised a bio-inspired algorithm called Swarm Intelligence.
+In early iterations of the game, enemies were allowed to overlap freely. This created an issue. With all enemies are trying to proceed to the same point on the map (the coordinates of the player), it became a common occurrence that they coalesced into a single entity, significantly detracting from the quality of the game. To combat this, we utilised a component of the bio-inspired algorithm called Swarm Intelligence.
 Swarm Intelligence is a mathematical representation of a sub-set of systems that exhibit emergent complexity, and one of its underlying behaviours is Separation, which ensures that the action space is delegated amongst the swarm’s agents.
 To enforce this each enemy has a protected radius, and when other enemies enter that radius, it ‘steers away’ from them by calculating a deflection vector. This deflection vector represents the optimal direction of travel to avoid collisions with nearby objects, creating a separation between them.
 This idea is displayed in the figure below:
 <figure>
-   <img src='ReportMaterial/separationDemo.jpg'lt="swarm intelligence separation" style="width:80%"/> 
+   <img src='ReportMaterial/separationDemo.jpg'lt="swarm intelligence separation" style="width:60%"/> 
 </figure>
 This figure shows the effect of the Enemy Separation algorithm:
 <figure>
@@ -266,12 +266,12 @@ This figure shows the effect of the Enemy Separation algorithm:
 
 ## Challenge 3. Enemy Obstacle Navigation
 
-When obstacles were implemented, an immediate and pressing issue revealed itself; enemies were getting 'trapped' against these obstacles far too easily. Up until this point, collision resolutions was handled simply by resetting enemies to their previous position whenever they entered an illegal area. However this solution proved to be completely ineffective in this instance as no ability to circumnavigate obstacles were offered should the need arise. A new form of collision avoidance was required. 
+When obstacles were implemented, an immediate and pressing issue revealed itself; enemies were getting 'stuck' against these obstacles far too easily. Up until this point, collision resolutions was handled simply by resetting enemies to their previous position whenever they entered an illegal area. However this solution proved to be completely ineffective in this instance as no ability to circumnavigate obstacles were offered should the need arise. A new form of collision avoidance was required. 
 
 For the purposes of collision avoidance calculations, the obstacles are modelled as circles and if an entity were to breach the circumference of that circle, their position would be reset to what it was in the last iteration. What was required was for the enemy to navigate along the circumference of the obstacle border when encountering an obstacle. In that statement lies the key for the chosen solution. At the point of contact, both possible tangents are calculated. From there the tangent that is closest to the bearing from the enemy to the player was chosen as the new vector for that iteration. Repeating this process over the course of multiple successive iterations created the perception of seemless movement around obstacles. 
 1. Figure showing the concept of tangent generation and selection.
 <figure>
-   <img src='ReportMaterial/tangentialMotion.jpg'lt="tangential modion demo" style="width:90%"/> 
+   <img src='ReportMaterial/tangentialMotion.jpg'lt="tangential modion demo" style="width:80%"/> 
 </figure>
 
 2. This figure shows the effect of the Obstacle Avoidance Algorithm.
@@ -280,7 +280,7 @@ For the purposes of collision avoidance calculations, the obstacles are modelled
 </figure>
 
 
-These challenges are also explained in our [game video](https://youtu.be/xEocnZ7FiOo).
+These challenges and their implementations are also explained in our [game video](https://youtu.be/xEocnZ7FiOo).
 
 
    ---
