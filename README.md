@@ -16,18 +16,32 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 |Charmaine Suah (@Csuah09) | zx23187@bristol.ac.uk |
 | Hsuan Lin (@HsuanLin322) | ev23671@bristol.ac.uk  |
 
+
+
 # Table of Content 
-• [introduction](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#introduction)
+* [Introduction](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#introduction)
 
-• [Requirements](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#requirements)
+* [Requirements](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#requirements)
+    * [Use Case specifications](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#use-case-specifications)
+    * [Early Designs & Ideation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#early-stages-design--ideation-process)
 
-• [Design](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#design)
+* [Design](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#design)
 
-• [Implementation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#implementation)
+  * [Class Diagram](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#class-diagrams)
+  * [Behavioural Diagram](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#sequence-diagram)
 
-• [Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#evaluations)
+* [Implementation](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#implementation)
+  * [3 Challenges ](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#challenges) 
 
-• [Process](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#process)
+* [Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#evaluations)
+  * [Qualitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#stage-1--mid-production-evaluations)
+  * [Quantitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#system-usability-scale-1)
+  * [Evaluation Descriptions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#wilcoxin-significant-testing)
+
+
+* [Process](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#process)
+    * [Tools](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#tools-used)
+    * [Reflections](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#reflection)
 
 • [Conclusions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#conclusion)
 
@@ -67,7 +81,7 @@ In inital stages of development, our group brainstormed about several types of g
 
 * “As a **User**, I want to **understand the game instructions** so that **I can play the game intuitively** ”
 
-* “As a **Teacher**, I want to ** be specific** so that **I can mark the game accurately to the marking scheme** ”
+* “As a **Teacher**, I want to **be specific** so that **I can mark the game accurately to the marking scheme** ”
 
 * "As a **Negative Stakeholder**, I want to **find some bugs and difficulties in this game** so that **I can provide some feedbacks for developers and earn money from them**"
 
@@ -83,23 +97,23 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 ## Use-Case Specifications
 
+
 *Login use case*
 
 >System shows: Login page display
 
->User input: login parameters
+>User input: login parameters for score-board
 
->System checks: checks the parameters with the existing users
+*Difficulty level choosing use case*
+>use mouse to choose level of difficulty for game
 
-> If login parameter exist, match the game login with their account. Else, show user another page for new log in / register account.
+*Lore use case*
+>use arrow buttons or 'Enter' to move between lore and instructions
+>System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
 
 *Entered main page of game*
 
->Show the details of user’s game (levels/ existing highscore/ start game button )
-
 >User inputs: 'enter' as start game button
-
->System shows: instructions of game, highlighting the instruction on the oxygen endurance bar, how to move and shoot and the aim of the game.
 
 >User starts playing using WASD, and the automatic gun shoots through aiming with a mouse
 
@@ -109,7 +123,12 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Once moving and killed zombie, system display health decrease if user attacked by zombie. With continuous movement, the endurance bar will depleat and user will need to stand still to refill their endurance bar to move again. 
 
->System displays hp to be full (indicator of entering next level system needs to know that we need to go to next level). With more zombie kills, power ups relating to the weapons or health bar will randomly appear to help with user.
+>System displays warning signs when endurance bar is low or getting hit by zombies
+
+*Menu page use case*
+> User inputs: 'm' during game to switch to menu page
+> System displays: instructions about the game, current score, and leaderboard
+> Users inputs: 'Enter' to resume game, or 'Shift' to quit the game
 
 *Entered page of level 2*
 
@@ -119,13 +138,12 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Repeat until end of game, with enemies that are harder to kill, either by needing more hit damage to kill or enemy's health bar increases. 
 
-*Entered page of win after level2*
+*Entered page of death after level2*
 
->Show congratulation page:
->System displays high score onto the scoresheet
+> Show game over page:
+> User input: right arrow for leaderboard that shows top 10 scores
 > If they are existing players, higher scores placed above previous scores. 
-> First time players places their score in the middle, ighlight the current game score using border
->System shows: most recent 3 scores to show improvement or deprovement from previous games 
+> User input: 'Enter' to restart the game
 
 >System display back to original page showing the login
 
@@ -133,13 +151,14 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 <figure>
   <img src='/ReportMaterial/Use-case diagram.png' alt="use case diagram" style="width:100%"/>
 </figure>
+
 ## Paper Prototype
 <figure>
   <img src='/ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
-  <figcaption>Paper prototype</figcaption>
+
 </figure>
 
-Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/)to watch our Game Paper Prototype!
+Click [here](https://www.bilibili.com/video/BV1Q4421F7zK/) to watch our Game Paper Prototype!
 
 # Design 
 
@@ -173,7 +192,7 @@ The second is the Round class. This will called as part of the EnemyManager clas
 
 The final class worth mentioning is the Backgroud class. This class will be responsible for rendering the background appropriately relative to the players current position to create the perception that the player is moving across a large landscape. 
 
-<strong><u>Sequence Diagram</u></strong>
+## Sequence Diagram
 The above structure should ensure a smooth process from the perspective of development, however it offers little with regards to illustrating interactions between different objects within the system. The proposed sequence diagram for this system can be seen below. 
 <figure>
   <img src='/ReportMaterial/sequenceDiagram.png' alt="class diagram" style="width:100%">
@@ -414,10 +433,5 @@ Forheksed: game background [https://www.deviantart.com/forheksed/art/Evening-in-
 
 <br>
 
-TODO : 
-
-System Architecture 
-  - Class Diagrams
-  - Behaviour Diagrams
 
 
