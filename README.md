@@ -1,6 +1,6 @@
 # 2024-group-19
 
-![Header](ReportMaterial/github-header-image2.png)
+![Header](ReportMaterial/welcomPage.png)
 
 ### Team
 <figure> 
