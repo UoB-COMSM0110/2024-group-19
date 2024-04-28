@@ -81,7 +81,7 @@ In inital stages of development, our group brainstormed about several types of g
 
 * “As a **User**, I want to **understand the game instructions** so that **I can play the game intuitively** ”
 
-* “As a **Teacher**, I want to ** be specific** so that **I can mark the game accurately to the marking scheme** ”
+* “As a **Teacher**, I want to **be specific** so that **I can mark the game accurately to the marking scheme** ”
 
 * "As a **Negative Stakeholder**, I want to **find some bugs and difficulties in this game** so that **I can provide some feedbacks for developers and earn money from them**"
 
@@ -252,7 +252,7 @@ Image below: reflects how bullet comes from the middle of the character in a str
 </figure>
 
 
-Furthermore, as the game was built on multiple loops that check the boundary of the character and the bullets, checks for the collision of the bullets with the enemies and the removal of bullets whilst having a constant loop to release the waves of enemies; the game was running very slowly. As such we had to make multiple changes. such as instantly deleting any bullets that were outside the window of the user’s perception to reduce the number of bullets to check for. Additionally, we kept track of the number of enemies that could be perceived by the user as a list and narrow down the global list of enemies to the perceived list, further lowering down the number of collisions to be checked for.
+Furthermore, as the game was built on multiple loops that check the boundary of the character and the bullets, checks for the collision of the bullets with the enemies and the removal of bullets whilst having a constant loop to release the waves of enemies; the game was running very slowly. As such we had to make multiple changes. Such as instantly deleting any bullets that were outside the window of the user’s perception to reduce the number of bullets to check for. Additionally, we kept track of the number of enemies that could be perceived by the user as a list and narrow down the global list of enemies to the perceived list, further lowering down the number of collisions to be checked for.
 
 
 ### Challenge 3. Particle Swarm Optimisation on Enemy Positioning
