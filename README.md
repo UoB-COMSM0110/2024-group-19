@@ -44,7 +44,7 @@ L -> R: Jamie Bell Thomas, WeiJian Li, Xinyue Feng, Charmaine Suah, Hsuan Lin
 * [Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#evaluations)
   * [Qualitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#stage-1--mid-production-evaluations)
   * [Quantitative Evaluations](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#system-usability-scale-1)
-  * [Evaluation Descriptions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#wilcoxin-significant-testing)
+  * [Evaluation Descriptions](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#wilcoxon-significant-testing)
 
 
 * [Process](https://github.com/UoB-COMSM0110/2024-group-19?tab=readme-ov-file#process)
@@ -356,9 +356,9 @@ The team held another SUS evaluation after redesigning the game. Changes to the 
 
 
 
-### Wilcoxin Significant Testing 
+### Wilcoxon Significant Testing 
 
-To evaluate if there was a significant difference in usability, the team used Wilcoxin Ranked test from on online W-test calculator. https://www.statology.org/wilcoxon-signed-rank-test-calculator/. We used the final System Usability Scale results of both Stage 1 (pre-design changes) and Stage 2(post-design changes) for the W-ranked test. 
+To evaluate if there was a significant difference in usability, the team used Wilcoxon Ranked test from on online W-test calculator. https://www.statology.org/wilcoxon-signed-rank-test-calculator/. We used the final System Usability Scale results of both Stage 1 (pre-design changes) and Stage 2(post-design changes) for the W-ranked test. 
 <figure>
   <img src='/ReportMaterial/TtestScore.png'lt=" SUS stage T test " style="width:100%"/>
 <img src='/ReportMaterial/alphaLevel.png' lt=" alpha levels " style="width:100%"/>
