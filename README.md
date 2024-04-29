@@ -165,7 +165,8 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 ## Paper Prototype
 <figure>
-  <img src='/ReportMateiral/game_video.gif' alt="paper prototype" style="width:30%">
+  
+  <img src='/ReportMaterial/game_video.gif' alt="paper prototype" style="width:75%">
 
 </figure>
 
@@ -385,17 +386,26 @@ Our team relies on Microsoft Teams for our primary communication channel, allowi
 > Used to request support from other group members\
 > Used to organise time and place for out next meeting
 
+<figure>
+  <img src='/ReportMaterial/TeamChat.png' lt=" Team Chat" style="width:40%"/>
+</figure>
+
 **GitHub** for version control:
 > Made sure we only committed and push working code\
 > Made sure our commit messages were helpful and discriptive\
 > Utilise branches for feature development, only merging to main once it has been succesfully developed and tested
+
+<figure>
+  <img src='/ReportMaterial/gitControl.1.png' lt=" Team Chat" style="width:40%"/>
+  <img src='/ReportMaterial/gitControl.2.png' lt=" Team Chat" style="width:40%"/>
+</figure>
 
 **GitHub** for KanBan Board:
 > Tracked the overall progess of tasks that needed to be completed.\
 > Tracks which members completed which tasks should a completed task need to be revisited\
 > Individual sprint board for to further help prioritise the task needed for that session.
 <figure>
-  <img src='/ReportMaterial/KanBan.png' lt=" Kanban" style="width:100%"/>
+  <img src='/ReportMaterial/KanBan.png' lt=" Kanban" style="width:60%"/>
 </figure>
 
 
