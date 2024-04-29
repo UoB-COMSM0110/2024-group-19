@@ -373,35 +373,38 @@ We found that there was a significant improvement in usability. With a T test sc
 
 ## Teamwork:
 
-Our team communicates via Teams to confirm the time and place for our meetings. During which, we look through our KanBan board to understand which tasks take priority and write a to-do list for that session. These tasks are usually delagated to different individuals accordingly to their strengths. Once a task is completed, we gather to show the differences and impacts on the game and reminded each other to git-pull the new version of the repository. Before the sprint ends, we decide on the next time we will meet and what tasks we are planning for the next meeting. These decisions are updated on the KanBan board and reiterated on the Team's chat. 
+
+Our team relies on Microsoft Teams for our primary communication channel, allowing us to facilitate regular meetings. During these sessions, we thoroughly review our Kanban board, adding and delegating tasks as needed. Using the Planning Poker method we delegate Kanban tickets to compile a to-do list for the each group member for the upcoming sprint. Task assignments are also tailored to individual strengths. Upon sprint completion, we convene to present the changes and assess their impact on the game, while also reminding each other to perform a git-pull to sync with the latest repository version. Before concluding the sprint, we finalise the date and agenda for our next meeting, updating these decisions on the Kanban board and reiterating them in the Team's chat for clarity and alignment.
 
 
 ## Tools used:
 
 **Microsoft Teams** as a way for communication:
-> Used to update each other on the progress and the work each of us did\
-> Used to organise time and place for out next meet up
+> Used to keep group members updated\
+> Used to request support from other group members\
+> Used to organise time and place for out next meeting
 
 **GitHub** for version control:
 > Made sure we only committed and push working code\
-> Made sure our commit messages were helpful and discriptive
+> Made sure our commit messages were helpful and discriptive\
+> Utilise branches for feature development, only merging to main once it has been succesfully developed and tested
 
 **GitHub** for KanBan Board:
-> kept note of the overall progess of tasks that needed to be completed, in progress and completed. \
-> individual sprint board for to further help prioritise the task needed for that session.
+> Tracked the overall progess of tasks that needed to be completed.\
+> Tracks which members completed which tasks should a completed task need to be revisited\
+> Individual sprint board for to further help prioritise the task needed for that session.
 <figure>
   <img src='/ReportMaterial/KanBan.png' lt=" Kanban" style="width:100%"/>
 </figure>
 
 
-
-The use of these tool made the process of understanding the task at hand and each of our role clearer. Furthermore, with consistent updates to the board, we were able monitor the progress and adapt our plans accordingly with the challenges we faced. Through continuous communication, we found that it is important to listen to your teammates and view issues from their point of view to have a greater holistic understanding of the task and the team. 
+The utilisation of these tools significantly enhanced our clarity regarding the tasks at hand as well as our individual roles within the team. With regular updates to the board, we effectively monitored our progress and adjusted our plans to navigate the challenges encountered. By keeping communication open, we listened to each other and understood different viewpoints, making our team stronger. This helped us grasp tasks better and work together more effectively to overcome challenges.
 
 ---
 
 ## Team Roles:
 
-Whilst every member played a role in contributing to the working code, prototyping ,ideation process and report writing, some members who had stronger coding skills had roles of being the team leaders in the code development and they delegated code work to the rest of the members. Some members took on roles of recording and keeping track of what tasks were completed during the meetings and updated the report to be as accurate as possible. While the rests of the members worked on the video presentation and sourcing of assets. 
+Whilst every member played a role in contributing to the source code, prototyping, ideation process and report writing, some members who had stronger coding skills had roles of being the team leaders in the code development and they delegated code work to the rest of the members. Some members took on roles of recording and keeping track of what tasks were completed during the meetings and updated the report to be as accurate as possible. While the rests of the members worked on the video presentation and sourcing of assets. 
 
 
 # Reflection 
