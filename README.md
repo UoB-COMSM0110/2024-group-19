@@ -81,7 +81,12 @@ The second was in-game power-ups that have a chance of spawning when an enemy is
 
 ## Early stages design & Ideation process
 
-In inital stages of development, our group brainstormed several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a  a 2D-Wave-Survival game. The majority opted for the survivor game through an anonymous voting system. It was selected because it offered a comparatively low minimal viable product requirement, while retaining ample room for overhead expansion into a more intricate game. Furthermore, the structure of the game leant itself to the concept of varying difficulty levels quite nicely. We started to discuss the basic functionality of the game. To better understand what ideas the users may be interested in, we started by creating some User Stories.
+In inital stages of development, our group brainstormed several types of games. Every team member introduced a game that he/she had researched prior to the meeting. Three members introduced their ideas that were similar to MATCH-3-GAMES. Another member introduced a 1v1 soccer game. The last member introduced a  a 2D-Wave-Survival game. The majority opted for the survivor game through an anonymous voting system. It was selected because it offered a comparatively low minimal viable product requirement, while retaining ample room for overhead expansion into a more intricate game. Furthermore, the structure of the game leant itself to the concept of varying difficulty levels quite nicely. We started to discuss the basic functionality of the game. 
+
+In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements for our game. To better understand the purpose users may have in our game, we created different User Stories as the basis of our requirement engineering. After which, we used use-case specifications to experiment with the basic flow of pages that the player would interact with. To further visualise these requirements, we created a paper prototype. The paper prototype allowed us to discuss as a team and identify potential issues with the game flow. Furthermore, being able to visual the game allowed the team to refine and adjust the game mechanics and layout of the different pages. Most importantly, a benefit of visualising the game allowed some members to be inspired and implement key features, such as the endurance bar and the mechanics behind the scoring of the game. However, one key challenged we faced during early stage designs was balancing all the different ideas we had without overwhelming the game. As such, we had to find a right balance of potential ideas and implementation. The teamed looked back at the User stories to choose those ideas that best fit the purpose of the users. Overall, the early stages of design was a fundamental step in the teams ability to have a shared understanding of how we wanted the game to look design wise, and identify key mechanics that were needed for the game to flow the way it was imagined. 
+
+
+Using these requirements, we designed a paper prototype and recorded a video to depict how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
 
 ## User Stories
 
@@ -96,8 +101,6 @@ In inital stages of development, our group brainstormed several types of games. 
 
 
 
-
-In the following weeks, we employed use-case diagram, user stories and use-case-specifications to set up initial requirements for our game. Using these requirements, we designed a paper prototype and recorded a video to depict how our game would flow. During which, we named our game "The Chase". Through the use of careful planning and communication, we then had a plan for how we wanted to implement the game moving forward.
 
 <!--[survivor](https://www.bilibili.com/video/BV1Q4421F7zK/) -->
 
@@ -148,7 +151,7 @@ In the following weeks, we employed use-case diagram, user stories and use-case-
 
 >Repeat until end of game, with enemies that are harder to kill, either by needing more damage to kill or increased enemy points. 
 
-*Entered page of death after level2*
+*Entered page of death after wave 2*
 
 > Show game over page:
 > User input: right arrow for leaderboard that shows top 10 scores
@@ -407,25 +410,34 @@ The utilisation of these tools significantly enhanced our clarity regarding the 
 While every member contributed to the delivery of the game, individual roles were assigned based on background skills. For instance, members with strong coding skills took on leadership roles in code development, delegating tasks to others. Organised members assumed the role of project manager, overseeing project progress, while creative members focused on video presentation and asset design.
 
 
-# Reflection 
+# Reflection & Contributions
 
-Charmaine: 1.0
+| Name (github username)  | Contribution |
+| ------------- | ------------- |
+| WeiJian Li (@LassonLi)  | 1.0  |
+| Xinyue Feng (@XinyueFeng99) | 1.0  |
+|Charmaine Suah (@Csuah09) | 1.0 |
+| Hsuan Lin (@HsuanLin322) | 1.0  |
+| Jamie Bell Thomas (@jamiebellthomas) | 1.0 |
+
+
+Charmaine: 
 
 I feet that with all group work comes with friction and misunderstandings, but as this group has proven, with the joined mindset of providing the best product forward, we can all commit and work together to do our best. I am glad to have this group mates who are willing to put forward their best foot and help out the other teammates and I am grateful that the whole team was very involved in every stage of the process. 
 
-XinYue: 1.0
+XinYue: 
 
 I really enjoy the whole process of us figuring out the idea for the game. A lot of the initial design had to be modified during the process, and that is the chance we got to understand and practice agile development and teamwork. In the team, every member contributes their understanding of what makes the game work well and what makes it appealing to people. Therefore, we have a broader view of how to deliver a quality product. 
 
-Jamie: 1.0
+Jamie: 
 
 My main responsibility was the development of the source code. I played a key role in the development and testing of base mechanics of our game. Once a minimal viable product had been developed, I took a step back and restructured our code base, focusing on the principals of agile object orientated design. This increased the readability, performance and robustness of the code significantly - making it simpler to understand and further develop our game. More recently I have been working on higher level features such as the dynamic background as-well as the ‘power-up’ mechanics and entity animations. Overall, I have thoroughly enjoyed working as a part of this team. I feel we have placed great emphasis on regular communication, creating a clear sense of direction for this team and allowing a wide variety of ideas to be considered. 
 
-WeiJian: 1.0
+WeiJian: 
 
 During the whole process of game design, I find the agile development more important than the waterfall development since we just change our game continuously. For my job, I am responsible for coding the fundamental structure of our game. Although I finish the basic code at a early stage, our team wish to optimize the game to a top level. Therefore, all of us needs to reconstruct our code as well as adjust it to the new demand. It is not a easy process, but it is worth since the game becomes a better one.
 
-LinHsuan: 1.0 
+LinHsuan:  
 
 Upon discovering the task of designing a game in groups before the semester's end, I initially felt overwhelmed. However, through regular face-to-face group discussions and consistent effort, we gradually overcame obstacles and made progress.
 In my role, I undertook game display design tasks such as creating game characters and designing instruction pages. Designing a good game is not easy. With each meeting, our collective vision becomes clearer, and our tasks more manageable. Our teamwork and dedication are paving the way for us to steadily close the gap towards achieving our objective.
@@ -436,18 +448,24 @@ Please see [Documentation ](ReportMaterial/Documentaion.md)
 
 
 # Conclusion 
-When we started the project, our team was extremely excited to create a new game that we could call our own. We wanted it to be fun, to look cool and for us to be proud of our production. Through our continuous hard work and commitment towards this project, we found that we have accomplished that. This game has brought many challenges that we had to overcome, starting at the absolute basics of deciding what kind of game we wanted to design and we were going to format it. This game was based in Processing, a programming language which none of us had ever seen before and in the short time we've had, we've progressed from drawing rectangles to designing and building our onw video game! Furthermore, the challenges we found ourselves facing not only made us realise how important communication and independent learning was, but we also realised that working together as an agile unit helped us develop ideas and implement them succesfully. Reflecting on our journey, we recognise that while the core concept of the game remains intact, we've learned that game development is an ever-evolving process. It's essential to maintain flexibility and embrace new ideas as they arise to ensure the project's continued growth and success.
 
-With the final product in hand, it might be easy to say that the entire process was smooth sailing, however key challenges the team faced was the need to refactor the game halfway through production. We found our code to be messy and the classes were unorganised. Aiming to allow the game to be as robust as possible, we decided to refactor the game over the Easter break. The majority of the production was held over those 3 weeks. Furthermore, whilst there were technical challenges that we faced during the game production. One of the challenges that blind sighted us was the design aspect. The team did not realise how big of an impact design has on a game, from making it look like an amateur production to something of better quality. Whilst our usability difference might not have been significant. We found that having a consistent look by using similar backgrounds, fonts, colour schemes, all made the game clearer and more professional. In future endeavours, we hope to have the time and ability to explore different ways to implement new enemies, each having their own skill to kill, and finding creative ways for the User to power up. Furthermore, in the future, the team feels that we could implement some scientifically informed user experience design to further improve the usability of the game, allowing for it to be second nature and easy to use. 
+In conclusion, our game brought forth multiple challenges we had to face, but introduced opportunities for independent learning to counter these challenges. This project encapsulated the creation of the game by incorporating portions of requirement engineering, game design, system architectures to provide a fun and interesting gaming experience. The challenges we found ourselves facing not only made us realise how important communication and independent learning was, but we realised that working together as an agile unit helped us develop ideas and implement them succesfully. Reflecting on our journey, we recognise that while the core concept of the game remains intact, we've learned that game development is an ever-evolving process. It's essential to maintain flexibility and embrace new ideas as they arise to ensure the project's continued growth and success.
+
+During the development stage of the project, our team struggled with balancing the ideas each of us had without overwhelming the game with too many features. To address this issue, we learned to take reference to our requirement engineering as an anchor. This allowed us to prioritise the different features that served the purpose to address the wants of the key users, and view the larger picture of how the game would play out.
+
+In retrosepct, it might be easy to say that the entire process was smooth sailing, however another key challenges the team faced was messy code and the unorganised classes. Aiming to allow the game to be robust and modular, we decided to refactor the game over the Easter break. The majority of the production was held over those 3 weeks. Furthermore, whilst there were technical challenges that we faced during the game production. One of the challenges that blind sighted us was the design aspect. The team did not realise how big of an impact design has on a game, changes to the design made it look like an amateur production to one of better quality. This process brought valuable lessons in incorporating user feedback and keeping them in mind as we modified the game. Additionally, our Wilcoxin Signed-Rank test results indicated that our design changes were signficant, and the above average scores of the System Usability scores indicated good usability. Key changes consistented of using similar backgrounds, fonts, colour schemes in the game made it clearer and adhered to heuristic evaluation principles. In future endeavours, we hope to explore different ways to implement new enemies, each having their unique attacking move, and find creative ways for the User to power up.  
 
 We would also like to use this space to thanks the different artists who gave them their permissions to use their different art works as assets. Other assets from artists who we were unable to contact were open sourced and available to use for school productions. 
 
-Purple Zaffre: Assets for character [https://www.deviantart.com/purplezaffre]
-TheStoryTeller01: Assets for zombies [https://www.deviantart.com/thestoryteller01]
+| Artist | Asset purpose |
+| ------------- | ------------- |
+|  [Purple Zaffre](https://www.deviantart.com/purplezaffre) | Assets for character  |
+| [TheStoryTeller01](https://www.deviantart.com/thestoryteller01) | Assets for zombies  |
+|[Tyler Dunn](https://www.fontzillion.com/fonts/tyler-dunn/8-bit-madness) | 8-bit Madness Font |
+| [Forheksed](https://www.deviantart.com/forheksed/art/Evening-in-the-coniferous-forest-603798203) | Game background  |
+| [Rezonate](https://www.youtube.com/watch?v=6R9FfC0Sen8) | SWE video song|
 
-Tyler Dunn: 8-bit Madness Font [https://www.fontzillion.com/fonts/tyler-dunn/8-bit-madness]
 
-Forheksed: game background [https://www.deviantart.com/forheksed/art/Evening-in-the-coniferous-forest-603798203]
 
 
 <br>
