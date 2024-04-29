@@ -420,15 +420,6 @@ While every member contributed to the delivery of the game, individual roles wer
 
 # Reflection & Contributions
 
-| Name (github username)  | Contribution |
-| ------------- | ------------- |
-| WeiJian Li (@LassonLi)  | 1.0  |
-| Xinyue Feng (@XinyueFeng99) | 1.0  |
-|Charmaine Suah (@Csuah09) | 1.0 |
-| Hsuan Lin (@HsuanLin322) | 1.0  |
-| Jamie Bell Thomas (@jamiebellthomas) | 1.0 |
-
-
 Charmaine: 
 
 I feet that with all group work comes with friction and misunderstandings, but as this group has proven, with the joined mindset of providing the best product forward, we can all commit and work together to do our best. I am glad to have this group mates who are willing to put forward their best foot and help out the other teammates and I am grateful that the whole team was very involved in every stage of the process. 
@@ -449,6 +440,14 @@ HsuanLin:
 
 Upon discovering the task of designing a game in groups before the semester's end, I initially felt overwhelmed. However, through regular face-to-face group discussions and consistent effort, we gradually overcame obstacles and made progress.
 In my role, I undertook game display design tasks such as creating game characters and designing instruction pages. Designing a good game is not easy. With each meeting, our collective vision becomes clearer, and our tasks more manageable. Our teamwork and dedication are paving the way for us to steadily close the gap towards achieving our objective.
+
+| Name | Group Contribution |
+| ------------- | ------------- |
+| WeiJian Li | 0.6  |
+| Xinyue Fen | 1.0  |
+|Charmaine Suah | 1.2 |
+| Hsuan Lin | 0.7 |
+| Jamie Bell Thomas | 1.5 |
 
 # Documentation of code
 
