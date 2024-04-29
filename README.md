@@ -444,7 +444,7 @@ In my role, I undertook game display design tasks such as creating game characte
 | Name | Group Contribution |
 | ------------- | ------------- |
 | WeiJian Li | 0.6  |
-| Xinyue Fen | 1.0  |
+| Xinyue Feng | 1.0  |
 |Charmaine Suah | 1.2 |
 | Hsuan Lin | 0.7 |
 | Jamie Bell Thomas | 1.5 |
